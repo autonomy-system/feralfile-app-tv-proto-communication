@@ -1,7 +1,6 @@
 library autonomy_tv_proto;
 
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+export 'src/generated/canvas_control/canvas_control.pb.dart';
+export 'src/generated/canvas_control/canvas_control.pbenum.dart';
+export 'src/generated/canvas_control/canvas_control.pbgrpc.dart';
+export 'src/generated/canvas_control/canvas_control.pbjson.dart';
