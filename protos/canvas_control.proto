@@ -12,6 +12,7 @@ package canvas_control;
 service CanvasControl {
   rpc Connect (ConnectRequest) returns (ConnectReply) {}
   rpc Status (CheckingStatus) returns (ResponseStatus) {}
+  rpc Disconnect (DisconnectRequest) returns (DisconnectReply) {}
 }
 
 message ConnectRequest {
@@ -31,4 +32,12 @@ message CheckingStatus {
 message ResponseStatus {
   string status = 1;
   string scene_id = 2;
+}
+
+message DisconnectRequest {
+  string device_id = 1;
+}
+
+message DisconnectReply {
+  string message = 1;
 }
