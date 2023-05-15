@@ -51,3 +51,23 @@ const ResponseStatus$json = const {
 
 /// Descriptor for `ResponseStatus`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List responseStatusDescriptor = $convert.base64Decode('Cg5SZXNwb25zZVN0YXR1cxIWCgZzdGF0dXMYASABKAlSBnN0YXR1cxIZCghzY2VuZV9pZBgCIAEoCVIHc2NlbmVJZA==');
+@$core.Deprecated('Use disconnectRequestDescriptor instead')
+const DisconnectRequest$json = const {
+  '1': 'DisconnectRequest',
+  '2': const [
+    const {'1': 'device_id', '3': 1, '4': 1, '5': 9, '10': 'deviceId'},
+  ],
+};
+
+/// Descriptor for `DisconnectRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List disconnectRequestDescriptor = $convert.base64Decode('ChFEaXNjb25uZWN0UmVxdWVzdBIbCglkZXZpY2VfaWQYASABKAlSCGRldmljZUlk');
+@$core.Deprecated('Use disconnectReplyDescriptor instead')
+const DisconnectReply$json = const {
+  '1': 'DisconnectReply',
+  '2': const [
+    const {'1': 'message', '3': 1, '4': 1, '5': 9, '10': 'message'},
+  ],
+};
+
+/// Descriptor for `DisconnectReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List disconnectReplyDescriptor = $convert.base64Decode('Cg9EaXNjb25uZWN0UmVwbHkSGAoHbWVzc2FnZRgBIAEoCVIHbWVzc2FnZQ==');

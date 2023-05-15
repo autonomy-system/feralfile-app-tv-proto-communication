@@ -24,6 +24,12 @@ class CanvasControlClient extends $grpc.Client {
           '/canvas_control.CanvasControl/Status',
           ($0.CheckingStatus value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.ResponseStatus.fromBuffer(value));
+  static final _$disconnect =
+      $grpc.ClientMethod<$0.DisconnectRequest, $0.DisconnectReply>(
+          '/canvas_control.CanvasControl/Disconnect',
+          ($0.DisconnectRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.DisconnectReply.fromBuffer(value));
 
   CanvasControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -38,6 +44,12 @@ class CanvasControlClient extends $grpc.Client {
   $grpc.ResponseFuture<$0.ResponseStatus> status($0.CheckingStatus request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$status, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.DisconnectReply> disconnect(
+      $0.DisconnectRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$disconnect, request, options: options);
   }
 }
 
@@ -59,6 +71,13 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.CheckingStatus.fromBuffer(value),
         ($0.ResponseStatus value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DisconnectRequest, $0.DisconnectReply>(
+        'Disconnect',
+        disconnect_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.DisconnectRequest.fromBuffer(value),
+        ($0.DisconnectReply value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ConnectReply> connect_Pre(
@@ -71,8 +90,15 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return status(call, await request);
   }
 
+  $async.Future<$0.DisconnectReply> disconnect_Pre($grpc.ServiceCall call,
+      $async.Future<$0.DisconnectRequest> request) async {
+    return disconnect(call, await request);
+  }
+
   $async.Future<$0.ConnectReply> connect(
       $grpc.ServiceCall call, $0.ConnectRequest request);
   $async.Future<$0.ResponseStatus> status(
       $grpc.ServiceCall call, $0.CheckingStatus request);
+  $async.Future<$0.DisconnectReply> disconnect(
+      $grpc.ServiceCall call, $0.DisconnectRequest request);
 }
