@@ -25,11 +25,10 @@ class CanvasControlClient extends $grpc.Client {
           ($0.CheckingStatus value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.ResponseStatus.fromBuffer(value));
   static final _$disconnect =
-      $grpc.ClientMethod<$0.DisconnectRequest, $0.DisconnectReply>(
+      $grpc.ClientMethod<$0.DisconnectRequest, $0.Empty>(
           '/canvas_control.CanvasControl/Disconnect',
           ($0.DisconnectRequest value) => value.writeToBuffer(),
-          ($core.List<$core.int> value) =>
-              $0.DisconnectReply.fromBuffer(value));
+          ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
 
   CanvasControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -46,8 +45,7 @@ class CanvasControlClient extends $grpc.Client {
     return $createUnaryCall(_$status, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.DisconnectReply> disconnect(
-      $0.DisconnectRequest request,
+  $grpc.ResponseFuture<$0.Empty> disconnect($0.DisconnectRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$disconnect, request, options: options);
   }
@@ -71,13 +69,13 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.CheckingStatus.fromBuffer(value),
         ($0.ResponseStatus value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.DisconnectRequest, $0.DisconnectReply>(
+    $addMethod($grpc.ServiceMethod<$0.DisconnectRequest, $0.Empty>(
         'Disconnect',
         disconnect_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.DisconnectRequest.fromBuffer(value),
-        ($0.DisconnectReply value) => value.writeToBuffer()));
+        ($0.Empty value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ConnectReply> connect_Pre(
@@ -90,7 +88,7 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return status(call, await request);
   }
 
-  $async.Future<$0.DisconnectReply> disconnect_Pre($grpc.ServiceCall call,
+  $async.Future<$0.Empty> disconnect_Pre($grpc.ServiceCall call,
       $async.Future<$0.DisconnectRequest> request) async {
     return disconnect(call, await request);
   }
@@ -99,6 +97,6 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.ConnectRequest request);
   $async.Future<$0.ResponseStatus> status(
       $grpc.ServiceCall call, $0.CheckingStatus request);
-  $async.Future<$0.DisconnectReply> disconnect(
+  $async.Future<$0.Empty> disconnect(
       $grpc.ServiceCall call, $0.DisconnectRequest request);
 }

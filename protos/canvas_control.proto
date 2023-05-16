@@ -10,34 +10,55 @@ package canvas_control;
 // protoc --plugin=protoc-gen-dart=$HOME/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:lib/src/generated/canvas_control -Iprotos protos/canvas_control.proto
 
 service CanvasControl {
+  // Client requests to connect to the server
   rpc Connect (ConnectRequest) returns (ConnectReply) {}
+
+  // Client requests to check the status of the device
   rpc Status (CheckingStatus) returns (ResponseStatus) {}
-  rpc Disconnect (DisconnectRequest) returns (DisconnectReply) {}
+
+  // Client requests to disconnect from the server
+  rpc Disconnect (DisconnectRequest) returns (Empty) {}
 }
 
 message ConnectRequest {
-  string device_name = 1;
-  string device_id = 2;
-  string message = 3;
+  DeviceInfo device = 1;
+}
+
+message  DeviceInfo {
+  // Client device did key
+  string device_id = 1;
+  // Device name
+  string device_name = 2;
 }
 
 message ConnectReply {
-  string message = 1;
+  enum Status {
+    SUCCESS = 0;
+    FAILED = 1;
+  }
+  Status status = 1;
 }
 
 message CheckingStatus {
+  // Client device did key
   string device_id = 1;
 }
 
 message ResponseStatus {
-  string status = 1;
+  enum ServingStatus {
+    UNKNOWN = 0;
+    SERVING = 1;
+    NOT_SERVING = 2;
+    SERVICE_UNKNOWN = 3;  // Used only by the Watch method.
+  }
+  ServingStatus status = 1;
+  // The scene id that the device is currently playing
   string scene_id = 2;
 }
 
 message DisconnectRequest {
+  // Client device did key
   string device_id = 1;
 }
 
-message DisconnectReply {
-  string message = 1;
-}
+message Empty {}
