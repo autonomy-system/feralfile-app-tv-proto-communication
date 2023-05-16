@@ -24,7 +24,7 @@ message ConnectRequest {
   DeviceInfo device = 1;
 }
 
-message  DeviceInfo {
+message DeviceInfo {
   // Client device did key
   string device_id = 1;
   // Device name
@@ -32,11 +32,7 @@ message  DeviceInfo {
 }
 
 message ConnectReply {
-  enum Status {
-    SUCCESS = 0;
-    FAILED = 1;
-  }
-  Status status = 1;
+  bool status = 1;
 }
 
 message CheckingStatus {

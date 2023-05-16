@@ -125,13 +125,13 @@ class DeviceInfo extends $pb.GeneratedMessage {
 
 class ConnectReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ConnectReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..e<ConnectReply_Status>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: ConnectReply_Status.SUCCESS, valueOf: ConnectReply_Status.valueOf, enumValues: ConnectReply_Status.values)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
     ..hasRequiredFields = false
   ;
 
   ConnectReply._() : super();
   factory ConnectReply({
-    ConnectReply_Status? status,
+    $core.bool? status,
   }) {
     final _result = create();
     if (status != null) {
@@ -161,9 +161,9 @@ class ConnectReply extends $pb.GeneratedMessage {
   static ConnectReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  ConnectReply_Status get status => $_getN(0);
+  $core.bool get status => $_getBF(0);
   @$pb.TagNumber(1)
-  set status(ConnectReply_Status v) { setField(1, v); }
+  set status($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasStatus() => $_has(0);
   @$pb.TagNumber(1)

@@ -33,22 +33,12 @@ final $typed_data.Uint8List deviceInfoDescriptor = $convert.base64Decode('CgpEZX
 const ConnectReply$json = const {
   '1': 'ConnectReply',
   '2': const [
-    const {'1': 'status', '3': 1, '4': 1, '5': 14, '6': '.canvas_control.ConnectReply.Status', '10': 'status'},
-  ],
-  '4': const [ConnectReply_Status$json],
-};
-
-@$core.Deprecated('Use connectReplyDescriptor instead')
-const ConnectReply_Status$json = const {
-  '1': 'Status',
-  '2': const [
-    const {'1': 'SUCCESS', '2': 0},
-    const {'1': 'FAILED', '2': 1},
+    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
   ],
 };
 
 /// Descriptor for `ConnectReply`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List connectReplyDescriptor = $convert.base64Decode('CgxDb25uZWN0UmVwbHkSOwoGc3RhdHVzGAEgASgOMiMuY2FudmFzX2NvbnRyb2wuQ29ubmVjdFJlcGx5LlN0YXR1c1IGc3RhdHVzIiEKBlN0YXR1cxILCgdTVUNDRVNTEAASCgoGRkFJTEVEEAE=');
+final $typed_data.Uint8List connectReplyDescriptor = $convert.base64Decode('CgxDb25uZWN0UmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
 @$core.Deprecated('Use checkingStatusDescriptor instead')
 const CheckingStatus$json = const {
   '1': 'CheckingStatus',
