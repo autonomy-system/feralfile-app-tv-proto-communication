@@ -466,14 +466,14 @@ class CastSingleReply extends $pb.GeneratedMessage {
   void clearStatus() => clearField(1);
 }
 
-class UncastSingleRequeest extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UncastSingleRequeest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+class UncastSingleRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UncastSingleRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
     ..hasRequiredFields = false
   ;
 
-  UncastSingleRequeest._() : super();
-  factory UncastSingleRequeest({
+  UncastSingleRequest._() : super();
+  factory UncastSingleRequest({
     $core.String? id,
   }) {
     final _result = create();
@@ -482,26 +482,26 @@ class UncastSingleRequeest extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory UncastSingleRequeest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory UncastSingleRequeest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory UncastSingleRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UncastSingleRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  UncastSingleRequeest clone() => UncastSingleRequeest()..mergeFromMessage(this);
+  UncastSingleRequest clone() => UncastSingleRequest()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  UncastSingleRequeest copyWith(void Function(UncastSingleRequeest) updates) => super.copyWith((message) => updates(message as UncastSingleRequeest)) as UncastSingleRequeest; // ignore: deprecated_member_use
+  UncastSingleRequest copyWith(void Function(UncastSingleRequest) updates) => super.copyWith((message) => updates(message as UncastSingleRequest)) as UncastSingleRequest; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static UncastSingleRequeest create() => UncastSingleRequeest._();
-  UncastSingleRequeest createEmptyInstance() => create();
-  static $pb.PbList<UncastSingleRequeest> createRepeated() => $pb.PbList<UncastSingleRequeest>();
+  static UncastSingleRequest create() => UncastSingleRequest._();
+  UncastSingleRequest createEmptyInstance() => create();
+  static $pb.PbList<UncastSingleRequest> createRepeated() => $pb.PbList<UncastSingleRequest>();
   @$core.pragma('dart2js:noInline')
-  static UncastSingleRequeest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UncastSingleRequeest>(create);
-  static UncastSingleRequeest? _defaultInstance;
+  static UncastSingleRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UncastSingleRequest>(create);
+  static UncastSingleRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);

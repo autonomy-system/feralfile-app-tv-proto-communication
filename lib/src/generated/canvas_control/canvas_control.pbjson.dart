@@ -112,16 +112,16 @@ const CastSingleReply$json = const {
 
 /// Descriptor for `CastSingleReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List castSingleReplyDescriptor = $convert.base64Decode('Cg9DYXN0U2luZ2xlUmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
-@$core.Deprecated('Use uncastSingleRequeestDescriptor instead')
-const UncastSingleRequeest$json = const {
-  '1': 'UncastSingleRequeest',
+@$core.Deprecated('Use uncastSingleRequestDescriptor instead')
+const UncastSingleRequest$json = const {
+  '1': 'UncastSingleRequest',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
   ],
 };
 
-/// Descriptor for `UncastSingleRequeest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List uncastSingleRequeestDescriptor = $convert.base64Decode('ChRVbmNhc3RTaW5nbGVSZXF1ZWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+/// Descriptor for `UncastSingleRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List uncastSingleRequestDescriptor = $convert.base64Decode('ChNVbmNhc3RTaW5nbGVSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZA==');
 @$core.Deprecated('Use uncastSingleReplyDescriptor instead')
 const UncastSingleReply$json = const {
   '1': 'UncastSingleReply',
