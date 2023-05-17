@@ -9,29 +9,23 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+import 'canvas_control.pbenum.dart';
+
+export 'canvas_control.pbenum.dart';
+
 class ConnectRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ConnectRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceName')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceId')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
+    ..aOM<DeviceInfo>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'device', subBuilder: DeviceInfo.create)
     ..hasRequiredFields = false
   ;
 
   ConnectRequest._() : super();
   factory ConnectRequest({
-    $core.String? deviceName,
-    $core.String? deviceId,
-    $core.String? message,
+    DeviceInfo? device,
   }) {
     final _result = create();
-    if (deviceName != null) {
-      _result.deviceName = deviceName;
-    }
-    if (deviceId != null) {
-      _result.deviceId = deviceId;
-    }
-    if (message != null) {
-      _result.message = message;
+    if (device != null) {
+      _result.device = device;
     }
     return _result;
   }
@@ -57,46 +51,91 @@ class ConnectRequest extends $pb.GeneratedMessage {
   static ConnectRequest? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get deviceName => $_getSZ(0);
+  DeviceInfo get device => $_getN(0);
   @$pb.TagNumber(1)
-  set deviceName($core.String v) { $_setString(0, v); }
+  set device(DeviceInfo v) { setField(1, v); }
   @$pb.TagNumber(1)
-  $core.bool hasDeviceName() => $_has(0);
+  $core.bool hasDevice() => $_has(0);
   @$pb.TagNumber(1)
-  void clearDeviceName() => clearField(1);
+  void clearDevice() => clearField(1);
+  @$pb.TagNumber(1)
+  DeviceInfo ensureDevice() => $_ensure(0);
+}
+
+class DeviceInfo extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DeviceInfo', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'deviceName')
+    ..hasRequiredFields = false
+  ;
+
+  DeviceInfo._() : super();
+  factory DeviceInfo({
+    $core.String? deviceId,
+    $core.String? deviceName,
+  }) {
+    final _result = create();
+    if (deviceId != null) {
+      _result.deviceId = deviceId;
+    }
+    if (deviceName != null) {
+      _result.deviceName = deviceName;
+    }
+    return _result;
+  }
+  factory DeviceInfo.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DeviceInfo.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DeviceInfo clone() => DeviceInfo()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DeviceInfo copyWith(void Function(DeviceInfo) updates) => super.copyWith((message) => updates(message as DeviceInfo)) as DeviceInfo; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static DeviceInfo create() => DeviceInfo._();
+  DeviceInfo createEmptyInstance() => create();
+  static $pb.PbList<DeviceInfo> createRepeated() => $pb.PbList<DeviceInfo>();
+  @$core.pragma('dart2js:noInline')
+  static DeviceInfo getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DeviceInfo>(create);
+  static DeviceInfo? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get deviceId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set deviceId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDeviceId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDeviceId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get deviceId => $_getSZ(1);
+  $core.String get deviceName => $_getSZ(1);
   @$pb.TagNumber(2)
-  set deviceId($core.String v) { $_setString(1, v); }
+  set deviceName($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasDeviceId() => $_has(1);
+  $core.bool hasDeviceName() => $_has(1);
   @$pb.TagNumber(2)
-  void clearDeviceId() => clearField(2);
-
-  @$pb.TagNumber(3)
-  $core.String get message => $_getSZ(2);
-  @$pb.TagNumber(3)
-  set message($core.String v) { $_setString(2, v); }
-  @$pb.TagNumber(3)
-  $core.bool hasMessage() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearMessage() => clearField(3);
+  void clearDeviceName() => clearField(2);
 }
 
 class ConnectReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ConnectReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
     ..hasRequiredFields = false
   ;
 
   ConnectReply._() : super();
   factory ConnectReply({
-    $core.String? message,
+    $core.bool? status,
   }) {
     final _result = create();
-    if (message != null) {
-      _result.message = message;
+    if (status != null) {
+      _result.status = status;
     }
     return _result;
   }
@@ -122,13 +161,13 @@ class ConnectReply extends $pb.GeneratedMessage {
   static ConnectReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get message => $_getSZ(0);
+  $core.bool get status => $_getBF(0);
   @$pb.TagNumber(1)
-  set message($core.String v) { $_setString(0, v); }
+  set status($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
+  $core.bool hasStatus() => $_has(0);
   @$pb.TagNumber(1)
-  void clearMessage() => clearField(1);
+  void clearStatus() => clearField(1);
 }
 
 class CheckingStatus extends $pb.GeneratedMessage {
@@ -180,14 +219,14 @@ class CheckingStatus extends $pb.GeneratedMessage {
 
 class ResponseStatus extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ResponseStatus', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..e<ResponseStatus_ServingStatus>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: ResponseStatus_ServingStatus.UNKNOWN, valueOf: ResponseStatus_ServingStatus.valueOf, enumValues: ResponseStatus_ServingStatus.values)
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'sceneId')
     ..hasRequiredFields = false
   ;
 
   ResponseStatus._() : super();
   factory ResponseStatus({
-    $core.String? status,
+    ResponseStatus_ServingStatus? status,
     $core.String? sceneId,
   }) {
     final _result = create();
@@ -221,9 +260,9 @@ class ResponseStatus extends $pb.GeneratedMessage {
   static ResponseStatus? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get status => $_getSZ(0);
+  ResponseStatus_ServingStatus get status => $_getN(0);
   @$pb.TagNumber(1)
-  set status($core.String v) { $_setString(0, v); }
+  set status(ResponseStatus_ServingStatus v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasStatus() => $_has(0);
   @$pb.TagNumber(1)
@@ -286,50 +325,32 @@ class DisconnectRequest extends $pb.GeneratedMessage {
   void clearDeviceId() => clearField(1);
 }
 
-class DisconnectReply extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DisconnectReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
+class Empty extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Empty', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
     ..hasRequiredFields = false
   ;
 
-  DisconnectReply._() : super();
-  factory DisconnectReply({
-    $core.String? message,
-  }) {
-    final _result = create();
-    if (message != null) {
-      _result.message = message;
-    }
-    return _result;
-  }
-  factory DisconnectReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DisconnectReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  Empty._() : super();
+  factory Empty() => create();
+  factory Empty.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Empty.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  DisconnectReply clone() => DisconnectReply()..mergeFromMessage(this);
+  Empty clone() => Empty()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  DisconnectReply copyWith(void Function(DisconnectReply) updates) => super.copyWith((message) => updates(message as DisconnectReply)) as DisconnectReply; // ignore: deprecated_member_use
+  Empty copyWith(void Function(Empty) updates) => super.copyWith((message) => updates(message as Empty)) as Empty; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static DisconnectReply create() => DisconnectReply._();
-  DisconnectReply createEmptyInstance() => create();
-  static $pb.PbList<DisconnectReply> createRepeated() => $pb.PbList<DisconnectReply>();
+  static Empty create() => Empty._();
+  Empty createEmptyInstance() => create();
+  static $pb.PbList<Empty> createRepeated() => $pb.PbList<Empty>();
   @$core.pragma('dart2js:noInline')
-  static DisconnectReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisconnectReply>(create);
-  static DisconnectReply? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get message => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set message($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearMessage() => clearField(1);
+  static Empty getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Empty>(create);
+  static Empty? _defaultInstance;
 }
 
