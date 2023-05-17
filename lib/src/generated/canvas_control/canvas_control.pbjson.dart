@@ -106,12 +106,32 @@ final $typed_data.Uint8List castSingleRequestDescriptor = $convert.base64Decode(
 const CastSingleReply$json = const {
   '1': 'CastSingleReply',
   '2': const [
-    const {'1': 'message', '3': 1, '4': 1, '5': 9, '10': 'message'},
+    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
   ],
 };
 
 /// Descriptor for `CastSingleReply`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List castSingleReplyDescriptor = $convert.base64Decode('Cg9DYXN0U2luZ2xlUmVwbHkSGAoHbWVzc2FnZRgBIAEoCVIHbWVzc2FnZQ==');
+final $typed_data.Uint8List castSingleReplyDescriptor = $convert.base64Decode('Cg9DYXN0U2luZ2xlUmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
+@$core.Deprecated('Use uncastSingleRequeestDescriptor instead')
+const UncastSingleRequeest$json = const {
+  '1': 'UncastSingleRequeest',
+  '2': const [
+    const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+  ],
+};
+
+/// Descriptor for `UncastSingleRequeest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List uncastSingleRequeestDescriptor = $convert.base64Decode('ChRVbmNhc3RTaW5nbGVSZXF1ZWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+@$core.Deprecated('Use uncastSingleReplyDescriptor instead')
+const UncastSingleReply$json = const {
+  '1': 'UncastSingleReply',
+  '2': const [
+    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
+  ],
+};
+
+/// Descriptor for `UncastSingleReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List uncastSingleReplyDescriptor = $convert.base64Decode('ChFVbmNhc3RTaW5nbGVSZXBseRIWCgZzdGF0dXMYASABKAhSBnN0YXR1cw==');
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = const {
   '1': 'Empty',

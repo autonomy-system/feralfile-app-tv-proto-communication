@@ -21,6 +21,9 @@ service CanvasControl {
 
   // Client request to cast a single artwork
   rpc CastSingleArtwork (CastSingleRequest) returns (CastSingleReply) {}
+
+  // Client request uncast a single artwork
+  rpc UncastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
 }
 
 message ConnectRequest {
@@ -69,7 +72,15 @@ message CastSingleRequest {
 }
 
 message CastSingleReply {
-  string message = 1;
+  bool status = 1;
+}
+
+message UncastSingleRequest {
+  string id = 1;
+}
+
+message UncastSingleReply {
+  bool status = 1;
 }
 
 message Empty {}
