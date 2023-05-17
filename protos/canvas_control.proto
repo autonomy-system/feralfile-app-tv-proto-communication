@@ -18,6 +18,9 @@ service CanvasControl {
 
   // Client requests to disconnect from the server
   rpc Disconnect (DisconnectRequest) returns (Empty) {}
+
+  // Client request to cast a single artwork
+  rpc CastSingleArtwork (CastSingleRequest) returns (CastSingleReply) {}
 }
 
 message ConnectRequest {
@@ -55,6 +58,18 @@ message ResponseStatus {
 message DisconnectRequest {
   // Client device did key
   string device_id = 1;
+}
+
+message DisconnectReply {
+  string message = 1;
+}
+
+message CastSingleRequest {
+  string id = 1;
+}
+
+message CastSingleReply {
+  string message = 1;
 }
 
 message Empty {}
