@@ -24,6 +24,9 @@ service CanvasControl {
 
   // Client request uncast a single artwork
   rpc UncastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
+
+  // Client press keyboard
+  rpc KeyboardEvent (KeyboardEventRequest) returns (KeyboardEventReply) {}
 }
 
 message ConnectRequest {
@@ -82,6 +85,14 @@ message UncastSingleRequest {
 }
 
 message UncastSingleReply {
+  bool status = 1;
+}
+
+message KeyboardEventRequest {
+  int32 code = 1;
+}
+
+message KeyboardEventReply {
   bool status = 1;
 }
 

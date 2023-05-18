@@ -41,6 +41,12 @@ class CanvasControlClient extends $grpc.Client {
           ($0.UncastSingleRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.UncastSingleReply.fromBuffer(value));
+  static final _$keyboardEvent =
+      $grpc.ClientMethod<$0.KeyboardEventRequest, $0.KeyboardEventReply>(
+          '/canvas_control.CanvasControl/KeyboardEvent',
+          ($0.KeyboardEventRequest value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.KeyboardEventReply.fromBuffer(value));
 
   CanvasControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -72,6 +78,12 @@ class CanvasControlClient extends $grpc.Client {
       $0.UncastSingleRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$uncastSingleArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.KeyboardEventReply> keyboardEvent(
+      $0.KeyboardEventRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$keyboardEvent, request, options: options);
   }
 }
 
@@ -116,6 +128,15 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.UncastSingleRequest.fromBuffer(value),
             ($0.UncastSingleReply value) => value.writeToBuffer()));
+    $addMethod(
+        $grpc.ServiceMethod<$0.KeyboardEventRequest, $0.KeyboardEventReply>(
+            'KeyboardEvent',
+            keyboardEvent_Pre,
+            false,
+            false,
+            ($core.List<$core.int> value) =>
+                $0.KeyboardEventRequest.fromBuffer(value),
+            ($0.KeyboardEventReply value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ConnectReply> connect_Pre(
@@ -145,6 +166,11 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return uncastSingleArtwork(call, await request);
   }
 
+  $async.Future<$0.KeyboardEventReply> keyboardEvent_Pre($grpc.ServiceCall call,
+      $async.Future<$0.KeyboardEventRequest> request) async {
+    return keyboardEvent(call, await request);
+  }
+
   $async.Future<$0.ConnectReply> connect(
       $grpc.ServiceCall call, $0.ConnectRequest request);
   $async.Future<$0.ResponseStatus> status(
@@ -155,4 +181,6 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.CastSingleRequest request);
   $async.Future<$0.UncastSingleReply> uncastSingleArtwork(
       $grpc.ServiceCall call, $0.UncastSingleRequest request);
+  $async.Future<$0.KeyboardEventReply> keyboardEvent(
+      $grpc.ServiceCall call, $0.KeyboardEventRequest request);
 }

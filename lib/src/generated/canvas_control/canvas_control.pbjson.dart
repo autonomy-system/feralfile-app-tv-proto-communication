@@ -132,6 +132,26 @@ const UncastSingleReply$json = const {
 
 /// Descriptor for `UncastSingleReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List uncastSingleReplyDescriptor = $convert.base64Decode('ChFVbmNhc3RTaW5nbGVSZXBseRIWCgZzdGF0dXMYASABKAhSBnN0YXR1cw==');
+@$core.Deprecated('Use keyboardEventRequestDescriptor instead')
+const KeyboardEventRequest$json = const {
+  '1': 'KeyboardEventRequest',
+  '2': const [
+    const {'1': 'code', '3': 1, '4': 1, '5': 5, '10': 'code'},
+  ],
+};
+
+/// Descriptor for `KeyboardEventRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyboardEventRequestDescriptor = $convert.base64Decode('ChRLZXlib2FyZEV2ZW50UmVxdWVzdBISCgRjb2RlGAEgASgFUgRjb2Rl');
+@$core.Deprecated('Use keyboardEventReplyDescriptor instead')
+const KeyboardEventReply$json = const {
+  '1': 'KeyboardEventReply',
+  '2': const [
+    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
+  ],
+};
+
+/// Descriptor for `KeyboardEventReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List keyboardEventReplyDescriptor = $convert.base64Decode('ChJLZXlib2FyZEV2ZW50UmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = const {
   '1': 'Empty',

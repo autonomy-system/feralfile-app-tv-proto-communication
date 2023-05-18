@@ -560,6 +560,100 @@ class UncastSingleReply extends $pb.GeneratedMessage {
   void clearStatus() => clearField(1);
 }
 
+class KeyboardEventRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyboardEventRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'code', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  KeyboardEventRequest._() : super();
+  factory KeyboardEventRequest({
+    $core.int? code,
+  }) {
+    final _result = create();
+    if (code != null) {
+      _result.code = code;
+    }
+    return _result;
+  }
+  factory KeyboardEventRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyboardEventRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyboardEventRequest clone() => KeyboardEventRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyboardEventRequest copyWith(void Function(KeyboardEventRequest) updates) => super.copyWith((message) => updates(message as KeyboardEventRequest)) as KeyboardEventRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyboardEventRequest create() => KeyboardEventRequest._();
+  KeyboardEventRequest createEmptyInstance() => create();
+  static $pb.PbList<KeyboardEventRequest> createRepeated() => $pb.PbList<KeyboardEventRequest>();
+  @$core.pragma('dart2js:noInline')
+  static KeyboardEventRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyboardEventRequest>(create);
+  static KeyboardEventRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get code => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set code($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasCode() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearCode() => clearField(1);
+}
+
+class KeyboardEventReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyboardEventReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..hasRequiredFields = false
+  ;
+
+  KeyboardEventReply._() : super();
+  factory KeyboardEventReply({
+    $core.bool? status,
+  }) {
+    final _result = create();
+    if (status != null) {
+      _result.status = status;
+    }
+    return _result;
+  }
+  factory KeyboardEventReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory KeyboardEventReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  KeyboardEventReply clone() => KeyboardEventReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  KeyboardEventReply copyWith(void Function(KeyboardEventReply) updates) => super.copyWith((message) => updates(message as KeyboardEventReply)) as KeyboardEventReply; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static KeyboardEventReply create() => KeyboardEventReply._();
+  KeyboardEventReply createEmptyInstance() => create();
+  static $pb.PbList<KeyboardEventReply> createRepeated() => $pb.PbList<KeyboardEventReply>();
+  @$core.pragma('dart2js:noInline')
+  static KeyboardEventReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<KeyboardEventReply>(create);
+  static KeyboardEventReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get status => $_getBF(0);
+  @$pb.TagNumber(1)
+  set status($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStatus() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStatus() => clearField(1);
+}
+
 class Empty extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Empty', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
     ..hasRequiredFields = false
