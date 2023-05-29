@@ -47,6 +47,10 @@ class CanvasControlClient extends $grpc.Client {
           ($0.KeyboardEventRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) =>
               $0.KeyboardEventReply.fromBuffer(value));
+  static final _$rotate = $grpc.ClientMethod<$0.RotateRequest, $0.RotateReply>(
+      '/canvas_control.CanvasControl/Rotate',
+      ($0.RotateRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.RotateReply.fromBuffer(value));
 
   CanvasControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -84,6 +88,11 @@ class CanvasControlClient extends $grpc.Client {
       $0.KeyboardEventRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$keyboardEvent, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.RotateReply> rotate($0.RotateRequest request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$rotate, request, options: options);
   }
 }
 
@@ -137,6 +146,13 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
             ($core.List<$core.int> value) =>
                 $0.KeyboardEventRequest.fromBuffer(value),
             ($0.KeyboardEventReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.RotateRequest, $0.RotateReply>(
+        'Rotate',
+        rotate_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.RotateRequest.fromBuffer(value),
+        ($0.RotateReply value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ConnectReply> connect_Pre(
@@ -171,6 +187,11 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return keyboardEvent(call, await request);
   }
 
+  $async.Future<$0.RotateReply> rotate_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.RotateRequest> request) async {
+    return rotate(call, await request);
+  }
+
   $async.Future<$0.ConnectReply> connect(
       $grpc.ServiceCall call, $0.ConnectRequest request);
   $async.Future<$0.ResponseStatus> status(
@@ -183,4 +204,6 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.UncastSingleRequest request);
   $async.Future<$0.KeyboardEventReply> keyboardEvent(
       $grpc.ServiceCall call, $0.KeyboardEventRequest request);
+  $async.Future<$0.RotateReply> rotate(
+      $grpc.ServiceCall call, $0.RotateRequest request);
 }
