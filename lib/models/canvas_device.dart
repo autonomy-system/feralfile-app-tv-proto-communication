@@ -58,6 +58,17 @@ class CanvasDevice {
       playingSceneId: playingSceneId ?? this.playingSceneId,
     );
   }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    return other is CanvasDevice &&
+        id == other.id &&
+        name == other.name &&
+        ip == other.ip;
+  }
 }
 
 @entity

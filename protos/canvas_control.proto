@@ -18,6 +18,15 @@ service CanvasControl {
 
   // Client requests to disconnect from the server
   rpc Disconnect (DisconnectRequest) returns (Empty) {}
+
+  // Client request to cast a single artwork
+  rpc CastSingleArtwork (CastSingleRequest) returns (CastSingleReply) {}
+
+  // Client request uncast a single artwork
+  rpc UncastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
+
+  // Client press keyboard
+  rpc KeyboardEvent (KeyboardEventRequest) returns (KeyboardEventReply) {}
 }
 
 message ConnectRequest {
@@ -55,6 +64,36 @@ message ResponseStatus {
 message DisconnectRequest {
   // Client device did key
   string device_id = 1;
+}
+
+message DisconnectReply {
+  string message = 1;
+}
+
+message CastSingleRequest {
+  // tokenId
+  string id = 1;
+}
+
+message CastSingleReply {
+  bool status = 1;
+}
+
+message UncastSingleRequest {
+  // tokenId
+  string id = 1;
+}
+
+message UncastSingleReply {
+  bool status = 1;
+}
+
+message KeyboardEventRequest {
+  int32 code = 1;
+}
+
+message KeyboardEventReply {
+  bool status = 1;
 }
 
 message Empty {}
