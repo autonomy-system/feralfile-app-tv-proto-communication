@@ -125,17 +125,17 @@ class DeviceInfo extends $pb.GeneratedMessage {
 
 class ConnectReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ConnectReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
     ..hasRequiredFields = false
   ;
 
   ConnectReply._() : super();
   factory ConnectReply({
-    $core.bool? status,
+    $core.bool? ok,
   }) {
     final _result = create();
-    if (status != null) {
-      _result.status = status;
+    if (ok != null) {
+      _result.ok = ok;
     }
     return _result;
   }
@@ -161,13 +161,13 @@ class ConnectReply extends $pb.GeneratedMessage {
   static ConnectReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get status => $_getBF(0);
+  $core.bool get ok => $_getBF(0);
   @$pb.TagNumber(1)
-  set status($core.bool v) { $_setBool(0, v); }
+  set ok($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasStatus() => $_has(0);
+  $core.bool hasOk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearStatus() => clearField(1);
+  void clearOk() => clearField(1);
 }
 
 class CheckingStatus extends $pb.GeneratedMessage {
@@ -421,17 +421,17 @@ class CastSingleRequest extends $pb.GeneratedMessage {
 
 class CastSingleReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CastSingleReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
     ..hasRequiredFields = false
   ;
 
   CastSingleReply._() : super();
   factory CastSingleReply({
-    $core.bool? status,
+    $core.bool? ok,
   }) {
     final _result = create();
-    if (status != null) {
-      _result.status = status;
+    if (ok != null) {
+      _result.ok = ok;
     }
     return _result;
   }
@@ -457,13 +457,13 @@ class CastSingleReply extends $pb.GeneratedMessage {
   static CastSingleReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get status => $_getBF(0);
+  $core.bool get ok => $_getBF(0);
   @$pb.TagNumber(1)
-  set status($core.bool v) { $_setBool(0, v); }
+  set ok($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasStatus() => $_has(0);
+  $core.bool hasOk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearStatus() => clearField(1);
+  void clearOk() => clearField(1);
 }
 
 class UncastSingleRequest extends $pb.GeneratedMessage {
@@ -515,17 +515,17 @@ class UncastSingleRequest extends $pb.GeneratedMessage {
 
 class UncastSingleReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'UncastSingleReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
     ..hasRequiredFields = false
   ;
 
   UncastSingleReply._() : super();
   factory UncastSingleReply({
-    $core.bool? status,
+    $core.bool? ok,
   }) {
     final _result = create();
-    if (status != null) {
-      _result.status = status;
+    if (ok != null) {
+      _result.ok = ok;
     }
     return _result;
   }
@@ -551,13 +551,13 @@ class UncastSingleReply extends $pb.GeneratedMessage {
   static UncastSingleReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get status => $_getBF(0);
+  $core.bool get ok => $_getBF(0);
   @$pb.TagNumber(1)
-  set status($core.bool v) { $_setBool(0, v); }
+  set ok($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasStatus() => $_has(0);
+  $core.bool hasOk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearStatus() => clearField(1);
+  void clearOk() => clearField(1);
 }
 
 class KeyboardEventRequest extends $pb.GeneratedMessage {
@@ -609,17 +609,17 @@ class KeyboardEventRequest extends $pb.GeneratedMessage {
 
 class KeyboardEventReply extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'KeyboardEventReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'status')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
     ..hasRequiredFields = false
   ;
 
   KeyboardEventReply._() : super();
   factory KeyboardEventReply({
-    $core.bool? status,
+    $core.bool? ok,
   }) {
     final _result = create();
-    if (status != null) {
-      _result.status = status;
+    if (ok != null) {
+      _result.ok = ok;
     }
     return _result;
   }
@@ -645,13 +645,13 @@ class KeyboardEventReply extends $pb.GeneratedMessage {
   static KeyboardEventReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.bool get status => $_getBF(0);
+  $core.bool get ok => $_getBF(0);
   @$pb.TagNumber(1)
-  set status($core.bool v) { $_setBool(0, v); }
+  set ok($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasStatus() => $_has(0);
+  $core.bool hasOk() => $_has(0);
   @$pb.TagNumber(1)
-  void clearStatus() => clearField(1);
+  void clearOk() => clearField(1);
 }
 
 class Empty extends $pb.GeneratedMessage {
@@ -681,5 +681,99 @@ class Empty extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static Empty getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Empty>(create);
   static Empty? _defaultInstance;
+}
+
+class RotateRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RotateRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'clockwise')
+    ..hasRequiredFields = false
+  ;
+
+  RotateRequest._() : super();
+  factory RotateRequest({
+    $core.bool? clockwise,
+  }) {
+    final _result = create();
+    if (clockwise != null) {
+      _result.clockwise = clockwise;
+    }
+    return _result;
+  }
+  factory RotateRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RotateRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RotateRequest clone() => RotateRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RotateRequest copyWith(void Function(RotateRequest) updates) => super.copyWith((message) => updates(message as RotateRequest)) as RotateRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RotateRequest create() => RotateRequest._();
+  RotateRequest createEmptyInstance() => create();
+  static $pb.PbList<RotateRequest> createRepeated() => $pb.PbList<RotateRequest>();
+  @$core.pragma('dart2js:noInline')
+  static RotateRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RotateRequest>(create);
+  static RotateRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get clockwise => $_getBF(0);
+  @$pb.TagNumber(1)
+  set clockwise($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasClockwise() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearClockwise() => clearField(1);
+}
+
+class RotateReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'RotateReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..a<$core.int>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'degree', $pb.PbFieldType.O3)
+    ..hasRequiredFields = false
+  ;
+
+  RotateReply._() : super();
+  factory RotateReply({
+    $core.int? degree,
+  }) {
+    final _result = create();
+    if (degree != null) {
+      _result.degree = degree;
+    }
+    return _result;
+  }
+  factory RotateReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory RotateReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  RotateReply clone() => RotateReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  RotateReply copyWith(void Function(RotateReply) updates) => super.copyWith((message) => updates(message as RotateReply)) as RotateReply; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static RotateReply create() => RotateReply._();
+  RotateReply createEmptyInstance() => create();
+  static $pb.PbList<RotateReply> createRepeated() => $pb.PbList<RotateReply>();
+  @$core.pragma('dart2js:noInline')
+  static RotateReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<RotateReply>(create);
+  static RotateReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.int get degree => $_getIZ(0);
+  @$pb.TagNumber(1)
+  set degree($core.int v) { $_setSignedInt32(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDegree() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDegree() => clearField(1);
 }
 

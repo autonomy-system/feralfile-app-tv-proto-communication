@@ -33,12 +33,12 @@ final $typed_data.Uint8List deviceInfoDescriptor = $convert.base64Decode('CgpEZX
 const ConnectReply$json = const {
   '1': 'ConnectReply',
   '2': const [
-    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
+    const {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
   ],
 };
 
 /// Descriptor for `ConnectReply`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List connectReplyDescriptor = $convert.base64Decode('CgxDb25uZWN0UmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
+final $typed_data.Uint8List connectReplyDescriptor = $convert.base64Decode('CgxDb25uZWN0UmVwbHkSDgoCb2sYASABKAhSAm9r');
 @$core.Deprecated('Use checkingStatusDescriptor instead')
 const CheckingStatus$json = const {
   '1': 'CheckingStatus',
@@ -106,12 +106,12 @@ final $typed_data.Uint8List castSingleRequestDescriptor = $convert.base64Decode(
 const CastSingleReply$json = const {
   '1': 'CastSingleReply',
   '2': const [
-    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
+    const {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
   ],
 };
 
 /// Descriptor for `CastSingleReply`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List castSingleReplyDescriptor = $convert.base64Decode('Cg9DYXN0U2luZ2xlUmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
+final $typed_data.Uint8List castSingleReplyDescriptor = $convert.base64Decode('Cg9DYXN0U2luZ2xlUmVwbHkSDgoCb2sYASABKAhSAm9r');
 @$core.Deprecated('Use uncastSingleRequestDescriptor instead')
 const UncastSingleRequest$json = const {
   '1': 'UncastSingleRequest',
@@ -126,12 +126,12 @@ final $typed_data.Uint8List uncastSingleRequestDescriptor = $convert.base64Decod
 const UncastSingleReply$json = const {
   '1': 'UncastSingleReply',
   '2': const [
-    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
+    const {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
   ],
 };
 
 /// Descriptor for `UncastSingleReply`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List uncastSingleReplyDescriptor = $convert.base64Decode('ChFVbmNhc3RTaW5nbGVSZXBseRIWCgZzdGF0dXMYASABKAhSBnN0YXR1cw==');
+final $typed_data.Uint8List uncastSingleReplyDescriptor = $convert.base64Decode('ChFVbmNhc3RTaW5nbGVSZXBseRIOCgJvaxgBIAEoCFICb2s=');
 @$core.Deprecated('Use keyboardEventRequestDescriptor instead')
 const KeyboardEventRequest$json = const {
   '1': 'KeyboardEventRequest',
@@ -146,12 +146,12 @@ final $typed_data.Uint8List keyboardEventRequestDescriptor = $convert.base64Deco
 const KeyboardEventReply$json = const {
   '1': 'KeyboardEventReply',
   '2': const [
-    const {'1': 'status', '3': 1, '4': 1, '5': 8, '10': 'status'},
+    const {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
   ],
 };
 
 /// Descriptor for `KeyboardEventReply`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List keyboardEventReplyDescriptor = $convert.base64Decode('ChJLZXlib2FyZEV2ZW50UmVwbHkSFgoGc3RhdHVzGAEgASgIUgZzdGF0dXM=');
+final $typed_data.Uint8List keyboardEventReplyDescriptor = $convert.base64Decode('ChJLZXlib2FyZEV2ZW50UmVwbHkSDgoCb2sYASABKAhSAm9r');
 @$core.Deprecated('Use emptyDescriptor instead')
 const Empty$json = const {
   '1': 'Empty',
@@ -159,3 +159,23 @@ const Empty$json = const {
 
 /// Descriptor for `Empty`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List emptyDescriptor = $convert.base64Decode('CgVFbXB0eQ==');
+@$core.Deprecated('Use rotateRequestDescriptor instead')
+const RotateRequest$json = const {
+  '1': 'RotateRequest',
+  '2': const [
+    const {'1': 'clockwise', '3': 1, '4': 1, '5': 8, '10': 'clockwise'},
+  ],
+};
+
+/// Descriptor for `RotateRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rotateRequestDescriptor = $convert.base64Decode('Cg1Sb3RhdGVSZXF1ZXN0EhwKCWNsb2Nrd2lzZRgBIAEoCFIJY2xvY2t3aXNl');
+@$core.Deprecated('Use rotateReplyDescriptor instead')
+const RotateReply$json = const {
+  '1': 'RotateReply',
+  '2': const [
+    const {'1': 'degree', '3': 1, '4': 1, '5': 5, '10': 'degree'},
+  ],
+};
+
+/// Descriptor for `RotateReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List rotateReplyDescriptor = $convert.base64Decode('CgtSb3RhdGVSZXBseRIWCgZkZWdyZWUYASABKAVSBmRlZ3JlZQ==');

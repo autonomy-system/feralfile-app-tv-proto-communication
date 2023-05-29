@@ -27,6 +27,9 @@ service CanvasControl {
 
   // Client press keyboard
   rpc KeyboardEvent (KeyboardEventRequest) returns (KeyboardEventReply) {}
+
+  // Client rotate
+  rpc Rotate (RotateRequest) returns (RotateReply) {}
 }
 
 message ConnectRequest {
@@ -41,7 +44,7 @@ message DeviceInfo {
 }
 
 message ConnectReply {
-  bool status = 1;
+  bool ok = 1;
 }
 
 message CheckingStatus {
@@ -76,7 +79,7 @@ message CastSingleRequest {
 }
 
 message CastSingleReply {
-  bool status = 1;
+  bool ok = 1;
 }
 
 message UncastSingleRequest {
@@ -85,7 +88,7 @@ message UncastSingleRequest {
 }
 
 message UncastSingleReply {
-  bool status = 1;
+  bool ok = 1;
 }
 
 message KeyboardEventRequest {
@@ -93,7 +96,16 @@ message KeyboardEventRequest {
 }
 
 message KeyboardEventReply {
-  bool status = 1;
+  bool ok = 1;
 }
 
 message Empty {}
+
+message RotateRequest {
+  bool clockwise = 1;
+}
+
+message RotateReply {
+  // return quarter turn after rotate
+  int32 degree = 1;
+}
