@@ -30,6 +30,10 @@ service CanvasControl {
 
   // Client rotate
   rpc Rotate (RotateRequest) returns (RotateReply) {}
+
+  rpc TapGesture (TapGestureRequest) returns (GestureReply) {}
+
+  rpc DragGesture (DragGestureRequest) returns (GestureReply) {}
 }
 
 message ConnectRequest {
@@ -108,4 +112,19 @@ message RotateRequest {
 message RotateReply {
   // return quarter turn after rotate
   int32 degree = 1;
+}
+
+message TapGestureRequest {
+}
+
+message DragGestureRequest {
+  double dx = 1;
+  double dy = 2;
+}
+
+message ZoomGestureRequest {
+}
+
+message GestureReply {
+  bool ok = 1;
 }

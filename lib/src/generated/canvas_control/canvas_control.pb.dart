@@ -777,3 +777,169 @@ class RotateReply extends $pb.GeneratedMessage {
   void clearDegree() => clearField(1);
 }
 
+class TapGestureRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TapGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  TapGestureRequest._() : super();
+  factory TapGestureRequest() => create();
+  factory TapGestureRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory TapGestureRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  TapGestureRequest clone() => TapGestureRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  TapGestureRequest copyWith(void Function(TapGestureRequest) updates) => super.copyWith((message) => updates(message as TapGestureRequest)) as TapGestureRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static TapGestureRequest create() => TapGestureRequest._();
+  TapGestureRequest createEmptyInstance() => create();
+  static $pb.PbList<TapGestureRequest> createRepeated() => $pb.PbList<TapGestureRequest>();
+  @$core.pragma('dart2js:noInline')
+  static TapGestureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TapGestureRequest>(create);
+  static TapGestureRequest? _defaultInstance;
+}
+
+class DragGestureRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DragGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dx', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dy', $pb.PbFieldType.OD)
+    ..hasRequiredFields = false
+  ;
+
+  DragGestureRequest._() : super();
+  factory DragGestureRequest({
+    $core.double? dx,
+    $core.double? dy,
+  }) {
+    final _result = create();
+    if (dx != null) {
+      _result.dx = dx;
+    }
+    if (dy != null) {
+      _result.dy = dy;
+    }
+    return _result;
+  }
+  factory DragGestureRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DragGestureRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DragGestureRequest clone() => DragGestureRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DragGestureRequest copyWith(void Function(DragGestureRequest) updates) => super.copyWith((message) => updates(message as DragGestureRequest)) as DragGestureRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static DragGestureRequest create() => DragGestureRequest._();
+  DragGestureRequest createEmptyInstance() => create();
+  static $pb.PbList<DragGestureRequest> createRepeated() => $pb.PbList<DragGestureRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DragGestureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DragGestureRequest>(create);
+  static DragGestureRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get dx => $_getN(0);
+  @$pb.TagNumber(1)
+  set dx($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDx() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDx() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get dy => $_getN(1);
+  @$pb.TagNumber(2)
+  set dy($core.double v) { $_setDouble(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDy() => clearField(2);
+}
+
+class ZoomGestureRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ZoomGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  ZoomGestureRequest._() : super();
+  factory ZoomGestureRequest() => create();
+  factory ZoomGestureRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ZoomGestureRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ZoomGestureRequest clone() => ZoomGestureRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ZoomGestureRequest copyWith(void Function(ZoomGestureRequest) updates) => super.copyWith((message) => updates(message as ZoomGestureRequest)) as ZoomGestureRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ZoomGestureRequest create() => ZoomGestureRequest._();
+  ZoomGestureRequest createEmptyInstance() => create();
+  static $pb.PbList<ZoomGestureRequest> createRepeated() => $pb.PbList<ZoomGestureRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ZoomGestureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ZoomGestureRequest>(create);
+  static ZoomGestureRequest? _defaultInstance;
+}
+
+class GestureReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GestureReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  GestureReply._() : super();
+  factory GestureReply({
+    $core.bool? ok,
+  }) {
+    final _result = create();
+    if (ok != null) {
+      _result.ok = ok;
+    }
+    return _result;
+  }
+  factory GestureReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GestureReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GestureReply clone() => GestureReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GestureReply copyWith(void Function(GestureReply) updates) => super.copyWith((message) => updates(message as GestureReply)) as GestureReply; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GestureReply create() => GestureReply._();
+  GestureReply createEmptyInstance() => create();
+  static $pb.PbList<GestureReply> createRepeated() => $pb.PbList<GestureReply>();
+  @$core.pragma('dart2js:noInline')
+  static GestureReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GestureReply>(create);
+  static GestureReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+

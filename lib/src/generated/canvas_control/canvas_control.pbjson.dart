@@ -179,3 +179,38 @@ const RotateReply$json = const {
 
 /// Descriptor for `RotateReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List rotateReplyDescriptor = $convert.base64Decode('CgtSb3RhdGVSZXBseRIWCgZkZWdyZWUYASABKAVSBmRlZ3JlZQ==');
+@$core.Deprecated('Use tapGestureRequestDescriptor instead')
+const TapGestureRequest$json = const {
+  '1': 'TapGestureRequest',
+};
+
+/// Descriptor for `TapGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List tapGestureRequestDescriptor = $convert.base64Decode('ChFUYXBHZXN0dXJlUmVxdWVzdA==');
+@$core.Deprecated('Use dragGestureRequestDescriptor instead')
+const DragGestureRequest$json = const {
+  '1': 'DragGestureRequest',
+  '2': const [
+    const {'1': 'dx', '3': 1, '4': 1, '5': 1, '10': 'dx'},
+    const {'1': 'dy', '3': 2, '4': 1, '5': 1, '10': 'dy'},
+  ],
+};
+
+/// Descriptor for `DragGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dragGestureRequestDescriptor = $convert.base64Decode('ChJEcmFnR2VzdHVyZVJlcXVlc3QSDgoCZHgYASABKAFSAmR4Eg4KAmR5GAIgASgBUgJkeQ==');
+@$core.Deprecated('Use zoomGestureRequestDescriptor instead')
+const ZoomGestureRequest$json = const {
+  '1': 'ZoomGestureRequest',
+};
+
+/// Descriptor for `ZoomGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List zoomGestureRequestDescriptor = $convert.base64Decode('ChJab29tR2VzdHVyZVJlcXVlc3Q=');
+@$core.Deprecated('Use gestureReplyDescriptor instead')
+const GestureReply$json = const {
+  '1': 'GestureReply',
+  '2': const [
+    const {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
+  ],
+};
+
+/// Descriptor for `GestureReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gestureReplyDescriptor = $convert.base64Decode('CgxHZXN0dXJlUmVwbHkSDgoCb2sYASABKAhSAm9r');
