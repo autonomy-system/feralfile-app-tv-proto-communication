@@ -120,6 +120,8 @@ message TapGestureRequest {
 message DragGestureRequest {
   double dx = 1;
   double dy = 2;
+  double coefficientX = 3;
+  double coefficientY = 4;
 }
 
 message ZoomGestureRequest {

@@ -810,6 +810,8 @@ class DragGestureRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DragGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
     ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dx', $pb.PbFieldType.OD)
     ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dy', $pb.PbFieldType.OD)
+    ..a<$core.double>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coefficientX', $pb.PbFieldType.OD, protoName: 'coefficientX')
+    ..a<$core.double>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coefficientY', $pb.PbFieldType.OD, protoName: 'coefficientY')
     ..hasRequiredFields = false
   ;
 
@@ -817,6 +819,8 @@ class DragGestureRequest extends $pb.GeneratedMessage {
   factory DragGestureRequest({
     $core.double? dx,
     $core.double? dy,
+    $core.double? coefficientX,
+    $core.double? coefficientY,
   }) {
     final _result = create();
     if (dx != null) {
@@ -824,6 +828,12 @@ class DragGestureRequest extends $pb.GeneratedMessage {
     }
     if (dy != null) {
       _result.dy = dy;
+    }
+    if (coefficientX != null) {
+      _result.coefficientX = coefficientX;
+    }
+    if (coefficientY != null) {
+      _result.coefficientY = coefficientY;
     }
     return _result;
   }
@@ -865,6 +875,24 @@ class DragGestureRequest extends $pb.GeneratedMessage {
   $core.bool hasDy() => $_has(1);
   @$pb.TagNumber(2)
   void clearDy() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get coefficientX => $_getN(2);
+  @$pb.TagNumber(3)
+  set coefficientX($core.double v) { $_setDouble(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCoefficientX() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCoefficientX() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get coefficientY => $_getN(3);
+  @$pb.TagNumber(4)
+  set coefficientY($core.double v) { $_setDouble(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCoefficientY() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCoefficientY() => clearField(4);
 }
 
 class ZoomGestureRequest extends $pb.GeneratedMessage {

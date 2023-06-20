@@ -192,11 +192,13 @@ const DragGestureRequest$json = const {
   '2': const [
     const {'1': 'dx', '3': 1, '4': 1, '5': 1, '10': 'dx'},
     const {'1': 'dy', '3': 2, '4': 1, '5': 1, '10': 'dy'},
+    const {'1': 'coefficientX', '3': 3, '4': 1, '5': 1, '10': 'coefficientX'},
+    const {'1': 'coefficientY', '3': 4, '4': 1, '5': 1, '10': 'coefficientY'},
   ],
 };
 
 /// Descriptor for `DragGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List dragGestureRequestDescriptor = $convert.base64Decode('ChJEcmFnR2VzdHVyZVJlcXVlc3QSDgoCZHgYASABKAFSAmR4Eg4KAmR5GAIgASgBUgJkeQ==');
+final $typed_data.Uint8List dragGestureRequestDescriptor = $convert.base64Decode('ChJEcmFnR2VzdHVyZVJlcXVlc3QSDgoCZHgYASABKAFSAmR4Eg4KAmR5GAIgASgBUgJkeRIiCgxjb2VmZmljaWVudFgYAyABKAFSDGNvZWZmaWNpZW50WBIiCgxjb2VmZmljaWVudFkYBCABKAFSDGNvZWZmaWNpZW50WQ==');
 @$core.Deprecated('Use zoomGestureRequestDescriptor instead')
 const ZoomGestureRequest$json = const {
   '1': 'ZoomGestureRequest',
