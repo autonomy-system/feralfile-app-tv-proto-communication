@@ -61,6 +61,17 @@ class CanvasControlClient extends $grpc.Client {
           '/canvas_control.CanvasControl/DragGesture',
           ($0.DragGestureRequest value) => value.writeToBuffer(),
           ($core.List<$core.int> value) => $0.GestureReply.fromBuffer(value));
+  static final _$getCursorOffset =
+      $grpc.ClientMethod<$0.Empty, $0.CursorOffset>(
+          '/canvas_control.CanvasControl/GetCursorOffset',
+          ($0.Empty value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) => $0.CursorOffset.fromBuffer(value));
+  static final _$setCursorOffset =
+      $grpc.ClientMethod<$0.CursorOffset, $0.CursorOffsetReply>(
+          '/canvas_control.CanvasControl/SetCursorOffset',
+          ($0.CursorOffset value) => value.writeToBuffer(),
+          ($core.List<$core.int> value) =>
+              $0.CursorOffsetReply.fromBuffer(value));
 
   CanvasControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -114,6 +125,17 @@ class CanvasControlClient extends $grpc.Client {
       $0.DragGestureRequest request,
       {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$dragGesture, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CursorOffset> getCursorOffset($0.Empty request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCursorOffset, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CursorOffsetReply> setCursorOffset(
+      $0.CursorOffset request,
+      {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$setCursorOffset, request, options: options);
   }
 }
 
@@ -189,6 +211,20 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) =>
             $0.DragGestureRequest.fromBuffer(value),
         ($0.GestureReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.CursorOffset>(
+        'GetCursorOffset',
+        getCursorOffset_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.CursorOffset value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CursorOffset, $0.CursorOffsetReply>(
+        'SetCursorOffset',
+        setCursorOffset_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CursorOffset.fromBuffer(value),
+        ($0.CursorOffsetReply value) => value.writeToBuffer()));
   }
 
   $async.Future<$0.ConnectReply> connect_Pre(
@@ -238,6 +274,16 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return dragGesture(call, await request);
   }
 
+  $async.Future<$0.CursorOffset> getCursorOffset_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
+    return getCursorOffset(call, await request);
+  }
+
+  $async.Future<$0.CursorOffsetReply> setCursorOffset_Pre(
+      $grpc.ServiceCall call, $async.Future<$0.CursorOffset> request) async {
+    return setCursorOffset(call, await request);
+  }
+
   $async.Future<$0.ConnectReply> connect(
       $grpc.ServiceCall call, $0.ConnectRequest request);
   $async.Future<$0.ResponseStatus> status(
@@ -256,4 +302,8 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
       $grpc.ServiceCall call, $0.TapGestureRequest request);
   $async.Future<$0.GestureReply> dragGesture(
       $grpc.ServiceCall call, $0.DragGestureRequest request);
+  $async.Future<$0.CursorOffset> getCursorOffset(
+      $grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.CursorOffsetReply> setCursorOffset(
+      $grpc.ServiceCall call, $0.CursorOffset request);
 }
