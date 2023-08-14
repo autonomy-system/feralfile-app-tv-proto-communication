@@ -4,14 +4,13 @@ version: 0.0.1
 homepage:
 
 environment:
-  sdk: '>=2.18.2 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=2.19.0 <4.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  grpc: ^3.1.0
-  protoc_plugin: ^20.0.1
+  grpc: ^3.2.3
+  protoc_plugin: ^21.0.2
   floor: ^1.2.0
 
 dev_dependencies:
