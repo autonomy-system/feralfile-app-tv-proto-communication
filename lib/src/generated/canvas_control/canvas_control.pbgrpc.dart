@@ -45,6 +45,10 @@ class CanvasControlClient extends $grpc.Client {
       '/canvas_control.CanvasControl/UnCastSingleArtwork',
       ($0.UncastSingleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.UncastSingleReply.fromBuffer(value));
+  static final _$unCastArtwork = $grpc.ClientMethod<$0.UnCastRequest, $0.UnCastReply>(
+      '/canvas_control.CanvasControl/UnCastArtwork',
+      ($0.UnCastRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.UnCastReply.fromBuffer(value));
   static final _$keyboardEvent = $grpc.ClientMethod<$0.KeyboardEventRequest, $0.KeyboardEventReply>(
       '/canvas_control.CanvasControl/KeyboardEvent',
       ($0.KeyboardEventRequest value) => value.writeToBuffer(),
@@ -82,6 +86,10 @@ class CanvasControlClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.UncastSingleReply> unCastSingleArtwork($0.UncastSingleRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$unCastSingleArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.UnCastReply> unCastArtwork($0.UnCastRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$unCastArtwork, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.KeyboardEventReply> keyboardEvent($0.KeyboardEventRequest request, {$grpc.CallOptions? options}) {
@@ -140,6 +148,13 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.UncastSingleRequest.fromBuffer(value),
         ($0.UncastSingleReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UnCastRequest, $0.UnCastReply>(
+        'UnCastArtwork',
+        unCastArtwork_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.UnCastRequest.fromBuffer(value),
+        ($0.UnCastReply value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.KeyboardEventRequest, $0.KeyboardEventReply>(
         'KeyboardEvent',
         keyboardEvent_Pre,
@@ -180,6 +195,10 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return unCastSingleArtwork(call, await request);
   }
 
+  $async.FutureOr<$0.UnCastReply> unCastArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UnCastRequest> request) async {
+    return unCastArtwork(call, await request);
+  }
+
   $async.FutureOr<$0.KeyboardEventReply> keyboardEvent_Pre($grpc.ServiceCall call, $async.FutureOr<$0.KeyboardEventRequest> request) async {
     return keyboardEvent(call, await request);
   }
@@ -194,6 +213,7 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
   $async.FutureOr<$0.CastSingleReply> castSingleArtwork($grpc.ServiceCall call, $0.CastSingleRequest request);
   $async.FutureOr<$0.CastCollectionReply> castCollection($grpc.ServiceCall call, $0.CastCollectionRequest request);
   $async.FutureOr<$0.UncastSingleReply> unCastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
+  $async.FutureOr<$0.UnCastReply> unCastArtwork($grpc.ServiceCall call, $0.UnCastRequest request);
   $async.FutureOr<$0.KeyboardEventReply> keyboardEvent($grpc.ServiceCall call, $0.KeyboardEventRequest request);
   $async.FutureOr<$0.RotateReply> rotate($grpc.ServiceCall call, $0.RotateRequest request);
 }

@@ -641,6 +641,90 @@ class UncastSingleReply extends $pb.GeneratedMessage {
   void clearOk() => clearField(1);
 }
 
+class UnCastRequest extends $pb.GeneratedMessage {
+  factory UnCastRequest() => create();
+  UnCastRequest._() : super();
+  factory UnCastRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UnCastRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UnCastRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UnCastRequest clone() => UnCastRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UnCastRequest copyWith(void Function(UnCastRequest) updates) => super.copyWith((message) => updates(message as UnCastRequest)) as UnCastRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UnCastRequest create() => UnCastRequest._();
+  UnCastRequest createEmptyInstance() => create();
+  static $pb.PbList<UnCastRequest> createRepeated() => $pb.PbList<UnCastRequest>();
+  @$core.pragma('dart2js:noInline')
+  static UnCastRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UnCastRequest>(create);
+  static UnCastRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class UnCastReply extends $pb.GeneratedMessage {
+  factory UnCastReply() => create();
+  UnCastReply._() : super();
+  factory UnCastReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UnCastReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UnCastReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UnCastReply clone() => UnCastReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UnCastReply copyWith(void Function(UnCastReply) updates) => super.copyWith((message) => updates(message as UnCastReply)) as UnCastReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UnCastReply create() => UnCastReply._();
+  UnCastReply createEmptyInstance() => create();
+  static $pb.PbList<UnCastReply> createRepeated() => $pb.PbList<UnCastReply>();
+  @$core.pragma('dart2js:noInline')
+  static UnCastReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UnCastReply>(create);
+  static UnCastReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
 class KeyboardEventRequest extends $pb.GeneratedMessage {
   factory KeyboardEventRequest() => create();
   KeyboardEventRequest._() : super();

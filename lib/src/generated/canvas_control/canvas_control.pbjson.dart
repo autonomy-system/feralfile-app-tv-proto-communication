@@ -204,6 +204,30 @@ const UncastSingleReply$json = {
 final $typed_data.Uint8List uncastSingleReplyDescriptor = $convert.base64Decode(
     'ChFVbmNhc3RTaW5nbGVSZXBseRIOCgJvaxgBIAEoCFICb2s=');
 
+@$core.Deprecated('Use unCastRequestDescriptor instead')
+const UnCastRequest$json = {
+  '1': 'UnCastRequest',
+  '2': [
+    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+  ],
+};
+
+/// Descriptor for `UnCastRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List unCastRequestDescriptor = $convert.base64Decode(
+    'Cg1VbkNhc3RSZXF1ZXN0Eg4KAmlkGAEgASgJUgJpZA==');
+
+@$core.Deprecated('Use unCastReplyDescriptor instead')
+const UnCastReply$json = {
+  '1': 'UnCastReply',
+  '2': [
+    {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
+  ],
+};
+
+/// Descriptor for `UnCastReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List unCastReplyDescriptor = $convert.base64Decode(
+    'CgtVbkNhc3RSZXBseRIOCgJvaxgBIAEoCFICb2s=');
+
 @$core.Deprecated('Use keyboardEventRequestDescriptor instead')
 const KeyboardEventRequest$json = {
   '1': 'KeyboardEventRequest',

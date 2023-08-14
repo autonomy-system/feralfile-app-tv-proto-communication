@@ -28,6 +28,9 @@ service CanvasControl {
   // Client request uncast a single artwork
   rpc UnCastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
 
+  // Client request unCast single/collection
+  rpc UnCastArtwork (UnCastRequest) returns (UnCastReply) {}
+
   // Client press keyboard
   rpc KeyboardEvent (KeyboardEventRequest) returns (KeyboardEventReply) {}
 
@@ -110,6 +113,16 @@ message UncastSingleRequest {
 }
 
 message UncastSingleReply {
+  bool ok = 1;
+}
+
+
+message UnCastRequest {
+  // tokenId/Collection Id
+  string id = 1;
+}
+
+message UnCastReply {
   bool ok = 1;
 }
 
