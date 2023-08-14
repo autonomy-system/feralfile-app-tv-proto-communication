@@ -30,6 +30,14 @@ service CanvasControl {
 
   // Client rotate
   rpc Rotate (RotateRequest) returns (RotateReply) {}
+
+  rpc TapGesture (TapGestureRequest) returns (GestureReply) {}
+
+  rpc DragGesture (DragGestureRequest) returns (GestureReply) {}
+
+  rpc GetCursorOffset (Empty) returns (CursorOffset) {}
+
+  rpc SetCursorOffset (CursorOffset) returns (CursorOffsetReply) {}
 }
 
 message ConnectRequest {
@@ -76,6 +84,7 @@ message DisconnectReply {
 message CastSingleRequest {
   // tokenId
   string id = 1;
+  DragGestureRequest cursorDrag = 2;
 }
 
 message CastSingleReply {
@@ -108,4 +117,32 @@ message RotateRequest {
 message RotateReply {
   // return quarter turn after rotate
   int32 degree = 1;
+}
+
+message TapGestureRequest {
+}
+
+message DragGestureRequest {
+  double dx = 1;
+  double dy = 2;
+  double coefficientX = 3;
+  double coefficientY = 4;
+}
+
+message ZoomGestureRequest {
+}
+
+message GestureReply {
+  bool ok = 1;
+}
+
+message  CursorOffset {
+  double dx = 1;
+  double dy = 2;
+  double coefficientX = 3;
+  double coefficientY = 4;
+}
+
+message CursorOffsetReply {
+  bool ok = 1;
 }

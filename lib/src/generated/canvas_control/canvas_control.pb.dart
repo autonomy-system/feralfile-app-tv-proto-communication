@@ -375,16 +375,21 @@ class DisconnectReply extends $pb.GeneratedMessage {
 class CastSingleRequest extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CastSingleRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOM<DragGestureRequest>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cursorDrag', protoName: 'cursorDrag', subBuilder: DragGestureRequest.create)
     ..hasRequiredFields = false
   ;
 
   CastSingleRequest._() : super();
   factory CastSingleRequest({
     $core.String? id,
+    DragGestureRequest? cursorDrag,
   }) {
     final _result = create();
     if (id != null) {
       _result.id = id;
+    }
+    if (cursorDrag != null) {
+      _result.cursorDrag = cursorDrag;
     }
     return _result;
   }
@@ -417,6 +422,17 @@ class CastSingleRequest extends $pb.GeneratedMessage {
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
   void clearId() => clearField(1);
+
+  @$pb.TagNumber(2)
+  DragGestureRequest get cursorDrag => $_getN(1);
+  @$pb.TagNumber(2)
+  set cursorDrag(DragGestureRequest v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasCursorDrag() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCursorDrag() => clearField(2);
+  @$pb.TagNumber(2)
+  DragGestureRequest ensureCursorDrag() => $_ensure(1);
 }
 
 class CastSingleReply extends $pb.GeneratedMessage {
@@ -775,5 +791,335 @@ class RotateReply extends $pb.GeneratedMessage {
   $core.bool hasDegree() => $_has(0);
   @$pb.TagNumber(1)
   void clearDegree() => clearField(1);
+}
+
+class TapGestureRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'TapGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  TapGestureRequest._() : super();
+  factory TapGestureRequest() => create();
+  factory TapGestureRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory TapGestureRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  TapGestureRequest clone() => TapGestureRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  TapGestureRequest copyWith(void Function(TapGestureRequest) updates) => super.copyWith((message) => updates(message as TapGestureRequest)) as TapGestureRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static TapGestureRequest create() => TapGestureRequest._();
+  TapGestureRequest createEmptyInstance() => create();
+  static $pb.PbList<TapGestureRequest> createRepeated() => $pb.PbList<TapGestureRequest>();
+  @$core.pragma('dart2js:noInline')
+  static TapGestureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<TapGestureRequest>(create);
+  static TapGestureRequest? _defaultInstance;
+}
+
+class DragGestureRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'DragGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dx', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dy', $pb.PbFieldType.OD)
+    ..a<$core.double>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coefficientX', $pb.PbFieldType.OD, protoName: 'coefficientX')
+    ..a<$core.double>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coefficientY', $pb.PbFieldType.OD, protoName: 'coefficientY')
+    ..hasRequiredFields = false
+  ;
+
+  DragGestureRequest._() : super();
+  factory DragGestureRequest({
+    $core.double? dx,
+    $core.double? dy,
+    $core.double? coefficientX,
+    $core.double? coefficientY,
+  }) {
+    final _result = create();
+    if (dx != null) {
+      _result.dx = dx;
+    }
+    if (dy != null) {
+      _result.dy = dy;
+    }
+    if (coefficientX != null) {
+      _result.coefficientX = coefficientX;
+    }
+    if (coefficientY != null) {
+      _result.coefficientY = coefficientY;
+    }
+    return _result;
+  }
+  factory DragGestureRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DragGestureRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DragGestureRequest clone() => DragGestureRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DragGestureRequest copyWith(void Function(DragGestureRequest) updates) => super.copyWith((message) => updates(message as DragGestureRequest)) as DragGestureRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static DragGestureRequest create() => DragGestureRequest._();
+  DragGestureRequest createEmptyInstance() => create();
+  static $pb.PbList<DragGestureRequest> createRepeated() => $pb.PbList<DragGestureRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DragGestureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DragGestureRequest>(create);
+  static DragGestureRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get dx => $_getN(0);
+  @$pb.TagNumber(1)
+  set dx($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDx() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDx() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get dy => $_getN(1);
+  @$pb.TagNumber(2)
+  set dy($core.double v) { $_setDouble(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDy() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get coefficientX => $_getN(2);
+  @$pb.TagNumber(3)
+  set coefficientX($core.double v) { $_setDouble(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCoefficientX() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCoefficientX() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get coefficientY => $_getN(3);
+  @$pb.TagNumber(4)
+  set coefficientY($core.double v) { $_setDouble(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCoefficientY() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCoefficientY() => clearField(4);
+}
+
+class ZoomGestureRequest extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'ZoomGestureRequest', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  ZoomGestureRequest._() : super();
+  factory ZoomGestureRequest() => create();
+  factory ZoomGestureRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ZoomGestureRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ZoomGestureRequest clone() => ZoomGestureRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ZoomGestureRequest copyWith(void Function(ZoomGestureRequest) updates) => super.copyWith((message) => updates(message as ZoomGestureRequest)) as ZoomGestureRequest; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static ZoomGestureRequest create() => ZoomGestureRequest._();
+  ZoomGestureRequest createEmptyInstance() => create();
+  static $pb.PbList<ZoomGestureRequest> createRepeated() => $pb.PbList<ZoomGestureRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ZoomGestureRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ZoomGestureRequest>(create);
+  static ZoomGestureRequest? _defaultInstance;
+}
+
+class GestureReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'GestureReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  GestureReply._() : super();
+  factory GestureReply({
+    $core.bool? ok,
+  }) {
+    final _result = create();
+    if (ok != null) {
+      _result.ok = ok;
+    }
+    return _result;
+  }
+  factory GestureReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory GestureReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  GestureReply clone() => GestureReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  GestureReply copyWith(void Function(GestureReply) updates) => super.copyWith((message) => updates(message as GestureReply)) as GestureReply; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static GestureReply create() => GestureReply._();
+  GestureReply createEmptyInstance() => create();
+  static $pb.PbList<GestureReply> createRepeated() => $pb.PbList<GestureReply>();
+  @$core.pragma('dart2js:noInline')
+  static GestureReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<GestureReply>(create);
+  static GestureReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class CursorOffset extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CursorOffset', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..a<$core.double>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dx', $pb.PbFieldType.OD)
+    ..a<$core.double>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'dy', $pb.PbFieldType.OD)
+    ..a<$core.double>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coefficientX', $pb.PbFieldType.OD, protoName: 'coefficientX')
+    ..a<$core.double>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'coefficientY', $pb.PbFieldType.OD, protoName: 'coefficientY')
+    ..hasRequiredFields = false
+  ;
+
+  CursorOffset._() : super();
+  factory CursorOffset({
+    $core.double? dx,
+    $core.double? dy,
+    $core.double? coefficientX,
+    $core.double? coefficientY,
+  }) {
+    final _result = create();
+    if (dx != null) {
+      _result.dx = dx;
+    }
+    if (dy != null) {
+      _result.dy = dy;
+    }
+    if (coefficientX != null) {
+      _result.coefficientX = coefficientX;
+    }
+    if (coefficientY != null) {
+      _result.coefficientY = coefficientY;
+    }
+    return _result;
+  }
+  factory CursorOffset.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CursorOffset.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CursorOffset clone() => CursorOffset()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CursorOffset copyWith(void Function(CursorOffset) updates) => super.copyWith((message) => updates(message as CursorOffset)) as CursorOffset; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CursorOffset create() => CursorOffset._();
+  CursorOffset createEmptyInstance() => create();
+  static $pb.PbList<CursorOffset> createRepeated() => $pb.PbList<CursorOffset>();
+  @$core.pragma('dart2js:noInline')
+  static CursorOffset getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CursorOffset>(create);
+  static CursorOffset? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.double get dx => $_getN(0);
+  @$pb.TagNumber(1)
+  set dx($core.double v) { $_setDouble(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDx() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDx() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.double get dy => $_getN(1);
+  @$pb.TagNumber(2)
+  set dy($core.double v) { $_setDouble(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasDy() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearDy() => clearField(2);
+
+  @$pb.TagNumber(3)
+  $core.double get coefficientX => $_getN(2);
+  @$pb.TagNumber(3)
+  set coefficientX($core.double v) { $_setDouble(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasCoefficientX() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearCoefficientX() => clearField(3);
+
+  @$pb.TagNumber(4)
+  $core.double get coefficientY => $_getN(3);
+  @$pb.TagNumber(4)
+  set coefficientY($core.double v) { $_setDouble(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasCoefficientY() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearCoefficientY() => clearField(4);
+}
+
+class CursorOffsetReply extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'CursorOffsetReply', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  CursorOffsetReply._() : super();
+  factory CursorOffsetReply({
+    $core.bool? ok,
+  }) {
+    final _result = create();
+    if (ok != null) {
+      _result.ok = ok;
+    }
+    return _result;
+  }
+  factory CursorOffsetReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CursorOffsetReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CursorOffsetReply clone() => CursorOffsetReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CursorOffsetReply copyWith(void Function(CursorOffsetReply) updates) => super.copyWith((message) => updates(message as CursorOffsetReply)) as CursorOffsetReply; // ignore: deprecated_member_use
+  $pb.BuilderInfo get info_ => _i;
+  @$core.pragma('dart2js:noInline')
+  static CursorOffsetReply create() => CursorOffsetReply._();
+  CursorOffsetReply createEmptyInstance() => create();
+  static $pb.PbList<CursorOffsetReply> createRepeated() => $pb.PbList<CursorOffsetReply>();
+  @$core.pragma('dart2js:noInline')
+  static CursorOffsetReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CursorOffsetReply>(create);
+  static CursorOffsetReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
 }
 
