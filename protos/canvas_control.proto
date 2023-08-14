@@ -26,7 +26,7 @@ service CanvasControl {
   rpc CastCollection (CastCollectionRequest) returns (CastCollectionReply) {}
 
   // Client request uncast a single artwork
-  rpc UnCastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
+  rpc UncastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
 
   // Client request unCast single/collection
   rpc UnCastArtwork (UnCastRequest) returns (UnCastReply) {}

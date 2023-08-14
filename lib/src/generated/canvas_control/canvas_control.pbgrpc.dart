@@ -4,7 +4,7 @@
 //
 // @dart = 2.12
 
-// ignore_for_file: annotate_overrides, camel_case_types
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
@@ -41,8 +41,8 @@ class CanvasControlClient extends $grpc.Client {
       '/canvas_control.CanvasControl/CastCollection',
       ($0.CastCollectionRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.CastCollectionReply.fromBuffer(value));
-  static final _$unCastSingleArtwork = $grpc.ClientMethod<$0.UncastSingleRequest, $0.UncastSingleReply>(
-      '/canvas_control.CanvasControl/UnCastSingleArtwork',
+  static final _$uncastSingleArtwork = $grpc.ClientMethod<$0.UncastSingleRequest, $0.UncastSingleReply>(
+      '/canvas_control.CanvasControl/UncastSingleArtwork',
       ($0.UncastSingleRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.UncastSingleReply.fromBuffer(value));
   static final _$unCastArtwork = $grpc.ClientMethod<$0.UnCastRequest, $0.UnCastReply>(
@@ -57,6 +57,22 @@ class CanvasControlClient extends $grpc.Client {
       '/canvas_control.CanvasControl/Rotate',
       ($0.RotateRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.RotateReply.fromBuffer(value));
+  static final _$tapGesture = $grpc.ClientMethod<$0.TapGestureRequest, $0.GestureReply>(
+      '/canvas_control.CanvasControl/TapGesture',
+      ($0.TapGestureRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GestureReply.fromBuffer(value));
+  static final _$dragGesture = $grpc.ClientMethod<$0.DragGestureRequest, $0.GestureReply>(
+      '/canvas_control.CanvasControl/DragGesture',
+      ($0.DragGestureRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.GestureReply.fromBuffer(value));
+  static final _$getCursorOffset = $grpc.ClientMethod<$0.Empty, $0.CursorOffset>(
+      '/canvas_control.CanvasControl/GetCursorOffset',
+      ($0.Empty value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CursorOffset.fromBuffer(value));
+  static final _$setCursorOffset = $grpc.ClientMethod<$0.CursorOffset, $0.CursorOffsetReply>(
+      '/canvas_control.CanvasControl/SetCursorOffset',
+      ($0.CursorOffset value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CursorOffsetReply.fromBuffer(value));
 
   CanvasControlClient($grpc.ClientChannel channel,
       {$grpc.CallOptions? options,
@@ -84,8 +100,8 @@ class CanvasControlClient extends $grpc.Client {
     return $createUnaryCall(_$castCollection, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.UncastSingleReply> unCastSingleArtwork($0.UncastSingleRequest request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$unCastSingleArtwork, request, options: options);
+  $grpc.ResponseFuture<$0.UncastSingleReply> uncastSingleArtwork($0.UncastSingleRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$uncastSingleArtwork, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.UnCastReply> unCastArtwork($0.UnCastRequest request, {$grpc.CallOptions? options}) {
@@ -98,6 +114,22 @@ class CanvasControlClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.RotateReply> rotate($0.RotateRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$rotate, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GestureReply> tapGesture($0.TapGestureRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$tapGesture, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.GestureReply> dragGesture($0.DragGestureRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$dragGesture, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CursorOffset> getCursorOffset($0.Empty request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$getCursorOffset, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CursorOffsetReply> setCursorOffset($0.CursorOffset request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$setCursorOffset, request, options: options);
   }
 }
 
@@ -142,8 +174,8 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         ($core.List<$core.int> value) => $0.CastCollectionRequest.fromBuffer(value),
         ($0.CastCollectionReply value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.UncastSingleRequest, $0.UncastSingleReply>(
-        'UnCastSingleArtwork',
-        unCastSingleArtwork_Pre,
+        'UncastSingleArtwork',
+        uncastSingleArtwork_Pre,
         false,
         false,
         ($core.List<$core.int> value) => $0.UncastSingleRequest.fromBuffer(value),
@@ -169,6 +201,34 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.RotateRequest.fromBuffer(value),
         ($0.RotateReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.TapGestureRequest, $0.GestureReply>(
+        'TapGesture',
+        tapGesture_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.TapGestureRequest.fromBuffer(value),
+        ($0.GestureReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DragGestureRequest, $0.GestureReply>(
+        'DragGesture',
+        dragGesture_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.DragGestureRequest.fromBuffer(value),
+        ($0.GestureReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.Empty, $0.CursorOffset>(
+        'GetCursorOffset',
+        getCursorOffset_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.Empty.fromBuffer(value),
+        ($0.CursorOffset value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CursorOffset, $0.CursorOffsetReply>(
+        'SetCursorOffset',
+        setCursorOffset_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CursorOffset.fromBuffer(value),
+        ($0.CursorOffsetReply value) => value.writeToBuffer()));
   }
 
   $async.FutureOr<$0.ConnectReply> connect_Pre($grpc.ServiceCall call, $async.FutureOr<$0.ConnectRequest> request) async {
@@ -191,8 +251,8 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return castCollection(call, await request);
   }
 
-  $async.FutureOr<$0.UncastSingleReply> unCastSingleArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UncastSingleRequest> request) async {
-    return unCastSingleArtwork(call, await request);
+  $async.FutureOr<$0.UncastSingleReply> uncastSingleArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UncastSingleRequest> request) async {
+    return uncastSingleArtwork(call, await request);
   }
 
   $async.FutureOr<$0.UnCastReply> unCastArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UnCastRequest> request) async {
@@ -207,13 +267,33 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
     return rotate(call, await request);
   }
 
+  $async.FutureOr<$0.GestureReply> tapGesture_Pre($grpc.ServiceCall call, $async.FutureOr<$0.TapGestureRequest> request) async {
+    return tapGesture(call, await request);
+  }
+
+  $async.FutureOr<$0.GestureReply> dragGesture_Pre($grpc.ServiceCall call, $async.FutureOr<$0.DragGestureRequest> request) async {
+    return dragGesture(call, await request);
+  }
+
+  $async.FutureOr<$0.CursorOffset> getCursorOffset_Pre($grpc.ServiceCall call, $async.FutureOr<$0.Empty> request) async {
+    return getCursorOffset(call, await request);
+  }
+
+  $async.FutureOr<$0.CursorOffsetReply> setCursorOffset_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CursorOffset> request) async {
+    return setCursorOffset(call, await request);
+  }
+
   $async.FutureOr<$0.ConnectReply> connect($grpc.ServiceCall call, $0.ConnectRequest request);
   $async.FutureOr<$0.ResponseStatus> status($grpc.ServiceCall call, $0.CheckingStatus request);
   $async.FutureOr<$0.Empty> disconnect($grpc.ServiceCall call, $0.DisconnectRequest request);
   $async.FutureOr<$0.CastSingleReply> castSingleArtwork($grpc.ServiceCall call, $0.CastSingleRequest request);
   $async.FutureOr<$0.CastCollectionReply> castCollection($grpc.ServiceCall call, $0.CastCollectionRequest request);
-  $async.FutureOr<$0.UncastSingleReply> unCastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
+  $async.FutureOr<$0.UncastSingleReply> uncastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
   $async.FutureOr<$0.UnCastReply> unCastArtwork($grpc.ServiceCall call, $0.UnCastRequest request);
   $async.FutureOr<$0.KeyboardEventReply> keyboardEvent($grpc.ServiceCall call, $0.KeyboardEventRequest request);
   $async.FutureOr<$0.RotateReply> rotate($grpc.ServiceCall call, $0.RotateRequest request);
+  $async.FutureOr<$0.GestureReply> tapGesture($grpc.ServiceCall call, $0.TapGestureRequest request);
+  $async.FutureOr<$0.GestureReply> dragGesture($grpc.ServiceCall call, $0.DragGestureRequest request);
+  $async.FutureOr<$0.CursorOffset> getCursorOffset($grpc.ServiceCall call, $0.Empty request);
+  $async.FutureOr<$0.CursorOffsetReply> setCursorOffset($grpc.ServiceCall call, $0.CursorOffset request);
 }

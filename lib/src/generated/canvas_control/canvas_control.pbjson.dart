@@ -4,7 +4,7 @@
 //
 // @dart = 2.12
 
-// ignore_for_file: annotate_overrides, camel_case_types
+// ignore_for_file: annotate_overrides, camel_case_types, comment_references
 // ignore_for_file: constant_identifier_names, library_prefixes
 // ignore_for_file: non_constant_identifier_names, prefer_final_fields
 // ignore_for_file: unnecessary_import, unnecessary_this, unused_import
@@ -121,12 +121,14 @@ const CastSingleRequest$json = {
   '1': 'CastSingleRequest',
   '2': [
     {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'cursorDrag', '3': 2, '4': 1, '5': 11, '6': '.canvas_control.DragGestureRequest', '10': 'cursorDrag'},
   ],
 };
 
 /// Descriptor for `CastSingleRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List castSingleRequestDescriptor = $convert.base64Decode(
-    'ChFDYXN0U2luZ2xlUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQ=');
+    'ChFDYXN0U2luZ2xlUmVxdWVzdBIOCgJpZBgBIAEoCVICaWQSQgoKY3Vyc29yRHJhZxgCIAEoCz'
+    'IiLmNhbnZhc19jb250cm9sLkRyYWdHZXN0dXJlUmVxdWVzdFIKY3Vyc29yRHJhZw==');
 
 @$core.Deprecated('Use castSingleReplyDescriptor instead')
 const CastSingleReply$json = {
@@ -284,4 +286,80 @@ const RotateReply$json = {
 /// Descriptor for `RotateReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List rotateReplyDescriptor = $convert.base64Decode(
     'CgtSb3RhdGVSZXBseRIWCgZkZWdyZWUYASABKAVSBmRlZ3JlZQ==');
+
+@$core.Deprecated('Use tapGestureRequestDescriptor instead')
+const TapGestureRequest$json = {
+  '1': 'TapGestureRequest',
+};
+
+/// Descriptor for `TapGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List tapGestureRequestDescriptor = $convert.base64Decode(
+    'ChFUYXBHZXN0dXJlUmVxdWVzdA==');
+
+@$core.Deprecated('Use dragGestureRequestDescriptor instead')
+const DragGestureRequest$json = {
+  '1': 'DragGestureRequest',
+  '2': [
+    {'1': 'dx', '3': 1, '4': 1, '5': 1, '10': 'dx'},
+    {'1': 'dy', '3': 2, '4': 1, '5': 1, '10': 'dy'},
+    {'1': 'coefficientX', '3': 3, '4': 1, '5': 1, '10': 'coefficientX'},
+    {'1': 'coefficientY', '3': 4, '4': 1, '5': 1, '10': 'coefficientY'},
+  ],
+};
+
+/// Descriptor for `DragGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List dragGestureRequestDescriptor = $convert.base64Decode(
+    'ChJEcmFnR2VzdHVyZVJlcXVlc3QSDgoCZHgYASABKAFSAmR4Eg4KAmR5GAIgASgBUgJkeRIiCg'
+    'xjb2VmZmljaWVudFgYAyABKAFSDGNvZWZmaWNpZW50WBIiCgxjb2VmZmljaWVudFkYBCABKAFS'
+    'DGNvZWZmaWNpZW50WQ==');
+
+@$core.Deprecated('Use zoomGestureRequestDescriptor instead')
+const ZoomGestureRequest$json = {
+  '1': 'ZoomGestureRequest',
+};
+
+/// Descriptor for `ZoomGestureRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List zoomGestureRequestDescriptor = $convert.base64Decode(
+    'ChJab29tR2VzdHVyZVJlcXVlc3Q=');
+
+@$core.Deprecated('Use gestureReplyDescriptor instead')
+const GestureReply$json = {
+  '1': 'GestureReply',
+  '2': [
+    {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
+  ],
+};
+
+/// Descriptor for `GestureReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List gestureReplyDescriptor = $convert.base64Decode(
+    'CgxHZXN0dXJlUmVwbHkSDgoCb2sYASABKAhSAm9r');
+
+@$core.Deprecated('Use cursorOffsetDescriptor instead')
+const CursorOffset$json = {
+  '1': 'CursorOffset',
+  '2': [
+    {'1': 'dx', '3': 1, '4': 1, '5': 1, '10': 'dx'},
+    {'1': 'dy', '3': 2, '4': 1, '5': 1, '10': 'dy'},
+    {'1': 'coefficientX', '3': 3, '4': 1, '5': 1, '10': 'coefficientX'},
+    {'1': 'coefficientY', '3': 4, '4': 1, '5': 1, '10': 'coefficientY'},
+  ],
+};
+
+/// Descriptor for `CursorOffset`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List cursorOffsetDescriptor = $convert.base64Decode(
+    'CgxDdXJzb3JPZmZzZXQSDgoCZHgYASABKAFSAmR4Eg4KAmR5GAIgASgBUgJkeRIiCgxjb2VmZm'
+    'ljaWVudFgYAyABKAFSDGNvZWZmaWNpZW50WBIiCgxjb2VmZmljaWVudFkYBCABKAFSDGNvZWZm'
+    'aWNpZW50WQ==');
+
+@$core.Deprecated('Use cursorOffsetReplyDescriptor instead')
+const CursorOffsetReply$json = {
+  '1': 'CursorOffsetReply',
+  '2': [
+    {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
+  ],
+};
+
+/// Descriptor for `CursorOffsetReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List cursorOffsetReplyDescriptor = $convert.base64Decode(
+    'ChFDdXJzb3JPZmZzZXRSZXBseRIOCgJvaxgBIAEoCFICb2s=');
 
