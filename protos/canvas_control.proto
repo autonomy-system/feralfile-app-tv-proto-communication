@@ -22,8 +22,14 @@ service CanvasControl {
   // Client request to cast a single artwork
   rpc CastSingleArtwork (CastSingleRequest) returns (CastSingleReply) {}
 
+  // Client request to cast a collection
+  rpc CastCollection (CastCollectionRequest) returns (CastCollectionReply) {}
+
   // Client request uncast a single artwork
   rpc UncastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
+
+  // Client request unCast single/collection
+  rpc UnCastArtwork (UnCastRequest) returns (UnCastReply) {}
 
   // Client press keyboard
   rpc KeyboardEvent (KeyboardEventRequest) returns (KeyboardEventReply) {}
@@ -91,12 +97,41 @@ message CastSingleReply {
   bool ok = 1;
 }
 
+message PlayArtwork {
+  // tokenId
+  string id = 1;
+  // duration in seconds
+  int32 duration = 2;
+}
+
+message CastCollectionRequest {
+  // collection id
+  string id = 1;
+  // artworks
+  repeated PlayArtwork artworks = 2;
+}
+
+message CastCollectionReply {
+  bool ok = 1;
+}
+
+
 message UncastSingleRequest {
   // tokenId
   string id = 1;
 }
 
 message UncastSingleReply {
+  bool ok = 1;
+}
+
+
+message UnCastRequest {
+  // tokenId/Collection Id
+  string id = 1;
+}
+
+message UnCastReply {
   bool ok = 1;
 }
 
