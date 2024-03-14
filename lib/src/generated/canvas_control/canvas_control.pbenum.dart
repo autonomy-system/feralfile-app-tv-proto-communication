@@ -13,6 +13,29 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
+class DeviceInfo_DevicePlatform extends $pb.ProtobufEnum {
+  static const DeviceInfo_DevicePlatform IOS = DeviceInfo_DevicePlatform._(0, _omitEnumNames ? '' : 'IOS');
+  static const DeviceInfo_DevicePlatform ANDROID = DeviceInfo_DevicePlatform._(1, _omitEnumNames ? '' : 'ANDROID');
+  static const DeviceInfo_DevicePlatform MACOS = DeviceInfo_DevicePlatform._(2, _omitEnumNames ? '' : 'MACOS');
+  static const DeviceInfo_DevicePlatform TIZENTV = DeviceInfo_DevicePlatform._(3, _omitEnumNames ? '' : 'TIZENTV');
+  static const DeviceInfo_DevicePlatform ANDROIDTV = DeviceInfo_DevicePlatform._(4, _omitEnumNames ? '' : 'ANDROIDTV');
+  static const DeviceInfo_DevicePlatform LGTV = DeviceInfo_DevicePlatform._(5, _omitEnumNames ? '' : 'LGTV');
+
+  static const $core.List<DeviceInfo_DevicePlatform> values = <DeviceInfo_DevicePlatform> [
+    IOS,
+    ANDROID,
+    MACOS,
+    TIZENTV,
+    ANDROIDTV,
+    LGTV,
+  ];
+
+  static final $core.Map<$core.int, DeviceInfo_DevicePlatform> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static DeviceInfo_DevicePlatform? valueOf($core.int value) => _byValue[value];
+
+  const DeviceInfo_DevicePlatform._($core.int v, $core.String n) : super(v, n);
+}
+
 class ResponseStatus_ServingStatus extends $pb.ProtobufEnum {
   static const ResponseStatus_ServingStatus UNKNOWN = ResponseStatus_ServingStatus._(0, _omitEnumNames ? '' : 'UNKNOWN');
   static const ResponseStatus_ServingStatus SERVING = ResponseStatus_ServingStatus._(1, _omitEnumNames ? '' : 'SERVING');

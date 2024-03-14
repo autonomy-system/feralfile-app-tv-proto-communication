@@ -25,14 +25,14 @@ class CanvasControlClient extends $grpc.Client {
       '/canvas_control.CanvasControl/Connect',
       ($0.ConnectRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.ConnectReply.fromBuffer(value));
-  static final _$status = $grpc.ClientMethod<$0.CheckingStatus, $0.ResponseStatus>(
-      '/canvas_control.CanvasControl/Status',
-      ($0.CheckingStatus value) => value.writeToBuffer(),
-      ($core.List<$core.int> value) => $0.ResponseStatus.fromBuffer(value));
   static final _$disconnect = $grpc.ClientMethod<$0.DisconnectRequest, $0.Empty>(
       '/canvas_control.CanvasControl/Disconnect',
       ($0.DisconnectRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.Empty.fromBuffer(value));
+  static final _$status = $grpc.ClientMethod<$0.CheckingStatus, $0.ResponseStatus>(
+      '/canvas_control.CanvasControl/Status',
+      ($0.CheckingStatus value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.ResponseStatus.fromBuffer(value));
   static final _$castSingleArtwork = $grpc.ClientMethod<$0.CastSingleRequest, $0.CastSingleReply>(
       '/canvas_control.CanvasControl/CastSingleArtwork',
       ($0.CastSingleRequest value) => value.writeToBuffer(),
@@ -49,6 +49,42 @@ class CanvasControlClient extends $grpc.Client {
       '/canvas_control.CanvasControl/UnCastArtwork',
       ($0.UnCastRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.UnCastReply.fromBuffer(value));
+  static final _$castListArtwork = $grpc.ClientMethod<$0.CastListArtworkRequest, $0.CastListArtworkReply>(
+      '/canvas_control.CanvasControl/CastListArtwork',
+      ($0.CastListArtworkRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CastListArtworkReply.fromBuffer(value));
+  static final _$cancelCasting = $grpc.ClientMethod<$0.CancelCastingRequest, $0.CancelCastingReply>(
+      '/canvas_control.CanvasControl/CancelCasting',
+      ($0.CancelCastingRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CancelCastingReply.fromBuffer(value));
+  static final _$appendListArtwork = $grpc.ClientMethod<$0.AppendArtworkToCastingListRequest, $0.AppendArtworkToCastingListReply>(
+      '/canvas_control.CanvasControl/AppendListArtwork',
+      ($0.AppendArtworkToCastingListRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.AppendArtworkToCastingListReply.fromBuffer(value));
+  static final _$pauseCasting = $grpc.ClientMethod<$0.PauseCastingRequest, $0.PauseCastingReply>(
+      '/canvas_control.CanvasControl/PauseCasting',
+      ($0.PauseCastingRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.PauseCastingReply.fromBuffer(value));
+  static final _$resumeCasting = $grpc.ClientMethod<$0.ResumeCastingRequest, $0.ResumeCastingReply>(
+      '/canvas_control.CanvasControl/ResumeCasting',
+      ($0.ResumeCastingRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.ResumeCastingReply.fromBuffer(value));
+  static final _$nextArtwork = $grpc.ClientMethod<$0.NextArtworkRequest, $0.NextArtworkReply>(
+      '/canvas_control.CanvasControl/NextArtwork',
+      ($0.NextArtworkRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.NextArtworkReply.fromBuffer(value));
+  static final _$previousArtwork = $grpc.ClientMethod<$0.PreviousArtwortRequest, $0.PreviousArtworkReply>(
+      '/canvas_control.CanvasControl/PreviousArtwork',
+      ($0.PreviousArtwortRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.PreviousArtworkReply.fromBuffer(value));
+  static final _$updateDuration = $grpc.ClientMethod<$0.UpdateDurationRequest, $0.UpdateDurationReply>(
+      '/canvas_control.CanvasControl/UpdateDuration',
+      ($0.UpdateDurationRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.UpdateDurationReply.fromBuffer(value));
+  static final _$castExhibition = $grpc.ClientMethod<$0.CastExhibitionRequest, $0.CastExhibitionReply>(
+      '/canvas_control.CanvasControl/CastExhibition',
+      ($0.CastExhibitionRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CastExhibitionReply.fromBuffer(value));
   static final _$keyboardEvent = $grpc.ClientMethod<$0.KeyboardEventRequest, $0.KeyboardEventReply>(
       '/canvas_control.CanvasControl/KeyboardEvent',
       ($0.KeyboardEventRequest value) => value.writeToBuffer(),
@@ -84,12 +120,12 @@ class CanvasControlClient extends $grpc.Client {
     return $createUnaryCall(_$connect, request, options: options);
   }
 
-  $grpc.ResponseFuture<$0.ResponseStatus> status($0.CheckingStatus request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$status, request, options: options);
-  }
-
   $grpc.ResponseFuture<$0.Empty> disconnect($0.DisconnectRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$disconnect, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.ResponseStatus> status($0.CheckingStatus request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$status, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.CastSingleReply> castSingleArtwork($0.CastSingleRequest request, {$grpc.CallOptions? options}) {
@@ -106,6 +142,42 @@ class CanvasControlClient extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.UnCastReply> unCastArtwork($0.UnCastRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$unCastArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CastListArtworkReply> castListArtwork($0.CastListArtworkRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$castListArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CancelCastingReply> cancelCasting($0.CancelCastingRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$cancelCasting, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.AppendArtworkToCastingListReply> appendListArtwork($0.AppendArtworkToCastingListRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$appendListArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.PauseCastingReply> pauseCasting($0.PauseCastingRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$pauseCasting, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.ResumeCastingReply> resumeCasting($0.ResumeCastingRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$resumeCasting, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.NextArtworkReply> nextArtwork($0.NextArtworkRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$nextArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.PreviousArtworkReply> previousArtwork($0.PreviousArtwortRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$previousArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.UpdateDurationReply> updateDuration($0.UpdateDurationRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$updateDuration, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CastExhibitionReply> castExhibition($0.CastExhibitionRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$castExhibition, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.KeyboardEventReply> keyboardEvent($0.KeyboardEventRequest request, {$grpc.CallOptions? options}) {
@@ -145,13 +217,6 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.ConnectRequest.fromBuffer(value),
         ($0.ConnectReply value) => value.writeToBuffer()));
-    $addMethod($grpc.ServiceMethod<$0.CheckingStatus, $0.ResponseStatus>(
-        'Status',
-        status_Pre,
-        false,
-        false,
-        ($core.List<$core.int> value) => $0.CheckingStatus.fromBuffer(value),
-        ($0.ResponseStatus value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.DisconnectRequest, $0.Empty>(
         'Disconnect',
         disconnect_Pre,
@@ -159,6 +224,13 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.DisconnectRequest.fromBuffer(value),
         ($0.Empty value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CheckingStatus, $0.ResponseStatus>(
+        'Status',
+        status_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CheckingStatus.fromBuffer(value),
+        ($0.ResponseStatus value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CastSingleRequest, $0.CastSingleReply>(
         'CastSingleArtwork',
         castSingleArtwork_Pre,
@@ -187,6 +259,69 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.UnCastRequest.fromBuffer(value),
         ($0.UnCastReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CastListArtworkRequest, $0.CastListArtworkReply>(
+        'CastListArtwork',
+        castListArtwork_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CastListArtworkRequest.fromBuffer(value),
+        ($0.CastListArtworkReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CancelCastingRequest, $0.CancelCastingReply>(
+        'CancelCasting',
+        cancelCasting_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CancelCastingRequest.fromBuffer(value),
+        ($0.CancelCastingReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.AppendArtworkToCastingListRequest, $0.AppendArtworkToCastingListReply>(
+        'AppendListArtwork',
+        appendListArtwork_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.AppendArtworkToCastingListRequest.fromBuffer(value),
+        ($0.AppendArtworkToCastingListReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.PauseCastingRequest, $0.PauseCastingReply>(
+        'PauseCasting',
+        pauseCasting_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.PauseCastingRequest.fromBuffer(value),
+        ($0.PauseCastingReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.ResumeCastingRequest, $0.ResumeCastingReply>(
+        'ResumeCasting',
+        resumeCasting_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ResumeCastingRequest.fromBuffer(value),
+        ($0.ResumeCastingReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.NextArtworkRequest, $0.NextArtworkReply>(
+        'NextArtwork',
+        nextArtwork_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.NextArtworkRequest.fromBuffer(value),
+        ($0.NextArtworkReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.PreviousArtwortRequest, $0.PreviousArtworkReply>(
+        'PreviousArtwork',
+        previousArtwork_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.PreviousArtwortRequest.fromBuffer(value),
+        ($0.PreviousArtworkReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.UpdateDurationRequest, $0.UpdateDurationReply>(
+        'UpdateDuration',
+        updateDuration_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.UpdateDurationRequest.fromBuffer(value),
+        ($0.UpdateDurationReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CastExhibitionRequest, $0.CastExhibitionReply>(
+        'CastExhibition',
+        castExhibition_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CastExhibitionRequest.fromBuffer(value),
+        ($0.CastExhibitionReply value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.KeyboardEventRequest, $0.KeyboardEventReply>(
         'KeyboardEvent',
         keyboardEvent_Pre,
@@ -231,69 +366,114 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         ($0.CursorOffsetReply value) => value.writeToBuffer()));
   }
 
-  $async.FutureOr<$0.ConnectReply> connect_Pre($grpc.ServiceCall call, $async.FutureOr<$0.ConnectRequest> request) async {
+  $async.Future<$0.ConnectReply> connect_Pre($grpc.ServiceCall call, $async.Future<$0.ConnectRequest> request) async {
     return connect(call, await request);
   }
 
-  $async.FutureOr<$0.ResponseStatus> status_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CheckingStatus> request) async {
-    return status(call, await request);
-  }
-
-  $async.FutureOr<$0.Empty> disconnect_Pre($grpc.ServiceCall call, $async.FutureOr<$0.DisconnectRequest> request) async {
+  $async.Future<$0.Empty> disconnect_Pre($grpc.ServiceCall call, $async.Future<$0.DisconnectRequest> request) async {
     return disconnect(call, await request);
   }
 
-  $async.FutureOr<$0.CastSingleReply> castSingleArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CastSingleRequest> request) async {
+  $async.Future<$0.ResponseStatus> status_Pre($grpc.ServiceCall call, $async.Future<$0.CheckingStatus> request) async {
+    return status(call, await request);
+  }
+
+  $async.Future<$0.CastSingleReply> castSingleArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.CastSingleRequest> request) async {
     return castSingleArtwork(call, await request);
   }
 
-  $async.FutureOr<$0.CastCollectionReply> castCollection_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CastCollectionRequest> request) async {
+  $async.Future<$0.CastCollectionReply> castCollection_Pre($grpc.ServiceCall call, $async.Future<$0.CastCollectionRequest> request) async {
     return castCollection(call, await request);
   }
 
-  $async.FutureOr<$0.UncastSingleReply> uncastSingleArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UncastSingleRequest> request) async {
+  $async.Future<$0.UncastSingleReply> uncastSingleArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.UncastSingleRequest> request) async {
     return uncastSingleArtwork(call, await request);
   }
 
-  $async.FutureOr<$0.UnCastReply> unCastArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UnCastRequest> request) async {
+  $async.Future<$0.UnCastReply> unCastArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.UnCastRequest> request) async {
     return unCastArtwork(call, await request);
   }
 
-  $async.FutureOr<$0.KeyboardEventReply> keyboardEvent_Pre($grpc.ServiceCall call, $async.FutureOr<$0.KeyboardEventRequest> request) async {
+  $async.Future<$0.CastListArtworkReply> castListArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.CastListArtworkRequest> request) async {
+    return castListArtwork(call, await request);
+  }
+
+  $async.Future<$0.CancelCastingReply> cancelCasting_Pre($grpc.ServiceCall call, $async.Future<$0.CancelCastingRequest> request) async {
+    return cancelCasting(call, await request);
+  }
+
+  $async.Future<$0.AppendArtworkToCastingListReply> appendListArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.AppendArtworkToCastingListRequest> request) async {
+    return appendListArtwork(call, await request);
+  }
+
+  $async.Future<$0.PauseCastingReply> pauseCasting_Pre($grpc.ServiceCall call, $async.Future<$0.PauseCastingRequest> request) async {
+    return pauseCasting(call, await request);
+  }
+
+  $async.Future<$0.ResumeCastingReply> resumeCasting_Pre($grpc.ServiceCall call, $async.Future<$0.ResumeCastingRequest> request) async {
+    return resumeCasting(call, await request);
+  }
+
+  $async.Future<$0.NextArtworkReply> nextArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.NextArtworkRequest> request) async {
+    return nextArtwork(call, await request);
+  }
+
+  $async.Future<$0.PreviousArtworkReply> previousArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.PreviousArtwortRequest> request) async {
+    return previousArtwork(call, await request);
+  }
+
+  $async.Future<$0.UpdateDurationReply> updateDuration_Pre($grpc.ServiceCall call, $async.Future<$0.UpdateDurationRequest> request) async {
+    return updateDuration(call, await request);
+  }
+
+  $async.Future<$0.CastExhibitionReply> castExhibition_Pre($grpc.ServiceCall call, $async.Future<$0.CastExhibitionRequest> request) async {
+    return castExhibition(call, await request);
+  }
+
+  $async.Future<$0.KeyboardEventReply> keyboardEvent_Pre($grpc.ServiceCall call, $async.Future<$0.KeyboardEventRequest> request) async {
     return keyboardEvent(call, await request);
   }
 
-  $async.FutureOr<$0.RotateReply> rotate_Pre($grpc.ServiceCall call, $async.FutureOr<$0.RotateRequest> request) async {
+  $async.Future<$0.RotateReply> rotate_Pre($grpc.ServiceCall call, $async.Future<$0.RotateRequest> request) async {
     return rotate(call, await request);
   }
 
-  $async.FutureOr<$0.GestureReply> tapGesture_Pre($grpc.ServiceCall call, $async.FutureOr<$0.TapGestureRequest> request) async {
+  $async.Future<$0.GestureReply> tapGesture_Pre($grpc.ServiceCall call, $async.Future<$0.TapGestureRequest> request) async {
     return tapGesture(call, await request);
   }
 
-  $async.FutureOr<$0.GestureReply> dragGesture_Pre($grpc.ServiceCall call, $async.FutureOr<$0.DragGestureRequest> request) async {
+  $async.Future<$0.GestureReply> dragGesture_Pre($grpc.ServiceCall call, $async.Future<$0.DragGestureRequest> request) async {
     return dragGesture(call, await request);
   }
 
-  $async.FutureOr<$0.CursorOffset> getCursorOffset_Pre($grpc.ServiceCall call, $async.FutureOr<$0.Empty> request) async {
+  $async.Future<$0.CursorOffset> getCursorOffset_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getCursorOffset(call, await request);
   }
 
-  $async.FutureOr<$0.CursorOffsetReply> setCursorOffset_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CursorOffset> request) async {
+  $async.Future<$0.CursorOffsetReply> setCursorOffset_Pre($grpc.ServiceCall call, $async.Future<$0.CursorOffset> request) async {
     return setCursorOffset(call, await request);
   }
 
-  $async.FutureOr<$0.ConnectReply> connect($grpc.ServiceCall call, $0.ConnectRequest request);
-  $async.FutureOr<$0.ResponseStatus> status($grpc.ServiceCall call, $0.CheckingStatus request);
-  $async.FutureOr<$0.Empty> disconnect($grpc.ServiceCall call, $0.DisconnectRequest request);
-  $async.FutureOr<$0.CastSingleReply> castSingleArtwork($grpc.ServiceCall call, $0.CastSingleRequest request);
-  $async.FutureOr<$0.CastCollectionReply> castCollection($grpc.ServiceCall call, $0.CastCollectionRequest request);
-  $async.FutureOr<$0.UncastSingleReply> uncastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
-  $async.FutureOr<$0.UnCastReply> unCastArtwork($grpc.ServiceCall call, $0.UnCastRequest request);
-  $async.FutureOr<$0.KeyboardEventReply> keyboardEvent($grpc.ServiceCall call, $0.KeyboardEventRequest request);
-  $async.FutureOr<$0.RotateReply> rotate($grpc.ServiceCall call, $0.RotateRequest request);
-  $async.FutureOr<$0.GestureReply> tapGesture($grpc.ServiceCall call, $0.TapGestureRequest request);
-  $async.FutureOr<$0.GestureReply> dragGesture($grpc.ServiceCall call, $0.DragGestureRequest request);
-  $async.FutureOr<$0.CursorOffset> getCursorOffset($grpc.ServiceCall call, $0.Empty request);
-  $async.FutureOr<$0.CursorOffsetReply> setCursorOffset($grpc.ServiceCall call, $0.CursorOffset request);
+  $async.Future<$0.ConnectReply> connect($grpc.ServiceCall call, $0.ConnectRequest request);
+  $async.Future<$0.Empty> disconnect($grpc.ServiceCall call, $0.DisconnectRequest request);
+  $async.Future<$0.ResponseStatus> status($grpc.ServiceCall call, $0.CheckingStatus request);
+  $async.Future<$0.CastSingleReply> castSingleArtwork($grpc.ServiceCall call, $0.CastSingleRequest request);
+  $async.Future<$0.CastCollectionReply> castCollection($grpc.ServiceCall call, $0.CastCollectionRequest request);
+  $async.Future<$0.UncastSingleReply> uncastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
+  $async.Future<$0.UnCastReply> unCastArtwork($grpc.ServiceCall call, $0.UnCastRequest request);
+  $async.Future<$0.CastListArtworkReply> castListArtwork($grpc.ServiceCall call, $0.CastListArtworkRequest request);
+  $async.Future<$0.CancelCastingReply> cancelCasting($grpc.ServiceCall call, $0.CancelCastingRequest request);
+  $async.Future<$0.AppendArtworkToCastingListReply> appendListArtwork($grpc.ServiceCall call, $0.AppendArtworkToCastingListRequest request);
+  $async.Future<$0.PauseCastingReply> pauseCasting($grpc.ServiceCall call, $0.PauseCastingRequest request);
+  $async.Future<$0.ResumeCastingReply> resumeCasting($grpc.ServiceCall call, $0.ResumeCastingRequest request);
+  $async.Future<$0.NextArtworkReply> nextArtwork($grpc.ServiceCall call, $0.NextArtworkRequest request);
+  $async.Future<$0.PreviousArtworkReply> previousArtwork($grpc.ServiceCall call, $0.PreviousArtwortRequest request);
+  $async.Future<$0.UpdateDurationReply> updateDuration($grpc.ServiceCall call, $0.UpdateDurationRequest request);
+  $async.Future<$0.CastExhibitionReply> castExhibition($grpc.ServiceCall call, $0.CastExhibitionRequest request);
+  $async.Future<$0.KeyboardEventReply> keyboardEvent($grpc.ServiceCall call, $0.KeyboardEventRequest request);
+  $async.Future<$0.RotateReply> rotate($grpc.ServiceCall call, $0.RotateRequest request);
+  $async.Future<$0.GestureReply> tapGesture($grpc.ServiceCall call, $0.TapGestureRequest request);
+  $async.Future<$0.GestureReply> dragGesture($grpc.ServiceCall call, $0.DragGestureRequest request);
+  $async.Future<$0.CursorOffset> getCursorOffset($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.CursorOffsetReply> setCursorOffset($grpc.ServiceCall call, $0.CursorOffset request);
 }

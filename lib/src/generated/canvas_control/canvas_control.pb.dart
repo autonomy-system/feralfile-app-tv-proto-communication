@@ -11,6 +11,7 @@
 
 import 'dart:core' as $core;
 
+import 'package:fixnum/fixnum.dart' as $fixnum;
 import 'package:protobuf/protobuf.dart' as $pb;
 
 import 'canvas_control.pbenum.dart';
@@ -73,6 +74,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
   factory DeviceInfo({
     $core.String? deviceId,
     $core.String? deviceName,
+    DeviceInfo_DevicePlatform? platform,
   }) {
     final $result = create();
     if (deviceId != null) {
@@ -80,6 +82,9 @@ class DeviceInfo extends $pb.GeneratedMessage {
     }
     if (deviceName != null) {
       $result.deviceName = deviceName;
+    }
+    if (platform != null) {
+      $result.platform = platform;
     }
     return $result;
   }
@@ -90,6 +95,7 @@ class DeviceInfo extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DeviceInfo', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'deviceId')
     ..aOS(2, _omitFieldNames ? '' : 'deviceName')
+    ..e<DeviceInfo_DevicePlatform>(3, _omitFieldNames ? '' : 'platform', $pb.PbFieldType.OE, defaultOrMaker: DeviceInfo_DevicePlatform.IOS, valueOf: DeviceInfo_DevicePlatform.valueOf, enumValues: DeviceInfo_DevicePlatform.values)
     ..hasRequiredFields = false
   ;
 
@@ -133,15 +139,29 @@ class DeviceInfo extends $pb.GeneratedMessage {
   $core.bool hasDeviceName() => $_has(1);
   @$pb.TagNumber(2)
   void clearDeviceName() => clearField(2);
+
+  /// Device platform
+  @$pb.TagNumber(3)
+  DeviceInfo_DevicePlatform get platform => $_getN(2);
+  @$pb.TagNumber(3)
+  set platform(DeviceInfo_DevicePlatform v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasPlatform() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearPlatform() => clearField(3);
 }
 
 class ConnectReply extends $pb.GeneratedMessage {
   factory ConnectReply({
     $core.bool? ok,
+    DeviceInfo? canvasDevice,
   }) {
     final $result = create();
     if (ok != null) {
       $result.ok = ok;
+    }
+    if (canvasDevice != null) {
+      $result.canvasDevice = canvasDevice;
     }
     return $result;
   }
@@ -151,6 +171,7 @@ class ConnectReply extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ConnectReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..aOM<DeviceInfo>(2, _omitFieldNames ? '' : 'canvasDevice', protoName: 'canvasDevice', subBuilder: DeviceInfo.create)
     ..hasRequiredFields = false
   ;
 
@@ -174,6 +195,119 @@ class ConnectReply extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static ConnectReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ConnectReply>(create);
   static ConnectReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+
+  /// Canvas device info
+  @$pb.TagNumber(2)
+  DeviceInfo get canvasDevice => $_getN(1);
+  @$pb.TagNumber(2)
+  set canvasDevice(DeviceInfo v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasCanvasDevice() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearCanvasDevice() => clearField(2);
+  @$pb.TagNumber(2)
+  DeviceInfo ensureCanvasDevice() => $_ensure(1);
+}
+
+class DisconnectRequest extends $pb.GeneratedMessage {
+  factory DisconnectRequest({
+    $core.String? deviceId,
+  }) {
+    final $result = create();
+    if (deviceId != null) {
+      $result.deviceId = deviceId;
+    }
+    return $result;
+  }
+  DisconnectRequest._() : super();
+  factory DisconnectRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DisconnectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisconnectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'deviceId')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DisconnectRequest clone() => DisconnectRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DisconnectRequest copyWith(void Function(DisconnectRequest) updates) => super.copyWith((message) => updates(message as DisconnectRequest)) as DisconnectRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DisconnectRequest create() => DisconnectRequest._();
+  DisconnectRequest createEmptyInstance() => create();
+  static $pb.PbList<DisconnectRequest> createRepeated() => $pb.PbList<DisconnectRequest>();
+  @$core.pragma('dart2js:noInline')
+  static DisconnectRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisconnectRequest>(create);
+  static DisconnectRequest? _defaultInstance;
+
+  /// Client device did key
+  @$pb.TagNumber(1)
+  $core.String get deviceId => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set deviceId($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasDeviceId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearDeviceId() => clearField(1);
+}
+
+class DisconnectReply extends $pb.GeneratedMessage {
+  factory DisconnectReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  DisconnectReply._() : super();
+  factory DisconnectReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory DisconnectReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisconnectReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  DisconnectReply clone() => DisconnectReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  DisconnectReply copyWith(void Function(DisconnectReply) updates) => super.copyWith((message) => updates(message as DisconnectReply)) as DisconnectReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static DisconnectReply create() => DisconnectReply._();
+  DisconnectReply createEmptyInstance() => create();
+  static $pb.PbList<DisconnectReply> createRepeated() => $pb.PbList<DisconnectReply>();
+  @$core.pragma('dart2js:noInline')
+  static DisconnectReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisconnectReply>(create);
+  static DisconnectReply? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get ok => $_getBF(0);
@@ -301,107 +435,6 @@ class ResponseStatus extends $pb.GeneratedMessage {
   void clearSceneId() => clearField(2);
 }
 
-class DisconnectRequest extends $pb.GeneratedMessage {
-  factory DisconnectRequest({
-    $core.String? deviceId,
-  }) {
-    final $result = create();
-    if (deviceId != null) {
-      $result.deviceId = deviceId;
-    }
-    return $result;
-  }
-  DisconnectRequest._() : super();
-  factory DisconnectRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DisconnectRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisconnectRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'deviceId')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DisconnectRequest clone() => DisconnectRequest()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DisconnectRequest copyWith(void Function(DisconnectRequest) updates) => super.copyWith((message) => updates(message as DisconnectRequest)) as DisconnectRequest;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DisconnectRequest create() => DisconnectRequest._();
-  DisconnectRequest createEmptyInstance() => create();
-  static $pb.PbList<DisconnectRequest> createRepeated() => $pb.PbList<DisconnectRequest>();
-  @$core.pragma('dart2js:noInline')
-  static DisconnectRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisconnectRequest>(create);
-  static DisconnectRequest? _defaultInstance;
-
-  /// Client device did key
-  @$pb.TagNumber(1)
-  $core.String get deviceId => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set deviceId($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasDeviceId() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearDeviceId() => clearField(1);
-}
-
-class DisconnectReply extends $pb.GeneratedMessage {
-  factory DisconnectReply({
-    $core.String? message,
-  }) {
-    final $result = create();
-    if (message != null) {
-      $result.message = message;
-    }
-    return $result;
-  }
-  DisconnectReply._() : super();
-  factory DisconnectReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory DisconnectReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'DisconnectReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'message')
-    ..hasRequiredFields = false
-  ;
-
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  DisconnectReply clone() => DisconnectReply()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  DisconnectReply copyWith(void Function(DisconnectReply) updates) => super.copyWith((message) => updates(message as DisconnectReply)) as DisconnectReply;
-
-  $pb.BuilderInfo get info_ => _i;
-
-  @$core.pragma('dart2js:noInline')
-  static DisconnectReply create() => DisconnectReply._();
-  DisconnectReply createEmptyInstance() => create();
-  static $pb.PbList<DisconnectReply> createRepeated() => $pb.PbList<DisconnectReply>();
-  @$core.pragma('dart2js:noInline')
-  static DisconnectReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<DisconnectReply>(create);
-  static DisconnectReply? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  $core.String get message => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set message($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasMessage() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearMessage() => clearField(1);
-}
-
 class CastSingleRequest extends $pb.GeneratedMessage {
   factory CastSingleRequest({
     $core.String? id,
@@ -523,6 +556,7 @@ class PlayArtwork extends $pb.GeneratedMessage {
   factory PlayArtwork({
     $core.String? id,
     $core.int? duration,
+    CastArtwork? artwork,
   }) {
     final $result = create();
     if (id != null) {
@@ -530,6 +564,9 @@ class PlayArtwork extends $pb.GeneratedMessage {
     }
     if (duration != null) {
       $result.duration = duration;
+    }
+    if (artwork != null) {
+      $result.artwork = artwork;
     }
     return $result;
   }
@@ -540,6 +577,7 @@ class PlayArtwork extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PlayArtwork', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'id')
     ..a<$core.int>(2, _omitFieldNames ? '' : 'duration', $pb.PbFieldType.O3)
+    ..aOM<CastArtwork>(3, _omitFieldNames ? '' : 'artwork', subBuilder: CastArtwork.create)
     ..hasRequiredFields = false
   ;
 
@@ -583,6 +621,18 @@ class PlayArtwork extends $pb.GeneratedMessage {
   $core.bool hasDuration() => $_has(1);
   @$pb.TagNumber(2)
   void clearDuration() => clearField(2);
+
+  /// artwork: play with url and mimeType, has lower priority than token.
+  @$pb.TagNumber(3)
+  CastArtwork get artwork => $_getN(2);
+  @$pb.TagNumber(3)
+  set artwork(CastArtwork v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasArtwork() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearArtwork() => clearField(3);
+  @$pb.TagNumber(3)
+  CastArtwork ensureArtwork() => $_ensure(2);
 }
 
 class CastCollectionRequest extends $pb.GeneratedMessage {
@@ -684,6 +734,987 @@ class CastCollectionReply extends $pb.GeneratedMessage {
   @$core.pragma('dart2js:noInline')
   static CastCollectionReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastCollectionReply>(create);
   static CastCollectionReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class CastAssetToken extends $pb.GeneratedMessage {
+  factory CastAssetToken({
+    $core.String? id,
+  }) {
+    final $result = create();
+    if (id != null) {
+      $result.id = id;
+    }
+    return $result;
+  }
+  CastAssetToken._() : super();
+  factory CastAssetToken.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CastAssetToken.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastAssetToken', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CastAssetToken clone() => CastAssetToken()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CastAssetToken copyWith(void Function(CastAssetToken) updates) => super.copyWith((message) => updates(message as CastAssetToken)) as CastAssetToken;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CastAssetToken create() => CastAssetToken._();
+  CastAssetToken createEmptyInstance() => create();
+  static $pb.PbList<CastAssetToken> createRepeated() => $pb.PbList<CastAssetToken>();
+  @$core.pragma('dart2js:noInline')
+  static CastAssetToken getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastAssetToken>(create);
+  static CastAssetToken? _defaultInstance;
+
+  /// indexId
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class CastArtwork extends $pb.GeneratedMessage {
+  factory CastArtwork({
+    $core.String? previewUrl,
+    $core.String? mimetype,
+  }) {
+    final $result = create();
+    if (previewUrl != null) {
+      $result.previewUrl = previewUrl;
+    }
+    if (mimetype != null) {
+      $result.mimetype = mimetype;
+    }
+    return $result;
+  }
+  CastArtwork._() : super();
+  factory CastArtwork.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CastArtwork.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastArtwork', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'previewUrl', protoName: 'previewUrl')
+    ..aOS(2, _omitFieldNames ? '' : 'mimetype')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CastArtwork clone() => CastArtwork()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CastArtwork copyWith(void Function(CastArtwork) updates) => super.copyWith((message) => updates(message as CastArtwork)) as CastArtwork;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CastArtwork create() => CastArtwork._();
+  CastArtwork createEmptyInstance() => create();
+  static $pb.PbList<CastArtwork> createRepeated() => $pb.PbList<CastArtwork>();
+  @$core.pragma('dart2js:noInline')
+  static CastArtwork getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastArtwork>(create);
+  static CastArtwork? _defaultInstance;
+
+  /// artwork previewUrl
+  @$pb.TagNumber(1)
+  $core.String get previewUrl => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set previewUrl($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasPreviewUrl() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearPreviewUrl() => clearField(1);
+
+  /// artwork mimetype
+  @$pb.TagNumber(2)
+  $core.String get mimetype => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set mimetype($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasMimetype() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearMimetype() => clearField(2);
+}
+
+class CastListArtworkRequest extends $pb.GeneratedMessage {
+  factory CastListArtworkRequest({
+    $core.Iterable<PlayArtwork>? artworks,
+    $core.String? startTime,
+  }) {
+    final $result = create();
+    if (artworks != null) {
+      $result.artworks.addAll(artworks);
+    }
+    if (startTime != null) {
+      $result.startTime = startTime;
+    }
+    return $result;
+  }
+  CastListArtworkRequest._() : super();
+  factory CastListArtworkRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CastListArtworkRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastListArtworkRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..pc<PlayArtwork>(1, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtwork.create)
+    ..aOS(2, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CastListArtworkRequest clone() => CastListArtworkRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CastListArtworkRequest copyWith(void Function(CastListArtworkRequest) updates) => super.copyWith((message) => updates(message as CastListArtworkRequest)) as CastListArtworkRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CastListArtworkRequest create() => CastListArtworkRequest._();
+  CastListArtworkRequest createEmptyInstance() => create();
+  static $pb.PbList<CastListArtworkRequest> createRepeated() => $pb.PbList<CastListArtworkRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CastListArtworkRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastListArtworkRequest>(create);
+  static CastListArtworkRequest? _defaultInstance;
+
+  /// artworks
+  @$pb.TagNumber(1)
+  $core.List<PlayArtwork> get artworks => $_getList(0);
+
+  /// casting start time
+  @$pb.TagNumber(2)
+  $core.String get startTime => $_getSZ(1);
+  @$pb.TagNumber(2)
+  set startTime($core.String v) { $_setString(1, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasStartTime() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearStartTime() => clearField(2);
+}
+
+class CastListArtworkReply extends $pb.GeneratedMessage {
+  factory CastListArtworkReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  CastListArtworkReply._() : super();
+  factory CastListArtworkReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CastListArtworkReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastListArtworkReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CastListArtworkReply clone() => CastListArtworkReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CastListArtworkReply copyWith(void Function(CastListArtworkReply) updates) => super.copyWith((message) => updates(message as CastListArtworkReply)) as CastListArtworkReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CastListArtworkReply create() => CastListArtworkReply._();
+  CastListArtworkReply createEmptyInstance() => create();
+  static $pb.PbList<CastListArtworkReply> createRepeated() => $pb.PbList<CastListArtworkReply>();
+  @$core.pragma('dart2js:noInline')
+  static CastListArtworkReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastListArtworkReply>(create);
+  static CastListArtworkReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class CancelCastingRequest extends $pb.GeneratedMessage {
+  factory CancelCastingRequest() => create();
+  CancelCastingRequest._() : super();
+  factory CancelCastingRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CancelCastingRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CancelCastingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CancelCastingRequest clone() => CancelCastingRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CancelCastingRequest copyWith(void Function(CancelCastingRequest) updates) => super.copyWith((message) => updates(message as CancelCastingRequest)) as CancelCastingRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CancelCastingRequest create() => CancelCastingRequest._();
+  CancelCastingRequest createEmptyInstance() => create();
+  static $pb.PbList<CancelCastingRequest> createRepeated() => $pb.PbList<CancelCastingRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CancelCastingRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CancelCastingRequest>(create);
+  static CancelCastingRequest? _defaultInstance;
+}
+
+class CancelCastingReply extends $pb.GeneratedMessage {
+  factory CancelCastingReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  CancelCastingReply._() : super();
+  factory CancelCastingReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CancelCastingReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CancelCastingReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CancelCastingReply clone() => CancelCastingReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CancelCastingReply copyWith(void Function(CancelCastingReply) updates) => super.copyWith((message) => updates(message as CancelCastingReply)) as CancelCastingReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CancelCastingReply create() => CancelCastingReply._();
+  CancelCastingReply createEmptyInstance() => create();
+  static $pb.PbList<CancelCastingReply> createRepeated() => $pb.PbList<CancelCastingReply>();
+  @$core.pragma('dart2js:noInline')
+  static CancelCastingReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CancelCastingReply>(create);
+  static CancelCastingReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class AppendArtworkToCastingListRequest extends $pb.GeneratedMessage {
+  factory AppendArtworkToCastingListRequest({
+    $core.Iterable<PlayArtwork>? artworks,
+  }) {
+    final $result = create();
+    if (artworks != null) {
+      $result.artworks.addAll(artworks);
+    }
+    return $result;
+  }
+  AppendArtworkToCastingListRequest._() : super();
+  factory AppendArtworkToCastingListRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AppendArtworkToCastingListRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AppendArtworkToCastingListRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..pc<PlayArtwork>(1, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtwork.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AppendArtworkToCastingListRequest clone() => AppendArtworkToCastingListRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AppendArtworkToCastingListRequest copyWith(void Function(AppendArtworkToCastingListRequest) updates) => super.copyWith((message) => updates(message as AppendArtworkToCastingListRequest)) as AppendArtworkToCastingListRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AppendArtworkToCastingListRequest create() => AppendArtworkToCastingListRequest._();
+  AppendArtworkToCastingListRequest createEmptyInstance() => create();
+  static $pb.PbList<AppendArtworkToCastingListRequest> createRepeated() => $pb.PbList<AppendArtworkToCastingListRequest>();
+  @$core.pragma('dart2js:noInline')
+  static AppendArtworkToCastingListRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AppendArtworkToCastingListRequest>(create);
+  static AppendArtworkToCastingListRequest? _defaultInstance;
+
+  /// artworks
+  @$pb.TagNumber(1)
+  $core.List<PlayArtwork> get artworks => $_getList(0);
+}
+
+class AppendArtworkToCastingListReply extends $pb.GeneratedMessage {
+  factory AppendArtworkToCastingListReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  AppendArtworkToCastingListReply._() : super();
+  factory AppendArtworkToCastingListReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory AppendArtworkToCastingListReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'AppendArtworkToCastingListReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  AppendArtworkToCastingListReply clone() => AppendArtworkToCastingListReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  AppendArtworkToCastingListReply copyWith(void Function(AppendArtworkToCastingListReply) updates) => super.copyWith((message) => updates(message as AppendArtworkToCastingListReply)) as AppendArtworkToCastingListReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static AppendArtworkToCastingListReply create() => AppendArtworkToCastingListReply._();
+  AppendArtworkToCastingListReply createEmptyInstance() => create();
+  static $pb.PbList<AppendArtworkToCastingListReply> createRepeated() => $pb.PbList<AppendArtworkToCastingListReply>();
+  @$core.pragma('dart2js:noInline')
+  static AppendArtworkToCastingListReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<AppendArtworkToCastingListReply>(create);
+  static AppendArtworkToCastingListReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class PauseCastingRequest extends $pb.GeneratedMessage {
+  factory PauseCastingRequest() => create();
+  PauseCastingRequest._() : super();
+  factory PauseCastingRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PauseCastingRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PauseCastingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PauseCastingRequest clone() => PauseCastingRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PauseCastingRequest copyWith(void Function(PauseCastingRequest) updates) => super.copyWith((message) => updates(message as PauseCastingRequest)) as PauseCastingRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PauseCastingRequest create() => PauseCastingRequest._();
+  PauseCastingRequest createEmptyInstance() => create();
+  static $pb.PbList<PauseCastingRequest> createRepeated() => $pb.PbList<PauseCastingRequest>();
+  @$core.pragma('dart2js:noInline')
+  static PauseCastingRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PauseCastingRequest>(create);
+  static PauseCastingRequest? _defaultInstance;
+}
+
+class PauseCastingReply extends $pb.GeneratedMessage {
+  factory PauseCastingReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  PauseCastingReply._() : super();
+  factory PauseCastingReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PauseCastingReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PauseCastingReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PauseCastingReply clone() => PauseCastingReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PauseCastingReply copyWith(void Function(PauseCastingReply) updates) => super.copyWith((message) => updates(message as PauseCastingReply)) as PauseCastingReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PauseCastingReply create() => PauseCastingReply._();
+  PauseCastingReply createEmptyInstance() => create();
+  static $pb.PbList<PauseCastingReply> createRepeated() => $pb.PbList<PauseCastingReply>();
+  @$core.pragma('dart2js:noInline')
+  static PauseCastingReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PauseCastingReply>(create);
+  static PauseCastingReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class ResumeCastingRequest extends $pb.GeneratedMessage {
+  factory ResumeCastingRequest({
+    $fixnum.Int64? startTime,
+  }) {
+    final $result = create();
+    if (startTime != null) {
+      $result.startTime = startTime;
+    }
+    return $result;
+  }
+  ResumeCastingRequest._() : super();
+  factory ResumeCastingRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResumeCastingRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResumeCastingRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResumeCastingRequest clone() => ResumeCastingRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResumeCastingRequest copyWith(void Function(ResumeCastingRequest) updates) => super.copyWith((message) => updates(message as ResumeCastingRequest)) as ResumeCastingRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResumeCastingRequest create() => ResumeCastingRequest._();
+  ResumeCastingRequest createEmptyInstance() => create();
+  static $pb.PbList<ResumeCastingRequest> createRepeated() => $pb.PbList<ResumeCastingRequest>();
+  @$core.pragma('dart2js:noInline')
+  static ResumeCastingRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResumeCastingRequest>(create);
+  static ResumeCastingRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get startTime => $_getI64(0);
+  @$pb.TagNumber(1)
+  set startTime($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStartTime() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStartTime() => clearField(1);
+}
+
+class ResumeCastingReply extends $pb.GeneratedMessage {
+  factory ResumeCastingReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  ResumeCastingReply._() : super();
+  factory ResumeCastingReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory ResumeCastingReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'ResumeCastingReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  ResumeCastingReply clone() => ResumeCastingReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  ResumeCastingReply copyWith(void Function(ResumeCastingReply) updates) => super.copyWith((message) => updates(message as ResumeCastingReply)) as ResumeCastingReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static ResumeCastingReply create() => ResumeCastingReply._();
+  ResumeCastingReply createEmptyInstance() => create();
+  static $pb.PbList<ResumeCastingReply> createRepeated() => $pb.PbList<ResumeCastingReply>();
+  @$core.pragma('dart2js:noInline')
+  static ResumeCastingReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<ResumeCastingReply>(create);
+  static ResumeCastingReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class NextArtworkRequest extends $pb.GeneratedMessage {
+  factory NextArtworkRequest({
+    $fixnum.Int64? startTime,
+  }) {
+    final $result = create();
+    if (startTime != null) {
+      $result.startTime = startTime;
+    }
+    return $result;
+  }
+  NextArtworkRequest._() : super();
+  factory NextArtworkRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory NextArtworkRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'NextArtworkRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  NextArtworkRequest clone() => NextArtworkRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  NextArtworkRequest copyWith(void Function(NextArtworkRequest) updates) => super.copyWith((message) => updates(message as NextArtworkRequest)) as NextArtworkRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static NextArtworkRequest create() => NextArtworkRequest._();
+  NextArtworkRequest createEmptyInstance() => create();
+  static $pb.PbList<NextArtworkRequest> createRepeated() => $pb.PbList<NextArtworkRequest>();
+  @$core.pragma('dart2js:noInline')
+  static NextArtworkRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NextArtworkRequest>(create);
+  static NextArtworkRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get startTime => $_getI64(0);
+  @$pb.TagNumber(1)
+  set startTime($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStartTime() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStartTime() => clearField(1);
+}
+
+class NextArtworkReply extends $pb.GeneratedMessage {
+  factory NextArtworkReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  NextArtworkReply._() : super();
+  factory NextArtworkReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory NextArtworkReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'NextArtworkReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  NextArtworkReply clone() => NextArtworkReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  NextArtworkReply copyWith(void Function(NextArtworkReply) updates) => super.copyWith((message) => updates(message as NextArtworkReply)) as NextArtworkReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static NextArtworkReply create() => NextArtworkReply._();
+  NextArtworkReply createEmptyInstance() => create();
+  static $pb.PbList<NextArtworkReply> createRepeated() => $pb.PbList<NextArtworkReply>();
+  @$core.pragma('dart2js:noInline')
+  static NextArtworkReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<NextArtworkReply>(create);
+  static NextArtworkReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class PreviousArtwortRequest extends $pb.GeneratedMessage {
+  factory PreviousArtwortRequest({
+    $fixnum.Int64? startTime,
+  }) {
+    final $result = create();
+    if (startTime != null) {
+      $result.startTime = startTime;
+    }
+    return $result;
+  }
+  PreviousArtwortRequest._() : super();
+  factory PreviousArtwortRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PreviousArtwortRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PreviousArtwortRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PreviousArtwortRequest clone() => PreviousArtwortRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PreviousArtwortRequest copyWith(void Function(PreviousArtwortRequest) updates) => super.copyWith((message) => updates(message as PreviousArtwortRequest)) as PreviousArtwortRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PreviousArtwortRequest create() => PreviousArtwortRequest._();
+  PreviousArtwortRequest createEmptyInstance() => create();
+  static $pb.PbList<PreviousArtwortRequest> createRepeated() => $pb.PbList<PreviousArtwortRequest>();
+  @$core.pragma('dart2js:noInline')
+  static PreviousArtwortRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PreviousArtwortRequest>(create);
+  static PreviousArtwortRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get startTime => $_getI64(0);
+  @$pb.TagNumber(1)
+  set startTime($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStartTime() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStartTime() => clearField(1);
+}
+
+class PreviousArtworkReply extends $pb.GeneratedMessage {
+  factory PreviousArtworkReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  PreviousArtworkReply._() : super();
+  factory PreviousArtworkReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory PreviousArtworkReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'PreviousArtworkReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  PreviousArtworkReply clone() => PreviousArtworkReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  PreviousArtworkReply copyWith(void Function(PreviousArtworkReply) updates) => super.copyWith((message) => updates(message as PreviousArtworkReply)) as PreviousArtworkReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static PreviousArtworkReply create() => PreviousArtworkReply._();
+  PreviousArtworkReply createEmptyInstance() => create();
+  static $pb.PbList<PreviousArtworkReply> createRepeated() => $pb.PbList<PreviousArtworkReply>();
+  @$core.pragma('dart2js:noInline')
+  static PreviousArtworkReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<PreviousArtworkReply>(create);
+  static PreviousArtworkReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
+class UpdateDurationRequest extends $pb.GeneratedMessage {
+  factory UpdateDurationRequest({
+    $core.Iterable<PlayArtwork>? artworks,
+  }) {
+    final $result = create();
+    if (artworks != null) {
+      $result.artworks.addAll(artworks);
+    }
+    return $result;
+  }
+  UpdateDurationRequest._() : super();
+  factory UpdateDurationRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateDurationRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateDurationRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..pc<PlayArtwork>(1, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtwork.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateDurationRequest clone() => UpdateDurationRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateDurationRequest copyWith(void Function(UpdateDurationRequest) updates) => super.copyWith((message) => updates(message as UpdateDurationRequest)) as UpdateDurationRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateDurationRequest create() => UpdateDurationRequest._();
+  UpdateDurationRequest createEmptyInstance() => create();
+  static $pb.PbList<UpdateDurationRequest> createRepeated() => $pb.PbList<UpdateDurationRequest>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateDurationRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateDurationRequest>(create);
+  static UpdateDurationRequest? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.List<PlayArtwork> get artworks => $_getList(0);
+}
+
+class UpdateDurationReply extends $pb.GeneratedMessage {
+  factory UpdateDurationReply({
+    $fixnum.Int64? startTime,
+  }) {
+    final $result = create();
+    if (startTime != null) {
+      $result.startTime = startTime;
+    }
+    return $result;
+  }
+  UpdateDurationReply._() : super();
+  factory UpdateDurationReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory UpdateDurationReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateDurationReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aInt64(1, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  UpdateDurationReply clone() => UpdateDurationReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  UpdateDurationReply copyWith(void Function(UpdateDurationReply) updates) => super.copyWith((message) => updates(message as UpdateDurationReply)) as UpdateDurationReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static UpdateDurationReply create() => UpdateDurationReply._();
+  UpdateDurationReply createEmptyInstance() => create();
+  static $pb.PbList<UpdateDurationReply> createRepeated() => $pb.PbList<UpdateDurationReply>();
+  @$core.pragma('dart2js:noInline')
+  static UpdateDurationReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<UpdateDurationReply>(create);
+  static UpdateDurationReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $fixnum.Int64 get startTime => $_getI64(0);
+  @$pb.TagNumber(1)
+  set startTime($fixnum.Int64 v) { $_setInt64(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasStartTime() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearStartTime() => clearField(1);
+}
+
+class CastExhibitionRequest extends $pb.GeneratedMessage {
+  factory CastExhibitionRequest({
+    $core.String? id,
+  }) {
+    final $result = create();
+    if (id != null) {
+      $result.id = id;
+    }
+    return $result;
+  }
+  CastExhibitionRequest._() : super();
+  factory CastExhibitionRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CastExhibitionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastExhibitionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CastExhibitionRequest clone() => CastExhibitionRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CastExhibitionRequest copyWith(void Function(CastExhibitionRequest) updates) => super.copyWith((message) => updates(message as CastExhibitionRequest)) as CastExhibitionRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CastExhibitionRequest create() => CastExhibitionRequest._();
+  CastExhibitionRequest createEmptyInstance() => create();
+  static $pb.PbList<CastExhibitionRequest> createRepeated() => $pb.PbList<CastExhibitionRequest>();
+  @$core.pragma('dart2js:noInline')
+  static CastExhibitionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastExhibitionRequest>(create);
+  static CastExhibitionRequest? _defaultInstance;
+
+  /// exhibitionId
+  @$pb.TagNumber(1)
+  $core.String get id => $_getSZ(0);
+  @$pb.TagNumber(1)
+  set id($core.String v) { $_setString(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasId() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearId() => clearField(1);
+}
+
+class CastExhibitionReply extends $pb.GeneratedMessage {
+  factory CastExhibitionReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  CastExhibitionReply._() : super();
+  factory CastExhibitionReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory CastExhibitionReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastExhibitionReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  CastExhibitionReply clone() => CastExhibitionReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  CastExhibitionReply copyWith(void Function(CastExhibitionReply) updates) => super.copyWith((message) => updates(message as CastExhibitionReply)) as CastExhibitionReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static CastExhibitionReply create() => CastExhibitionReply._();
+  CastExhibitionReply createEmptyInstance() => create();
+  static $pb.PbList<CastExhibitionReply> createRepeated() => $pb.PbList<CastExhibitionReply>();
+  @$core.pragma('dart2js:noInline')
+  static CastExhibitionReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastExhibitionReply>(create);
+  static CastExhibitionReply? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.bool get ok => $_getBF(0);
