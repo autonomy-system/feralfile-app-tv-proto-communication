@@ -1,0 +1,40 @@
+name: Lint
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    # paths:
+    #   - "**.proto"
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      statuses: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install protolint
+        run: |
+          curl -sSL https://github.com/yoheimuta/protolint/releases/download/v0.49.1/protolint_0.49.1_linux_amd64.tar.gz | tar xz
+          sudo mv protolint /usr/local/bin
+
+      - uses: reviewdog/action-setup@v1
+        with:
+          reviewdog_version: latest
+      
+      - name: Run reviewdog
+        env:
+          REVIEWDOG_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          protolint --reporter sarif -output_file=out.json -no-error-on-unmatched-pattern protos/*.proto || true
+          reviewdog -f=sarif -name="protolint" -reporter=github-pr-review -filter-mode=added < out.json
