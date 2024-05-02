@@ -231,69 +231,69 @@ abstract class CanvasControlServiceBase extends $grpc.Service {
         ($0.CursorOffsetReply value) => value.writeToBuffer()));
   }
 
-  $async.FutureOr<$0.ConnectReply> connect_Pre($grpc.ServiceCall call, $async.FutureOr<$0.ConnectRequest> request) async {
+  $async.Future<$0.ConnectReply> connect_Pre($grpc.ServiceCall call, $async.Future<$0.ConnectRequest> request) async {
     return connect(call, await request);
   }
 
-  $async.FutureOr<$0.ResponseStatus> status_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CheckingStatus> request) async {
+  $async.Future<$0.ResponseStatus> status_Pre($grpc.ServiceCall call, $async.Future<$0.CheckingStatus> request) async {
     return status(call, await request);
   }
 
-  $async.FutureOr<$0.Empty> disconnect_Pre($grpc.ServiceCall call, $async.FutureOr<$0.DisconnectRequest> request) async {
+  $async.Future<$0.Empty> disconnect_Pre($grpc.ServiceCall call, $async.Future<$0.DisconnectRequest> request) async {
     return disconnect(call, await request);
   }
 
-  $async.FutureOr<$0.CastSingleReply> castSingleArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CastSingleRequest> request) async {
+  $async.Future<$0.CastSingleReply> castSingleArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.CastSingleRequest> request) async {
     return castSingleArtwork(call, await request);
   }
 
-  $async.FutureOr<$0.CastCollectionReply> castCollection_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CastCollectionRequest> request) async {
+  $async.Future<$0.CastCollectionReply> castCollection_Pre($grpc.ServiceCall call, $async.Future<$0.CastCollectionRequest> request) async {
     return castCollection(call, await request);
   }
 
-  $async.FutureOr<$0.UncastSingleReply> uncastSingleArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UncastSingleRequest> request) async {
+  $async.Future<$0.UncastSingleReply> uncastSingleArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.UncastSingleRequest> request) async {
     return uncastSingleArtwork(call, await request);
   }
 
-  $async.FutureOr<$0.UnCastReply> unCastArtwork_Pre($grpc.ServiceCall call, $async.FutureOr<$0.UnCastRequest> request) async {
+  $async.Future<$0.UnCastReply> unCastArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.UnCastRequest> request) async {
     return unCastArtwork(call, await request);
   }
 
-  $async.FutureOr<$0.KeyboardEventReply> keyboardEvent_Pre($grpc.ServiceCall call, $async.FutureOr<$0.KeyboardEventRequest> request) async {
+  $async.Future<$0.KeyboardEventReply> keyboardEvent_Pre($grpc.ServiceCall call, $async.Future<$0.KeyboardEventRequest> request) async {
     return keyboardEvent(call, await request);
   }
 
-  $async.FutureOr<$0.RotateReply> rotate_Pre($grpc.ServiceCall call, $async.FutureOr<$0.RotateRequest> request) async {
+  $async.Future<$0.RotateReply> rotate_Pre($grpc.ServiceCall call, $async.Future<$0.RotateRequest> request) async {
     return rotate(call, await request);
   }
 
-  $async.FutureOr<$0.GestureReply> tapGesture_Pre($grpc.ServiceCall call, $async.FutureOr<$0.TapGestureRequest> request) async {
+  $async.Future<$0.GestureReply> tapGesture_Pre($grpc.ServiceCall call, $async.Future<$0.TapGestureRequest> request) async {
     return tapGesture(call, await request);
   }
 
-  $async.FutureOr<$0.GestureReply> dragGesture_Pre($grpc.ServiceCall call, $async.FutureOr<$0.DragGestureRequest> request) async {
+  $async.Future<$0.GestureReply> dragGesture_Pre($grpc.ServiceCall call, $async.Future<$0.DragGestureRequest> request) async {
     return dragGesture(call, await request);
   }
 
-  $async.FutureOr<$0.CursorOffset> getCursorOffset_Pre($grpc.ServiceCall call, $async.FutureOr<$0.Empty> request) async {
+  $async.Future<$0.CursorOffset> getCursorOffset_Pre($grpc.ServiceCall call, $async.Future<$0.Empty> request) async {
     return getCursorOffset(call, await request);
   }
 
-  $async.FutureOr<$0.CursorOffsetReply> setCursorOffset_Pre($grpc.ServiceCall call, $async.FutureOr<$0.CursorOffset> request) async {
+  $async.Future<$0.CursorOffsetReply> setCursorOffset_Pre($grpc.ServiceCall call, $async.Future<$0.CursorOffset> request) async {
     return setCursorOffset(call, await request);
   }
 
-  $async.FutureOr<$0.ConnectReply> connect($grpc.ServiceCall call, $0.ConnectRequest request);
-  $async.FutureOr<$0.ResponseStatus> status($grpc.ServiceCall call, $0.CheckingStatus request);
-  $async.FutureOr<$0.Empty> disconnect($grpc.ServiceCall call, $0.DisconnectRequest request);
-  $async.FutureOr<$0.CastSingleReply> castSingleArtwork($grpc.ServiceCall call, $0.CastSingleRequest request);
-  $async.FutureOr<$0.CastCollectionReply> castCollection($grpc.ServiceCall call, $0.CastCollectionRequest request);
-  $async.FutureOr<$0.UncastSingleReply> uncastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
-  $async.FutureOr<$0.UnCastReply> unCastArtwork($grpc.ServiceCall call, $0.UnCastRequest request);
-  $async.FutureOr<$0.KeyboardEventReply> keyboardEvent($grpc.ServiceCall call, $0.KeyboardEventRequest request);
-  $async.FutureOr<$0.RotateReply> rotate($grpc.ServiceCall call, $0.RotateRequest request);
-  $async.FutureOr<$0.GestureReply> tapGesture($grpc.ServiceCall call, $0.TapGestureRequest request);
-  $async.FutureOr<$0.GestureReply> dragGesture($grpc.ServiceCall call, $0.DragGestureRequest request);
-  $async.FutureOr<$0.CursorOffset> getCursorOffset($grpc.ServiceCall call, $0.Empty request);
-  $async.FutureOr<$0.CursorOffsetReply> setCursorOffset($grpc.ServiceCall call, $0.CursorOffset request);
+  $async.Future<$0.ConnectReply> connect($grpc.ServiceCall call, $0.ConnectRequest request);
+  $async.Future<$0.ResponseStatus> status($grpc.ServiceCall call, $0.CheckingStatus request);
+  $async.Future<$0.Empty> disconnect($grpc.ServiceCall call, $0.DisconnectRequest request);
+  $async.Future<$0.CastSingleReply> castSingleArtwork($grpc.ServiceCall call, $0.CastSingleRequest request);
+  $async.Future<$0.CastCollectionReply> castCollection($grpc.ServiceCall call, $0.CastCollectionRequest request);
+  $async.Future<$0.UncastSingleReply> uncastSingleArtwork($grpc.ServiceCall call, $0.UncastSingleRequest request);
+  $async.Future<$0.UnCastReply> unCastArtwork($grpc.ServiceCall call, $0.UnCastRequest request);
+  $async.Future<$0.KeyboardEventReply> keyboardEvent($grpc.ServiceCall call, $0.KeyboardEventRequest request);
+  $async.Future<$0.RotateReply> rotate($grpc.ServiceCall call, $0.RotateRequest request);
+  $async.Future<$0.GestureReply> tapGesture($grpc.ServiceCall call, $0.TapGestureRequest request);
+  $async.Future<$0.GestureReply> dragGesture($grpc.ServiceCall call, $0.DragGestureRequest request);
+  $async.Future<$0.CursorOffset> getCursorOffset($grpc.ServiceCall call, $0.Empty request);
+  $async.Future<$0.CursorOffsetReply> setCursorOffset($grpc.ServiceCall call, $0.CursorOffset request);
 }
