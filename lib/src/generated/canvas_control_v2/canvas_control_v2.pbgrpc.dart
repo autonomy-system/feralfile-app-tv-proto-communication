@@ -21,6 +21,18 @@ export 'canvas_control_v2.pb.dart';
 
 @$pb.GrpcServiceName('canvas_control.CanvasControlV2')
 class CanvasControlV2Client extends $grpc.Client {
+  static final _$connect = $grpc.ClientMethod<$0.ConnectRequestV2, $0.ConnectReplyV2>(
+      '/canvas_control.CanvasControlV2/Connect',
+      ($0.ConnectRequestV2 value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.ConnectReplyV2.fromBuffer(value));
+  static final _$disconnect = $grpc.ClientMethod<$0.DisconnectRequestV2, $0.DisconnectReplyV2>(
+      '/canvas_control.CanvasControlV2/Disconnect',
+      ($0.DisconnectRequestV2 value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.DisconnectReplyV2.fromBuffer(value));
+  static final _$status = $grpc.ClientMethod<$0.CheckDeviceStatusRequest, $0.CheckDeviceStatusReply>(
+      '/canvas_control.CanvasControlV2/Status',
+      ($0.CheckDeviceStatusRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.CheckDeviceStatusReply.fromBuffer(value));
   static final _$castListArtwork = $grpc.ClientMethod<$0.CastListArtworkRequest, $0.CastListArtworkReply>(
       '/canvas_control.CanvasControlV2/CastListArtwork',
       ($0.CastListArtworkRequest value) => value.writeToBuffer(),
@@ -64,6 +76,18 @@ class CanvasControlV2Client extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
+  $grpc.ResponseFuture<$0.ConnectReplyV2> connect($0.ConnectRequestV2 request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$connect, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.DisconnectReplyV2> disconnect($0.DisconnectRequestV2 request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$disconnect, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.CheckDeviceStatusReply> status($0.CheckDeviceStatusRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$status, request, options: options);
+  }
+
   $grpc.ResponseFuture<$0.CastListArtworkReply> castListArtwork($0.CastListArtworkRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$castListArtwork, request, options: options);
   }
@@ -106,6 +130,27 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
   $core.String get $name => 'canvas_control.CanvasControlV2';
 
   CanvasControlV2ServiceBase() {
+    $addMethod($grpc.ServiceMethod<$0.ConnectRequestV2, $0.ConnectReplyV2>(
+        'Connect',
+        connect_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.ConnectRequestV2.fromBuffer(value),
+        ($0.ConnectReplyV2 value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.DisconnectRequestV2, $0.DisconnectReplyV2>(
+        'Disconnect',
+        disconnect_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.DisconnectRequestV2.fromBuffer(value),
+        ($0.DisconnectReplyV2 value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.CheckDeviceStatusRequest, $0.CheckDeviceStatusReply>(
+        'Status',
+        status_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.CheckDeviceStatusRequest.fromBuffer(value),
+        ($0.CheckDeviceStatusReply value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.CastListArtworkRequest, $0.CastListArtworkReply>(
         'CastListArtwork',
         castListArtwork_Pre,
@@ -171,6 +216,18 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
         ($0.CastExhibitionReply value) => value.writeToBuffer()));
   }
 
+  $async.Future<$0.ConnectReplyV2> connect_Pre($grpc.ServiceCall call, $async.Future<$0.ConnectRequestV2> request) async {
+    return connect(call, await request);
+  }
+
+  $async.Future<$0.DisconnectReplyV2> disconnect_Pre($grpc.ServiceCall call, $async.Future<$0.DisconnectRequestV2> request) async {
+    return disconnect(call, await request);
+  }
+
+  $async.Future<$0.CheckDeviceStatusReply> status_Pre($grpc.ServiceCall call, $async.Future<$0.CheckDeviceStatusRequest> request) async {
+    return status(call, await request);
+  }
+
   $async.Future<$0.CastListArtworkReply> castListArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.CastListArtworkRequest> request) async {
     return castListArtwork(call, await request);
   }
@@ -207,6 +264,9 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
     return castExhibition(call, await request);
   }
 
+  $async.Future<$0.ConnectReplyV2> connect($grpc.ServiceCall call, $0.ConnectRequestV2 request);
+  $async.Future<$0.DisconnectReplyV2> disconnect($grpc.ServiceCall call, $0.DisconnectRequestV2 request);
+  $async.Future<$0.CheckDeviceStatusReply> status($grpc.ServiceCall call, $0.CheckDeviceStatusRequest request);
   $async.Future<$0.CastListArtworkReply> castListArtwork($grpc.ServiceCall call, $0.CastListArtworkRequest request);
   $async.Future<$0.CancelCastingReply> cancelCasting($grpc.ServiceCall call, $0.CancelCastingRequest request);
   $async.Future<$0.AppendArtworkToCastingListReply> appendListArtwork($grpc.ServiceCall call, $0.AppendArtworkToCastingListRequest request);

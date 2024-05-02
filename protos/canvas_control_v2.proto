@@ -9,6 +9,12 @@ package canvas_control;
 
 service CanvasControlV2 {
 
+  rpc Connect (ConnectRequestV2) returns (ConnectReplyV2) {}
+
+  rpc Disconnect (DisconnectRequestV2) returns (DisconnectReplyV2) {}
+
+  rpc Status (CheckDeviceStatusRequest) returns (CheckDeviceStatusReply) {}
+
   rpc CastListArtwork (CastListArtworkRequest) returns (CastListArtworkReply) {}
 
   rpc CancelCasting (CancelCastingRequest) returns (CancelCastingReply) {}
@@ -27,7 +33,6 @@ service CanvasControlV2 {
 
   rpc CastExhibition (CastExhibitionRequest) returns (CastExhibitionReply
       ) {}
-
 }
 
 message DeviceInfoV2 {
