@@ -506,7 +506,7 @@ class PlayArtworkV2 extends $pb.GeneratedMessage {
 class CastListArtworkRequest extends $pb.GeneratedMessage {
   factory CastListArtworkRequest({
     $core.Iterable<PlayArtworkV2>? artworks,
-    $core.String? startTime,
+    $fixnum.Int64? startTime,
   }) {
     final $result = create();
     if (artworks != null) {
@@ -523,7 +523,7 @@ class CastListArtworkRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastListArtworkRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
     ..pc<PlayArtworkV2>(1, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtworkV2.create)
-    ..aOS(2, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..aInt64(2, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
     ..hasRequiredFields = false
   ;
 
@@ -554,9 +554,9 @@ class CastListArtworkRequest extends $pb.GeneratedMessage {
 
   /// casting start time
   @$pb.TagNumber(2)
-  $core.String get startTime => $_getSZ(1);
+  $fixnum.Int64 get startTime => $_getI64(1);
   @$pb.TagNumber(2)
-  set startTime($core.String v) { $_setString(1, v); }
+  set startTime($fixnum.Int64 v) { $_setInt64(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasStartTime() => $_has(1);
   @$pb.TagNumber(2)

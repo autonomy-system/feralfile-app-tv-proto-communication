@@ -150,15 +150,18 @@ const CastListArtworkRequest$json = {
   '1': 'CastListArtworkRequest',
   '2': [
     {'1': 'artworks', '3': 1, '4': 3, '5': 11, '6': '.canvas_control.PlayArtworkV2', '10': 'artworks'},
-    {'1': 'startTime', '3': 2, '4': 1, '5': 9, '10': 'startTime'},
+    {'1': 'startTime', '3': 2, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
+  ],
+  '8': [
+    {'1': '_startTime'},
   ],
 };
 
 /// Descriptor for `CastListArtworkRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List castListArtworkRequestDescriptor = $convert.base64Decode(
     'ChZDYXN0TGlzdEFydHdvcmtSZXF1ZXN0EjkKCGFydHdvcmtzGAEgAygLMh0uY2FudmFzX2Nvbn'
-    'Ryb2wuUGxheUFydHdvcmtWMlIIYXJ0d29ya3MSHAoJc3RhcnRUaW1lGAIgASgJUglzdGFydFRp'
-    'bWU=');
+    'Ryb2wuUGxheUFydHdvcmtWMlIIYXJ0d29ya3MSIQoJc3RhcnRUaW1lGAIgASgDSABSCXN0YXJ0'
+    'VGltZYgBAUIMCgpfc3RhcnRUaW1l');
 
 @$core.Deprecated('Use checkDeviceStatusRequestDescriptor instead')
 const CheckDeviceStatusRequest$json = {
@@ -280,13 +283,17 @@ final $typed_data.Uint8List pauseCastingReplyDescriptor = $convert.base64Decode(
 const ResumeCastingRequest$json = {
   '1': 'ResumeCastingRequest',
   '2': [
-    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '10': 'startTime'},
+    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
+  ],
+  '8': [
+    {'1': '_startTime'},
   ],
 };
 
 /// Descriptor for `ResumeCastingRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List resumeCastingRequestDescriptor = $convert.base64Decode(
-    'ChRSZXN1bWVDYXN0aW5nUmVxdWVzdBIcCglzdGFydFRpbWUYASABKANSCXN0YXJ0VGltZQ==');
+    'ChRSZXN1bWVDYXN0aW5nUmVxdWVzdBIhCglzdGFydFRpbWUYASABKANIAFIJc3RhcnRUaW1liA'
+    'EBQgwKCl9zdGFydFRpbWU=');
 
 @$core.Deprecated('Use resumeCastingReplyDescriptor instead')
 const ResumeCastingReply$json = {
@@ -304,13 +311,17 @@ final $typed_data.Uint8List resumeCastingReplyDescriptor = $convert.base64Decode
 const NextArtworkRequest$json = {
   '1': 'NextArtworkRequest',
   '2': [
-    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '10': 'startTime'},
+    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
+  ],
+  '8': [
+    {'1': '_startTime'},
   ],
 };
 
 /// Descriptor for `NextArtworkRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List nextArtworkRequestDescriptor = $convert.base64Decode(
-    'ChJOZXh0QXJ0d29ya1JlcXVlc3QSHAoJc3RhcnRUaW1lGAEgASgDUglzdGFydFRpbWU=');
+    'ChJOZXh0QXJ0d29ya1JlcXVlc3QSIQoJc3RhcnRUaW1lGAEgASgDSABSCXN0YXJ0VGltZYgBAU'
+    'IMCgpfc3RhcnRUaW1l');
 
 @$core.Deprecated('Use nextArtworkReplyDescriptor instead')
 const NextArtworkReply$json = {
@@ -328,13 +339,17 @@ final $typed_data.Uint8List nextArtworkReplyDescriptor = $convert.base64Decode(
 const PreviousArtwortRequest$json = {
   '1': 'PreviousArtwortRequest',
   '2': [
-    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '10': 'startTime'},
+    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
+  ],
+  '8': [
+    {'1': '_startTime'},
   ],
 };
 
 /// Descriptor for `PreviousArtwortRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List previousArtwortRequestDescriptor = $convert.base64Decode(
-    'ChZQcmV2aW91c0FydHdvcnRSZXF1ZXN0EhwKCXN0YXJ0VGltZRgBIAEoA1IJc3RhcnRUaW1l');
+    'ChZQcmV2aW91c0FydHdvcnRSZXF1ZXN0EiEKCXN0YXJ0VGltZRgBIAEoA0gAUglzdGFydFRpbW'
+    'WIAQFCDAoKX3N0YXJ0VGltZQ==');
 
 @$core.Deprecated('Use previousArtworkReplyDescriptor instead')
 const PreviousArtworkReply$json = {
@@ -365,13 +380,17 @@ final $typed_data.Uint8List updateDurationRequestDescriptor = $convert.base64Dec
 const UpdateDurationReply$json = {
   '1': 'UpdateDurationReply',
   '2': [
-    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '10': 'startTime'},
+    {'1': 'startTime', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
+  ],
+  '8': [
+    {'1': '_startTime'},
   ],
 };
 
 /// Descriptor for `UpdateDurationReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateDurationReplyDescriptor = $convert.base64Decode(
-    'ChNVcGRhdGVEdXJhdGlvblJlcGx5EhwKCXN0YXJ0VGltZRgBIAEoA1IJc3RhcnRUaW1l');
+    'ChNVcGRhdGVEdXJhdGlvblJlcGx5EiEKCXN0YXJ0VGltZRgBIAEoA0gAUglzdGFydFRpbWWIAQ'
+    'FCDAoKX3N0YXJ0VGltZQ==');
 
 @$core.Deprecated('Use castExhibitionRequestDescriptor instead')
 const CastExhibitionRequest$json = {

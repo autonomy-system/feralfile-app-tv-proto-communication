@@ -96,7 +96,7 @@ message CastListArtworkRequest {
   // artworks
   repeated PlayArtworkV2 artworks = 1;
   // casting start time
-  string startTime = 2;
+  optional int64 startTime = 2;
 }
 
 message CheckDeviceStatusRequest {}
@@ -140,7 +140,7 @@ message PauseCastingReply {
 }
 
 message ResumeCastingRequest {
-  int64 startTime = 1;
+  optional int64 startTime = 1;
 }
 
 message ResumeCastingReply {
@@ -148,7 +148,7 @@ message ResumeCastingReply {
 }
 
 message NextArtworkRequest {
-  int64 startTime = 1;
+  optional int64 startTime = 1;
 }
 
 message NextArtworkReply {
@@ -156,7 +156,7 @@ message NextArtworkReply {
 }
 
 message PreviousArtwortRequest {
-  int64 startTime = 1;
+  optional int64 startTime = 1;
 }
 
 message PreviousArtworkReply {
@@ -168,7 +168,7 @@ message UpdateDurationRequest {
 }
 
 message UpdateDurationReply {
-  int64 startTime = 1;
+  optional int64 startTime = 1;
 }
 
 message CastExhibitionRequest {
