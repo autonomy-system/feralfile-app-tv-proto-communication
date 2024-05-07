@@ -38,24 +38,5 @@ class DeviceInfoV2_DevicePlatform extends $pb.ProtobufEnum {
   const DeviceInfoV2_DevicePlatform._($core.int v, $core.String n) : super(v, n);
 }
 
-class CheckDeviceStatusReply_ServingStatus extends $pb.ProtobufEnum {
-  static const CheckDeviceStatusReply_ServingStatus UNKNOWN = CheckDeviceStatusReply_ServingStatus._(0, _omitEnumNames ? '' : 'UNKNOWN');
-  static const CheckDeviceStatusReply_ServingStatus SERVING = CheckDeviceStatusReply_ServingStatus._(1, _omitEnumNames ? '' : 'SERVING');
-  static const CheckDeviceStatusReply_ServingStatus NOT_SERVING = CheckDeviceStatusReply_ServingStatus._(2, _omitEnumNames ? '' : 'NOT_SERVING');
-  static const CheckDeviceStatusReply_ServingStatus SERVICE_UNKNOWN = CheckDeviceStatusReply_ServingStatus._(3, _omitEnumNames ? '' : 'SERVICE_UNKNOWN');
-
-  static const $core.List<CheckDeviceStatusReply_ServingStatus> values = <CheckDeviceStatusReply_ServingStatus> [
-    UNKNOWN,
-    SERVING,
-    NOT_SERVING,
-    SERVICE_UNKNOWN,
-  ];
-
-  static final $core.Map<$core.int, CheckDeviceStatusReply_ServingStatus> _byValue = $pb.ProtobufEnum.initByValue(values);
-  static CheckDeviceStatusReply_ServingStatus? valueOf($core.int value) => _byValue[value];
-
-  const CheckDeviceStatusReply_ServingStatus._($core.int v, $core.String n) : super(v, n);
-}
-
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');
