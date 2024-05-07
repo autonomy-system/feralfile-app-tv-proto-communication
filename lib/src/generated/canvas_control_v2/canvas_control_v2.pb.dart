@@ -597,15 +597,19 @@ class CheckDeviceStatusRequest extends $pb.GeneratedMessage {
 
 class CheckDeviceStatusReply extends $pb.GeneratedMessage {
   factory CheckDeviceStatusReply({
-    CheckDeviceStatusReply_ServingStatus? status,
-    $core.String? sceneId,
+    $core.Iterable<PlayArtworkV2>? artworks,
+    $fixnum.Int64? startTime,
+    DeviceInfoV2? connectedDevice,
   }) {
     final $result = create();
-    if (status != null) {
-      $result.status = status;
+    if (artworks != null) {
+      $result.artworks.addAll(artworks);
     }
-    if (sceneId != null) {
-      $result.sceneId = sceneId;
+    if (startTime != null) {
+      $result.startTime = startTime;
+    }
+    if (connectedDevice != null) {
+      $result.connectedDevice = connectedDevice;
     }
     return $result;
   }
@@ -614,8 +618,9 @@ class CheckDeviceStatusReply extends $pb.GeneratedMessage {
   factory CheckDeviceStatusReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CheckDeviceStatusReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..e<CheckDeviceStatusReply_ServingStatus>(1, _omitFieldNames ? '' : 'status', $pb.PbFieldType.OE, defaultOrMaker: CheckDeviceStatusReply_ServingStatus.UNKNOWN, valueOf: CheckDeviceStatusReply_ServingStatus.valueOf, enumValues: CheckDeviceStatusReply_ServingStatus.values)
-    ..aOS(2, _omitFieldNames ? '' : 'sceneId')
+    ..pc<PlayArtworkV2>(1, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtworkV2.create)
+    ..aInt64(2, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..aOM<DeviceInfoV2>(3, _omitFieldNames ? '' : 'connectedDevice', protoName: 'connectedDevice', subBuilder: DeviceInfoV2.create)
     ..hasRequiredFields = false
   ;
 
@@ -641,23 +646,27 @@ class CheckDeviceStatusReply extends $pb.GeneratedMessage {
   static CheckDeviceStatusReply? _defaultInstance;
 
   @$pb.TagNumber(1)
-  CheckDeviceStatusReply_ServingStatus get status => $_getN(0);
-  @$pb.TagNumber(1)
-  set status(CheckDeviceStatusReply_ServingStatus v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasStatus() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearStatus() => clearField(1);
+  $core.List<PlayArtworkV2> get artworks => $_getList(0);
 
-  /// The scene id that the device is currently playing
   @$pb.TagNumber(2)
-  $core.String get sceneId => $_getSZ(1);
+  $fixnum.Int64 get startTime => $_getI64(1);
   @$pb.TagNumber(2)
-  set sceneId($core.String v) { $_setString(1, v); }
+  set startTime($fixnum.Int64 v) { $_setInt64(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasSceneId() => $_has(1);
+  $core.bool hasStartTime() => $_has(1);
   @$pb.TagNumber(2)
-  void clearSceneId() => clearField(2);
+  void clearStartTime() => clearField(2);
+
+  @$pb.TagNumber(3)
+  DeviceInfoV2 get connectedDevice => $_getN(2);
+  @$pb.TagNumber(3)
+  set connectedDevice(DeviceInfoV2 v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasConnectedDevice() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearConnectedDevice() => clearField(3);
+  @$pb.TagNumber(3)
+  DeviceInfoV2 ensureConnectedDevice() => $_ensure(2);
 }
 
 class CastListArtworkReply extends $pb.GeneratedMessage {

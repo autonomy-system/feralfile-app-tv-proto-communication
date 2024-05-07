@@ -102,15 +102,9 @@ message CastListArtworkRequest {
 message CheckDeviceStatusRequest {}
 
 message CheckDeviceStatusReply {
-  enum ServingStatus {
-    UNKNOWN = 0;
-    SERVING = 1;
-    NOT_SERVING = 2;
-    SERVICE_UNKNOWN = 3;  // Used only by the Watch method.
-  }
-  ServingStatus status = 1;
-  // The scene id that the device is currently playing
-  string scene_id = 2;
+  repeated PlayArtworkV2 artworks = 1;
+  optional int64 startTime = 2;
+  DeviceInfoV2 connectedDevice = 3;
 }
 
 message CastListArtworkReply {
