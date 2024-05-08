@@ -163,6 +163,7 @@ message UpdateDurationRequest {
 
 message UpdateDurationReply {
   optional int64 startTime = 1;
+  repeated PlayArtworkV2 artworks = 2;
 }
 
 message CastExhibitionRequest {

@@ -373,6 +373,7 @@ const UpdateDurationReply$json = {
   '1': 'UpdateDurationReply',
   '2': [
     {'1': 'startTime', '3': 1, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
+    {'1': 'artworks', '3': 2, '4': 3, '5': 11, '6': '.canvas_control.PlayArtworkV2', '10': 'artworks'},
   ],
   '8': [
     {'1': '_startTime'},
@@ -382,7 +383,8 @@ const UpdateDurationReply$json = {
 /// Descriptor for `UpdateDurationReply`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List updateDurationReplyDescriptor = $convert.base64Decode(
     'ChNVcGRhdGVEdXJhdGlvblJlcGx5EiEKCXN0YXJ0VGltZRgBIAEoA0gAUglzdGFydFRpbWWIAQ'
-    'FCDAoKX3N0YXJ0VGltZQ==');
+    'ESOQoIYXJ0d29ya3MYAiADKAsyHS5jYW52YXNfY29udHJvbC5QbGF5QXJ0d29ya1YyUghhcnR3'
+    'b3Jrc0IMCgpfc3RhcnRUaW1l');
 
 @$core.Deprecated('Use castExhibitionRequestDescriptor instead')
 const CastExhibitionRequest$json = {

@@ -1325,10 +1325,14 @@ class UpdateDurationRequest extends $pb.GeneratedMessage {
 class UpdateDurationReply extends $pb.GeneratedMessage {
   factory UpdateDurationReply({
     $fixnum.Int64? startTime,
+    $core.Iterable<PlayArtworkV2>? artworks,
   }) {
     final $result = create();
     if (startTime != null) {
       $result.startTime = startTime;
+    }
+    if (artworks != null) {
+      $result.artworks.addAll(artworks);
     }
     return $result;
   }
@@ -1338,6 +1342,7 @@ class UpdateDurationReply extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'UpdateDurationReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aInt64(1, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
+    ..pc<PlayArtworkV2>(2, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtworkV2.create)
     ..hasRequiredFields = false
   ;
 
@@ -1370,6 +1375,9 @@ class UpdateDurationReply extends $pb.GeneratedMessage {
   $core.bool hasStartTime() => $_has(0);
   @$pb.TagNumber(1)
   void clearStartTime() => clearField(1);
+
+  @$pb.TagNumber(2)
+  $core.List<PlayArtworkV2> get artworks => $_getList(1);
 }
 
 class CastExhibitionRequest extends $pb.GeneratedMessage {
