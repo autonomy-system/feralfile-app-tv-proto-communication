@@ -1382,11 +1382,19 @@ class UpdateDurationReply extends $pb.GeneratedMessage {
 
 class CastExhibitionRequest extends $pb.GeneratedMessage {
   factory CastExhibitionRequest({
-    $core.String? id,
+    $core.String? exhibitionId,
+    CastExhibitionRequest_ExhibitionKatalog? katalog,
+    $core.String? katalogId,
   }) {
     final $result = create();
-    if (id != null) {
-      $result.id = id;
+    if (exhibitionId != null) {
+      $result.exhibitionId = exhibitionId;
+    }
+    if (katalog != null) {
+      $result.katalog = katalog;
+    }
+    if (katalogId != null) {
+      $result.katalogId = katalogId;
     }
     return $result;
   }
@@ -1395,7 +1403,9 @@ class CastExhibitionRequest extends $pb.GeneratedMessage {
   factory CastExhibitionRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastExhibitionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
-    ..aOS(1, _omitFieldNames ? '' : 'id')
+    ..aOS(1, _omitFieldNames ? '' : 'exhibitionId', protoName: 'exhibitionId')
+    ..e<CastExhibitionRequest_ExhibitionKatalog>(2, _omitFieldNames ? '' : 'katalog', $pb.PbFieldType.OE, defaultOrMaker: CastExhibitionRequest_ExhibitionKatalog.HOME, valueOf: CastExhibitionRequest_ExhibitionKatalog.valueOf, enumValues: CastExhibitionRequest_ExhibitionKatalog.values)
+    ..aOS(3, _omitFieldNames ? '' : 'katalogId', protoName: 'katalogId')
     ..hasRequiredFields = false
   ;
 
@@ -1420,15 +1430,35 @@ class CastExhibitionRequest extends $pb.GeneratedMessage {
   static CastExhibitionRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<CastExhibitionRequest>(create);
   static CastExhibitionRequest? _defaultInstance;
 
-  /// exhibitionId
+  /// exhibition id
   @$pb.TagNumber(1)
-  $core.String get id => $_getSZ(0);
+  $core.String get exhibitionId => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String v) { $_setString(0, v); }
+  set exhibitionId($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
-  $core.bool hasId() => $_has(0);
+  $core.bool hasExhibitionId() => $_has(0);
   @$pb.TagNumber(1)
-  void clearId() => clearField(1);
+  void clearExhibitionId() => clearField(1);
+
+  /// casting katalog
+  @$pb.TagNumber(2)
+  CastExhibitionRequest_ExhibitionKatalog get katalog => $_getN(1);
+  @$pb.TagNumber(2)
+  set katalog(CastExhibitionRequest_ExhibitionKatalog v) { setField(2, v); }
+  @$pb.TagNumber(2)
+  $core.bool hasKatalog() => $_has(1);
+  @$pb.TagNumber(2)
+  void clearKatalog() => clearField(2);
+
+  /// katalog id
+  @$pb.TagNumber(3)
+  $core.String get katalogId => $_getSZ(2);
+  @$pb.TagNumber(3)
+  set katalogId($core.String v) { $_setString(2, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasKatalogId() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearKatalogId() => clearField(3);
 }
 
 class CastExhibitionReply extends $pb.GeneratedMessage {

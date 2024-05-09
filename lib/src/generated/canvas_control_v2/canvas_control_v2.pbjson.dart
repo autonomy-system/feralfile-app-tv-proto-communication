@@ -390,13 +390,36 @@ final $typed_data.Uint8List updateDurationReplyDescriptor = $convert.base64Decod
 const CastExhibitionRequest$json = {
   '1': 'CastExhibitionRequest',
   '2': [
-    {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
+    {'1': 'exhibitionId', '3': 1, '4': 1, '5': 9, '9': 0, '10': 'exhibitionId', '17': true},
+    {'1': 'katalog', '3': 2, '4': 1, '5': 14, '6': '.canvas_control.CastExhibitionRequest.ExhibitionKatalog', '10': 'katalog'},
+    {'1': 'katalogId', '3': 3, '4': 1, '5': 9, '9': 1, '10': 'katalogId', '17': true},
+  ],
+  '4': [CastExhibitionRequest_ExhibitionKatalog$json],
+  '8': [
+    {'1': '_exhibitionId'},
+    {'1': '_katalogId'},
+  ],
+};
+
+@$core.Deprecated('Use castExhibitionRequestDescriptor instead')
+const CastExhibitionRequest_ExhibitionKatalog$json = {
+  '1': 'ExhibitionKatalog',
+  '2': [
+    {'1': 'HOME', '2': 0},
+    {'1': 'CURATOR_NOTE', '2': 1},
+    {'1': 'RESOURCE', '2': 2},
+    {'1': 'ARTWORK', '2': 3},
   ],
 };
 
 /// Descriptor for `CastExhibitionRequest`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List castExhibitionRequestDescriptor = $convert.base64Decode(
-    'ChVDYXN0RXhoaWJpdGlvblJlcXVlc3QSDgoCaWQYASABKAlSAmlk');
+    'ChVDYXN0RXhoaWJpdGlvblJlcXVlc3QSJwoMZXhoaWJpdGlvbklkGAEgASgJSABSDGV4aGliaX'
+    'Rpb25JZIgBARJRCgdrYXRhbG9nGAIgASgOMjcuY2FudmFzX2NvbnRyb2wuQ2FzdEV4aGliaXRp'
+    'b25SZXF1ZXN0LkV4aGliaXRpb25LYXRhbG9nUgdrYXRhbG9nEiEKCWthdGFsb2dJZBgDIAEoCU'
+    'gBUglrYXRhbG9nSWSIAQEiSgoRRXhoaWJpdGlvbkthdGFsb2cSCAoESE9NRRAAEhAKDENVUkFU'
+    'T1JfTk9URRABEgwKCFJFU09VUkNFEAISCwoHQVJUV09SSxADQg8KDV9leGhpYml0aW9uSWRCDA'
+    'oKX2thdGFsb2dJZA==');
 
 @$core.Deprecated('Use castExhibitionReplyDescriptor instead')
 const CastExhibitionReply$json = {

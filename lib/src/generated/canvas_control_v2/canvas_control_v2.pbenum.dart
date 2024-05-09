@@ -38,5 +38,24 @@ class DeviceInfoV2_DevicePlatform extends $pb.ProtobufEnum {
   const DeviceInfoV2_DevicePlatform._($core.int v, $core.String n) : super(v, n);
 }
 
+class CastExhibitionRequest_ExhibitionKatalog extends $pb.ProtobufEnum {
+  static const CastExhibitionRequest_ExhibitionKatalog HOME = CastExhibitionRequest_ExhibitionKatalog._(0, _omitEnumNames ? '' : 'HOME');
+  static const CastExhibitionRequest_ExhibitionKatalog CURATOR_NOTE = CastExhibitionRequest_ExhibitionKatalog._(1, _omitEnumNames ? '' : 'CURATOR_NOTE');
+  static const CastExhibitionRequest_ExhibitionKatalog RESOURCE = CastExhibitionRequest_ExhibitionKatalog._(2, _omitEnumNames ? '' : 'RESOURCE');
+  static const CastExhibitionRequest_ExhibitionKatalog ARTWORK = CastExhibitionRequest_ExhibitionKatalog._(3, _omitEnumNames ? '' : 'ARTWORK');
+
+  static const $core.List<CastExhibitionRequest_ExhibitionKatalog> values = <CastExhibitionRequest_ExhibitionKatalog> [
+    HOME,
+    CURATOR_NOTE,
+    RESOURCE,
+    ARTWORK,
+  ];
+
+  static final $core.Map<$core.int, CastExhibitionRequest_ExhibitionKatalog> _byValue = $pb.ProtobufEnum.initByValue(values);
+  static CastExhibitionRequest_ExhibitionKatalog? valueOf($core.int value) => _byValue[value];
+
+  const CastExhibitionRequest_ExhibitionKatalog._($core.int v, $core.String n) : super(v, n);
+}
+
 
 const _omitEnumNames = $core.bool.fromEnvironment('protobuf.omit_enum_names');

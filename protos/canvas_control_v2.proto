@@ -167,8 +167,18 @@ message UpdateDurationReply {
 }
 
 message CastExhibitionRequest {
-  // exhibitionId
-  string id = 1;
+  enum ExhibitionKatalog {
+    HOME = 0;
+    CURATOR_NOTE = 1;
+    RESOURCE = 2;
+    ARTWORK = 3;
+  }
+  // exhibition id
+  optional string exhibitionId = 1;
+  // casting katalog
+  ExhibitionKatalog katalog = 2;
+  // katalog id
+  optional string katalogId = 3;
 }
 
 message CastExhibitionReply {
