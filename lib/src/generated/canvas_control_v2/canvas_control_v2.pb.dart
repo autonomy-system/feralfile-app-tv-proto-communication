@@ -1383,7 +1383,7 @@ class UpdateDurationReply extends $pb.GeneratedMessage {
 class CastExhibitionRequest extends $pb.GeneratedMessage {
   factory CastExhibitionRequest({
     $core.String? exhibitionId,
-    CastExhibitionRequest_ExhibitionKatalog? katalog,
+    ExhibitionKatalog? katalog,
     $core.String? katalogId,
   }) {
     final $result = create();
@@ -1404,7 +1404,7 @@ class CastExhibitionRequest extends $pb.GeneratedMessage {
 
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'CastExhibitionRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
     ..aOS(1, _omitFieldNames ? '' : 'exhibitionId', protoName: 'exhibitionId')
-    ..e<CastExhibitionRequest_ExhibitionKatalog>(2, _omitFieldNames ? '' : 'katalog', $pb.PbFieldType.OE, defaultOrMaker: CastExhibitionRequest_ExhibitionKatalog.HOME, valueOf: CastExhibitionRequest_ExhibitionKatalog.valueOf, enumValues: CastExhibitionRequest_ExhibitionKatalog.values)
+    ..e<ExhibitionKatalog>(2, _omitFieldNames ? '' : 'katalog', $pb.PbFieldType.OE, defaultOrMaker: ExhibitionKatalog.HOME, valueOf: ExhibitionKatalog.valueOf, enumValues: ExhibitionKatalog.values)
     ..aOS(3, _omitFieldNames ? '' : 'katalogId', protoName: 'katalogId')
     ..hasRequiredFields = false
   ;
@@ -1442,9 +1442,9 @@ class CastExhibitionRequest extends $pb.GeneratedMessage {
 
   /// casting katalog
   @$pb.TagNumber(2)
-  CastExhibitionRequest_ExhibitionKatalog get katalog => $_getN(1);
+  ExhibitionKatalog get katalog => $_getN(1);
   @$pb.TagNumber(2)
-  set katalog(CastExhibitionRequest_ExhibitionKatalog v) { setField(2, v); }
+  set katalog(ExhibitionKatalog v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasKatalog() => $_has(1);
   @$pb.TagNumber(2)
