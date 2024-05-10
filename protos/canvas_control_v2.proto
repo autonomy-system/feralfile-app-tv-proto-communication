@@ -104,7 +104,8 @@ message CheckDeviceStatusRequest {}
 message CheckDeviceStatusReply {
   repeated PlayArtworkV2 artworks = 1;
   optional int64 startTime = 2;
-  DeviceInfoV2 connectedDevice = 3;
+  optional DeviceInfoV2 connectedDevice = 3;
+  optional string exhibitionId = 4;
 }
 
 message CastListArtworkReply {

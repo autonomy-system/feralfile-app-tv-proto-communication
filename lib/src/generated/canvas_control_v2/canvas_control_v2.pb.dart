@@ -600,6 +600,7 @@ class CheckDeviceStatusReply extends $pb.GeneratedMessage {
     $core.Iterable<PlayArtworkV2>? artworks,
     $fixnum.Int64? startTime,
     DeviceInfoV2? connectedDevice,
+    $core.String? exhibitionId,
   }) {
     final $result = create();
     if (artworks != null) {
@@ -611,6 +612,9 @@ class CheckDeviceStatusReply extends $pb.GeneratedMessage {
     if (connectedDevice != null) {
       $result.connectedDevice = connectedDevice;
     }
+    if (exhibitionId != null) {
+      $result.exhibitionId = exhibitionId;
+    }
     return $result;
   }
   CheckDeviceStatusReply._() : super();
@@ -621,6 +625,7 @@ class CheckDeviceStatusReply extends $pb.GeneratedMessage {
     ..pc<PlayArtworkV2>(1, _omitFieldNames ? '' : 'artworks', $pb.PbFieldType.PM, subBuilder: PlayArtworkV2.create)
     ..aInt64(2, _omitFieldNames ? '' : 'startTime', protoName: 'startTime')
     ..aOM<DeviceInfoV2>(3, _omitFieldNames ? '' : 'connectedDevice', protoName: 'connectedDevice', subBuilder: DeviceInfoV2.create)
+    ..aOS(4, _omitFieldNames ? '' : 'exhibitionId', protoName: 'exhibitionId')
     ..hasRequiredFields = false
   ;
 
@@ -667,6 +672,15 @@ class CheckDeviceStatusReply extends $pb.GeneratedMessage {
   void clearConnectedDevice() => clearField(3);
   @$pb.TagNumber(3)
   DeviceInfoV2 ensureConnectedDevice() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.String get exhibitionId => $_getSZ(3);
+  @$pb.TagNumber(4)
+  set exhibitionId($core.String v) { $_setString(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasExhibitionId() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearExhibitionId() => clearField(4);
 }
 
 class CastListArtworkReply extends $pb.GeneratedMessage {

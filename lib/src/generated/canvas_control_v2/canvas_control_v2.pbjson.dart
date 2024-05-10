@@ -195,10 +195,13 @@ const CheckDeviceStatusReply$json = {
   '2': [
     {'1': 'artworks', '3': 1, '4': 3, '5': 11, '6': '.canvas_control.PlayArtworkV2', '10': 'artworks'},
     {'1': 'startTime', '3': 2, '4': 1, '5': 3, '9': 0, '10': 'startTime', '17': true},
-    {'1': 'connectedDevice', '3': 3, '4': 1, '5': 11, '6': '.canvas_control.DeviceInfoV2', '10': 'connectedDevice'},
+    {'1': 'connectedDevice', '3': 3, '4': 1, '5': 11, '6': '.canvas_control.DeviceInfoV2', '9': 1, '10': 'connectedDevice', '17': true},
+    {'1': 'exhibitionId', '3': 4, '4': 1, '5': 9, '9': 2, '10': 'exhibitionId', '17': true},
   ],
   '8': [
     {'1': '_startTime'},
+    {'1': '_connectedDevice'},
+    {'1': '_exhibitionId'},
   ],
 };
 
@@ -206,8 +209,10 @@ const CheckDeviceStatusReply$json = {
 final $typed_data.Uint8List checkDeviceStatusReplyDescriptor = $convert.base64Decode(
     'ChZDaGVja0RldmljZVN0YXR1c1JlcGx5EjkKCGFydHdvcmtzGAEgAygLMh0uY2FudmFzX2Nvbn'
     'Ryb2wuUGxheUFydHdvcmtWMlIIYXJ0d29ya3MSIQoJc3RhcnRUaW1lGAIgASgDSABSCXN0YXJ0'
-    'VGltZYgBARJGCg9jb25uZWN0ZWREZXZpY2UYAyABKAsyHC5jYW52YXNfY29udHJvbC5EZXZpY2'
-    'VJbmZvVjJSD2Nvbm5lY3RlZERldmljZUIMCgpfc3RhcnRUaW1l');
+    'VGltZYgBARJLCg9jb25uZWN0ZWREZXZpY2UYAyABKAsyHC5jYW52YXNfY29udHJvbC5EZXZpY2'
+    'VJbmZvVjJIAVIPY29ubmVjdGVkRGV2aWNliAEBEicKDGV4aGliaXRpb25JZBgEIAEoCUgCUgxl'
+    'eGhpYml0aW9uSWSIAQFCDAoKX3N0YXJ0VGltZUISChBfY29ubmVjdGVkRGV2aWNlQg8KDV9leG'
+    'hpYml0aW9uSWQ=');
 
 @$core.Deprecated('Use castListArtworkReplyDescriptor instead')
 const CastListArtworkReply$json = {
