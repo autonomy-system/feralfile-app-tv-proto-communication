@@ -166,14 +166,15 @@ message UpdateDurationReply {
   repeated PlayArtworkV2 artworks = 2;
 }
 
+enum ExhibitionKatalog {
+  HOME = 0;
+  CURATOR_NOTE = 1;
+  RESOURCE = 2;
+  ROURCE_DETAIL = 3;
+  ARTWORK = 4;
+}
+
 message CastExhibitionRequest {
-  enum ExhibitionKatalog {
-    HOME = 0;
-    CURATOR_NOTE = 1;
-    RESOURCE = 2;
-    ROURCE_DETAIL = 3;
-    ARTWORK = 4;
-  }
   // exhibition id
   optional string exhibitionId = 1;
   // casting katalog
