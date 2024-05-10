@@ -171,7 +171,8 @@ message CastExhibitionRequest {
     HOME = 0;
     CURATOR_NOTE = 1;
     RESOURCE = 2;
-    ARTWORK = 3;
+    ROURCE_DETAIL = 3;
+    ARTWORK = 4;
   }
   // exhibition id
   optional string exhibitionId = 1;
