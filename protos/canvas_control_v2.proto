@@ -9,7 +9,7 @@ package canvas_control;
 
 service CanvasControlV2 {
 
-  rpc Connect (ConnectRequestV2) returns (ConnectReplyV2) {}
+  rpc Connect (ConnectRequestV2) returns (stream ConnectReplyV2) {}
 
   rpc Disconnect (DisconnectRequestV2) returns (DisconnectReplyV2) {}
 

@@ -76,8 +76,8 @@ class CanvasControlV2Client extends $grpc.Client {
       : super(channel, options: options,
         interceptors: interceptors);
 
-  $grpc.ResponseFuture<$0.ConnectReplyV2> connect($0.ConnectRequestV2 request, {$grpc.CallOptions? options}) {
-    return $createUnaryCall(_$connect, request, options: options);
+  $grpc.ResponseStream<$0.ConnectReplyV2> connect($0.ConnectRequestV2 request, {$grpc.CallOptions? options}) {
+    return $createStreamingCall(_$connect, $async.Stream.fromIterable([request]), options: options);
   }
 
   $grpc.ResponseFuture<$0.DisconnectReplyV2> disconnect($0.DisconnectRequestV2 request, {$grpc.CallOptions? options}) {
@@ -134,7 +134,7 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
         'Connect',
         connect_Pre,
         false,
-        false,
+        true,
         ($core.List<$core.int> value) => $0.ConnectRequestV2.fromBuffer(value),
         ($0.ConnectReplyV2 value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.DisconnectRequestV2, $0.DisconnectReplyV2>(
@@ -216,8 +216,8 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
         ($0.CastExhibitionReply value) => value.writeToBuffer()));
   }
 
-  $async.Future<$0.ConnectReplyV2> connect_Pre($grpc.ServiceCall call, $async.Future<$0.ConnectRequestV2> request) async {
-    return connect(call, await request);
+  $async.Stream<$0.ConnectReplyV2> connect_Pre($grpc.ServiceCall call, $async.Future<$0.ConnectRequestV2> request) async* {
+    yield* connect(call, await request);
   }
 
   $async.Future<$0.DisconnectReplyV2> disconnect_Pre($grpc.ServiceCall call, $async.Future<$0.DisconnectRequestV2> request) async {
@@ -264,7 +264,7 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
     return castExhibition(call, await request);
   }
 
-  $async.Future<$0.ConnectReplyV2> connect($grpc.ServiceCall call, $0.ConnectRequestV2 request);
+  $async.Stream<$0.ConnectReplyV2> connect($grpc.ServiceCall call, $0.ConnectRequestV2 request);
   $async.Future<$0.DisconnectReplyV2> disconnect($grpc.ServiceCall call, $0.DisconnectRequestV2 request);
   $async.Future<$0.CheckDeviceStatusReply> status($grpc.ServiceCall call, $0.CheckDeviceStatusRequest request);
   $async.Future<$0.CastListArtworkReply> castListArtwork($grpc.ServiceCall call, $0.CastListArtworkRequest request);
