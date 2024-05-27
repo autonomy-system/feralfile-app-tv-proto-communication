@@ -1,51 +1,11 @@
 
+
 syntax = "proto3";
-//import "canvas_control_message.proto";
 option java_multiple_files = true;
 option java_outer_classname = "ControlProto";
 option objc_class_prefix = "HLW";
 
 package canvas_control;
-
-// to generate code:
-// protoc --plugin=protoc-gen-dart=$HOME/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:lib/src/generated/canvas_control -Iprotos protos/canvas_control.proto
-
-service CanvasControl {
-  // Client requests to connect to the server
-  rpc Connect (ConnectRequest) returns (ConnectReply) {}
-
-  // Client requests to check the status of the device
-  rpc Status (CheckingStatus) returns (ResponseStatus) {}
-
-  // Client requests to disconnect from the server
-  rpc Disconnect (DisconnectRequest) returns (Empty) {}
-
-  // Client request to cast a single artwork
-  rpc CastSingleArtwork (CastSingleRequest) returns (CastSingleReply) {}
-
-  // Client request to cast a collection
-  rpc CastCollection (CastCollectionRequest) returns (CastCollectionReply) {}
-
-  // Client request uncast a single artwork
-  rpc UncastSingleArtwork (UncastSingleRequest) returns (UncastSingleReply) {}
-
-  // Client request unCast single/collection
-  rpc UnCastArtwork (UnCastRequest) returns (UnCastReply) {}
-
-  // Client press keyboard
-  rpc KeyboardEvent (KeyboardEventRequest) returns (KeyboardEventReply) {}
-
-  // Client rotate
-  rpc Rotate (RotateRequest) returns (RotateReply) {}
-
-  rpc TapGesture (TapGestureRequest) returns (GestureReply) {}
-
-  rpc DragGesture (DragGestureRequest) returns (GestureReply) {}
-
-  rpc GetCursorOffset (Empty) returns (CursorOffset) {}
-
-  rpc SetCursorOffset (CursorOffset) returns (CursorOffsetReply) {}
-}
 
 message ConnectRequest {
   DeviceInfo device = 1;

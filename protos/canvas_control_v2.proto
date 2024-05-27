@@ -1,0 +1,189 @@
+
+syntax = "proto3";
+//import "canvas_control_message_v2.proto";
+option java_multiple_files = true;
+option java_outer_classname = "ControlProto";
+option objc_class_prefix = "HLW";
+
+package canvas_control;
+
+service CanvasControlV2 {
+
+  rpc Connect (ConnectRequestV2) returns (stream ConnectReplyV2) {}
+
+  rpc Disconnect (DisconnectRequestV2) returns (DisconnectReplyV2) {}
+
+  rpc Status (CheckDeviceStatusRequest) returns (CheckDeviceStatusReply) {}
+
+  rpc CastListArtwork (CastListArtworkRequest) returns (CastListArtworkReply) {}
+
+  rpc CancelCasting (CancelCastingRequest) returns (CancelCastingReply) {}
+
+  rpc AppendListArtwork (AppendArtworkToCastingListRequest) returns (AppendArtworkToCastingListReply) {}
+
+  rpc PauseCasting (PauseCastingRequest) returns (PauseCastingReply) {}
+
+  rpc ResumeCasting (ResumeCastingRequest) returns (ResumeCastingReply) {}
+
+  rpc NextArtwork (NextArtworkRequest) returns (NextArtworkReply) {}
+
+  rpc PreviousArtwork (PreviousArtwortRequest) returns (PreviousArtworkReply) {}
+
+  rpc UpdateDuration (UpdateDurationRequest) returns (UpdateDurationReply) {}
+
+  rpc CastExhibition (CastExhibitionRequest) returns (CastExhibitionReply
+      ) {}
+}
+
+message DeviceInfoV2 {
+  enum DevicePlatform {
+    IOS = 0;
+    ANDROID = 1;
+    MACOS= 2;
+    TIZENTV = 3;
+    ANDROIDTV = 4;
+    LGTV = 5;
+    OTHER = 6;
+  }
+  // Device id
+  string device_id = 1;
+  // Device name
+  string device_name = 2;
+  // Device platform
+  DevicePlatform platform = 3;
+}
+
+message ConnectRequestV2 {
+  // Client device to connect
+  DeviceInfoV2 clientDevice = 1;
+}
+
+message ConnectReplyV2 {
+  bool ok = 1;
+  // Canvas device info
+  optional DeviceInfoV2 canvasDevice = 2;
+}
+
+message DisconnectRequestV2 {
+}
+
+message DisconnectReplyV2 {
+  bool ok = 1;
+}
+
+message CastAssetToken {
+  // indexId
+  string id = 1;
+}
+
+message CastArtwork {
+  // artwork previewUrl
+  string url = 1;
+  // artwork mimetype
+  string mimetype = 2;
+}
+
+message PlayArtworkV2 {
+  // token: play with token indexId, has higher priority than artwork.
+  optional CastAssetToken token = 1;
+  // artwork: play with url and mimeType, has lower priority than token.
+  optional CastArtwork artwork = 2;
+  // duration in milisecond
+  int32 duration = 3;
+}
+
+message CastListArtworkRequest {
+  // artworks
+  repeated PlayArtworkV2 artworks = 1;
+  // casting start time
+  optional int64 startTime = 2;
+}
+
+message CheckDeviceStatusRequest {}
+
+message CheckDeviceStatusReply {
+  repeated PlayArtworkV2 artworks = 1;
+  optional int64 startTime = 2;
+  optional DeviceInfoV2 connectedDevice = 3;
+  optional string exhibitionId = 4;
+}
+
+message CastListArtworkReply {
+  bool ok = 1;
+}
+
+message CancelCastingRequest {}
+
+message CancelCastingReply {
+  bool ok = 1;
+}
+
+message AppendArtworkToCastingListRequest {
+  // artworks
+  repeated PlayArtworkV2 artworks = 1;
+}
+
+message AppendArtworkToCastingListReply {
+  bool ok = 1;
+}
+
+message PauseCastingRequest {
+}
+
+message PauseCastingReply {
+  bool ok = 1;
+}
+
+message ResumeCastingRequest {
+  optional int64 startTime = 1;
+}
+
+message ResumeCastingReply {
+  bool ok = 1;
+}
+
+message NextArtworkRequest {
+  optional int64 startTime = 1;
+}
+
+message NextArtworkReply {
+  bool ok = 1;
+}
+
+message PreviousArtwortRequest {
+  optional int64 startTime = 1;
+}
+
+message PreviousArtworkReply {
+  bool ok = 1;
+}
+
+message UpdateDurationRequest {
+  repeated PlayArtworkV2 artworks = 1;
+}
+
+message UpdateDurationReply {
+  optional int64 startTime = 1;
+  repeated PlayArtworkV2 artworks = 2;
+}
+
+enum ExhibitionKatalog {
+  HOME = 0;
+  CURATOR_NOTE = 1;
+  RESOURCE = 2;
+  RESOURCE_DETAIL = 3;
+  ARTWORK = 4;
+}
+
+message CastExhibitionRequest {
+  // exhibition id
+  optional string exhibitionId = 1;
+  // casting katalog
+  ExhibitionKatalog katalog = 2;
+  // katalog id
+  optional string katalogId = 3;
+}
+
+message CastExhibitionReply {
+  bool ok = 1;
+}
