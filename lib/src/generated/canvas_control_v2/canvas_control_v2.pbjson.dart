@@ -377,6 +377,31 @@ const PreviousArtworkReply$json = {
 final $typed_data.Uint8List previousArtworkReplyDescriptor = $convert.base64Decode(
     'ChRQcmV2aW91c0FydHdvcmtSZXBseRIOCgJvaxgBIAEoCFICb2s=');
 
+@$core.Deprecated('Use moveToArtworkRequestDescriptor instead')
+const MoveToArtworkRequest$json = {
+  '1': 'MoveToArtworkRequest',
+  '2': [
+    {'1': 'artwork', '3': 1, '4': 1, '5': 11, '6': '.canvas_control.PlayArtworkV2', '10': 'artwork'},
+  ],
+};
+
+/// Descriptor for `MoveToArtworkRequest`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List moveToArtworkRequestDescriptor = $convert.base64Decode(
+    'ChRNb3ZlVG9BcnR3b3JrUmVxdWVzdBI3CgdhcnR3b3JrGAEgASgLMh0uY2FudmFzX2NvbnRyb2'
+    'wuUGxheUFydHdvcmtWMlIHYXJ0d29yaw==');
+
+@$core.Deprecated('Use moveToArtworkReplyDescriptor instead')
+const MoveToArtworkReply$json = {
+  '1': 'MoveToArtworkReply',
+  '2': [
+    {'1': 'ok', '3': 1, '4': 1, '5': 8, '10': 'ok'},
+  ],
+};
+
+/// Descriptor for `MoveToArtworkReply`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List moveToArtworkReplyDescriptor = $convert.base64Decode(
+    'ChJNb3ZlVG9BcnR3b3JrUmVwbHkSDgoCb2sYASABKAhSAm9r');
+
 @$core.Deprecated('Use updateDurationRequestDescriptor instead')
 const UpdateDurationRequest$json = {
   '1': 'UpdateDurationRequest',
