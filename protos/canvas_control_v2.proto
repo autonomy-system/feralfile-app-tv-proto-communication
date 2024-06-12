@@ -7,6 +7,10 @@ option objc_class_prefix = "HLW";
 
 package canvas_control;
 
+// to generate code:
+// protoc --plugin=protoc-gen-dart=$HOME/.pub-cache/bin/protoc-gen-dart --dart_out=grpc:lib/src/generated/canvas_control_v2 -Iprotos protos/canvas_control_v2.proto
+
+
 service CanvasControlV2 {
 
   rpc Connect (ConnectRequestV2) returns (stream ConnectReplyV2) {}
@@ -28,6 +32,8 @@ service CanvasControlV2 {
   rpc NextArtwork (NextArtworkRequest) returns (NextArtworkReply) {}
 
   rpc PreviousArtwork (PreviousArtwortRequest) returns (PreviousArtworkReply) {}
+
+  rpc MoveToArtwork (MoveToArtworkRequest) returns (MoveToArtworkReply) {}
 
   rpc UpdateDuration (UpdateDurationRequest) returns (UpdateDurationReply) {}
 
@@ -155,6 +161,15 @@ message PreviousArtwortRequest {
 }
 
 message PreviousArtworkReply {
+  bool ok = 1;
+}
+
+message MoveToArtworkRequest {
+  // artwork
+  PlayArtworkV2 artwork = 1;
+}
+
+message MoveToArtworkReply {
   bool ok = 1;
 }
 
