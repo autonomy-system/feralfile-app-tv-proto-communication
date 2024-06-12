@@ -1292,6 +1292,109 @@ class PreviousArtworkReply extends $pb.GeneratedMessage {
   void clearOk() => clearField(1);
 }
 
+class MoveToArtworkRequest extends $pb.GeneratedMessage {
+  factory MoveToArtworkRequest({
+    PlayArtworkV2? artwork,
+  }) {
+    final $result = create();
+    if (artwork != null) {
+      $result.artwork = artwork;
+    }
+    return $result;
+  }
+  MoveToArtworkRequest._() : super();
+  factory MoveToArtworkRequest.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MoveToArtworkRequest.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MoveToArtworkRequest', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOM<PlayArtworkV2>(1, _omitFieldNames ? '' : 'artwork', subBuilder: PlayArtworkV2.create)
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  MoveToArtworkRequest clone() => MoveToArtworkRequest()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MoveToArtworkRequest copyWith(void Function(MoveToArtworkRequest) updates) => super.copyWith((message) => updates(message as MoveToArtworkRequest)) as MoveToArtworkRequest;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MoveToArtworkRequest create() => MoveToArtworkRequest._();
+  MoveToArtworkRequest createEmptyInstance() => create();
+  static $pb.PbList<MoveToArtworkRequest> createRepeated() => $pb.PbList<MoveToArtworkRequest>();
+  @$core.pragma('dart2js:noInline')
+  static MoveToArtworkRequest getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MoveToArtworkRequest>(create);
+  static MoveToArtworkRequest? _defaultInstance;
+
+  /// artwork
+  @$pb.TagNumber(1)
+  PlayArtworkV2 get artwork => $_getN(0);
+  @$pb.TagNumber(1)
+  set artwork(PlayArtworkV2 v) { setField(1, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasArtwork() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearArtwork() => clearField(1);
+  @$pb.TagNumber(1)
+  PlayArtworkV2 ensureArtwork() => $_ensure(0);
+}
+
+class MoveToArtworkReply extends $pb.GeneratedMessage {
+  factory MoveToArtworkReply({
+    $core.bool? ok,
+  }) {
+    final $result = create();
+    if (ok != null) {
+      $result.ok = ok;
+    }
+    return $result;
+  }
+  MoveToArtworkReply._() : super();
+  factory MoveToArtworkReply.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MoveToArtworkReply.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(_omitMessageNames ? '' : 'MoveToArtworkReply', package: const $pb.PackageName(_omitMessageNames ? '' : 'canvas_control'), createEmptyInstance: create)
+    ..aOB(1, _omitFieldNames ? '' : 'ok')
+    ..hasRequiredFields = false
+  ;
+
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
+  MoveToArtworkReply clone() => MoveToArtworkReply()..mergeFromMessage(this);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MoveToArtworkReply copyWith(void Function(MoveToArtworkReply) updates) => super.copyWith((message) => updates(message as MoveToArtworkReply)) as MoveToArtworkReply;
+
+  $pb.BuilderInfo get info_ => _i;
+
+  @$core.pragma('dart2js:noInline')
+  static MoveToArtworkReply create() => MoveToArtworkReply._();
+  MoveToArtworkReply createEmptyInstance() => create();
+  static $pb.PbList<MoveToArtworkReply> createRepeated() => $pb.PbList<MoveToArtworkReply>();
+  @$core.pragma('dart2js:noInline')
+  static MoveToArtworkReply getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MoveToArtworkReply>(create);
+  static MoveToArtworkReply? _defaultInstance;
+
+  @$pb.TagNumber(1)
+  $core.bool get ok => $_getBF(0);
+  @$pb.TagNumber(1)
+  set ok($core.bool v) { $_setBool(0, v); }
+  @$pb.TagNumber(1)
+  $core.bool hasOk() => $_has(0);
+  @$pb.TagNumber(1)
+  void clearOk() => clearField(1);
+}
+
 class UpdateDurationRequest extends $pb.GeneratedMessage {
   factory UpdateDurationRequest({
     $core.Iterable<PlayArtworkV2>? artworks,

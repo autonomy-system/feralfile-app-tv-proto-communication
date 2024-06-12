@@ -61,6 +61,10 @@ class CanvasControlV2Client extends $grpc.Client {
       '/canvas_control.CanvasControlV2/PreviousArtwork',
       ($0.PreviousArtwortRequest value) => value.writeToBuffer(),
       ($core.List<$core.int> value) => $0.PreviousArtworkReply.fromBuffer(value));
+  static final _$moveToArtwork = $grpc.ClientMethod<$0.MoveToArtworkRequest, $0.MoveToArtworkReply>(
+      '/canvas_control.CanvasControlV2/MoveToArtwork',
+      ($0.MoveToArtworkRequest value) => value.writeToBuffer(),
+      ($core.List<$core.int> value) => $0.MoveToArtworkReply.fromBuffer(value));
   static final _$updateDuration = $grpc.ClientMethod<$0.UpdateDurationRequest, $0.UpdateDurationReply>(
       '/canvas_control.CanvasControlV2/UpdateDuration',
       ($0.UpdateDurationRequest value) => value.writeToBuffer(),
@@ -114,6 +118,10 @@ class CanvasControlV2Client extends $grpc.Client {
 
   $grpc.ResponseFuture<$0.PreviousArtworkReply> previousArtwork($0.PreviousArtwortRequest request, {$grpc.CallOptions? options}) {
     return $createUnaryCall(_$previousArtwork, request, options: options);
+  }
+
+  $grpc.ResponseFuture<$0.MoveToArtworkReply> moveToArtwork($0.MoveToArtworkRequest request, {$grpc.CallOptions? options}) {
+    return $createUnaryCall(_$moveToArtwork, request, options: options);
   }
 
   $grpc.ResponseFuture<$0.UpdateDurationReply> updateDuration($0.UpdateDurationRequest request, {$grpc.CallOptions? options}) {
@@ -200,6 +208,13 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
         false,
         ($core.List<$core.int> value) => $0.PreviousArtwortRequest.fromBuffer(value),
         ($0.PreviousArtworkReply value) => value.writeToBuffer()));
+    $addMethod($grpc.ServiceMethod<$0.MoveToArtworkRequest, $0.MoveToArtworkReply>(
+        'MoveToArtwork',
+        moveToArtwork_Pre,
+        false,
+        false,
+        ($core.List<$core.int> value) => $0.MoveToArtworkRequest.fromBuffer(value),
+        ($0.MoveToArtworkReply value) => value.writeToBuffer()));
     $addMethod($grpc.ServiceMethod<$0.UpdateDurationRequest, $0.UpdateDurationReply>(
         'UpdateDuration',
         updateDuration_Pre,
@@ -256,6 +271,10 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
     return previousArtwork(call, await request);
   }
 
+  $async.Future<$0.MoveToArtworkReply> moveToArtwork_Pre($grpc.ServiceCall call, $async.Future<$0.MoveToArtworkRequest> request) async {
+    return moveToArtwork(call, await request);
+  }
+
   $async.Future<$0.UpdateDurationReply> updateDuration_Pre($grpc.ServiceCall call, $async.Future<$0.UpdateDurationRequest> request) async {
     return updateDuration(call, await request);
   }
@@ -274,6 +293,7 @@ abstract class CanvasControlV2ServiceBase extends $grpc.Service {
   $async.Future<$0.ResumeCastingReply> resumeCasting($grpc.ServiceCall call, $0.ResumeCastingRequest request);
   $async.Future<$0.NextArtworkReply> nextArtwork($grpc.ServiceCall call, $0.NextArtworkRequest request);
   $async.Future<$0.PreviousArtworkReply> previousArtwork($grpc.ServiceCall call, $0.PreviousArtwortRequest request);
+  $async.Future<$0.MoveToArtworkReply> moveToArtwork($grpc.ServiceCall call, $0.MoveToArtworkRequest request);
   $async.Future<$0.UpdateDurationReply> updateDuration($grpc.ServiceCall call, $0.UpdateDurationRequest request);
   $async.Future<$0.CastExhibitionReply> castExhibition($grpc.ServiceCall call, $0.CastExhibitionRequest request);
 }
