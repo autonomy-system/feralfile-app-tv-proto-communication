@@ -1,5 +1,3 @@
-import 'package:hive_flutter/hive_flutter.dart';
-
 class DisplayDevice {
   final String id;
   final String topicID;
@@ -39,26 +37,4 @@ class DisplayDevice {
         locationID: locationID ?? this.locationID,
         name: name ?? this.name,
       );
-}
-
-class DisplayDeviceAdapter extends TypeAdapter<DisplayDevice> {
-  @override
-  final int typeId = 0;
-
-  @override
-  DisplayDevice read(BinaryReader reader) => DisplayDevice(
-        id: reader.readString(),
-        topicID: reader.readString(),
-        locationID: reader.readString(),
-        name: reader.readString(),
-      );
-
-  @override
-  void write(BinaryWriter writer, DisplayDevice obj) {
-    writer
-      ..writeString(obj.id)
-      ..writeString(obj.topicID)
-      ..writeString(obj.locationID)
-      ..writeString(obj.name);
-  }
 }
