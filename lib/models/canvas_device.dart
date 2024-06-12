@@ -3,59 +3,47 @@ import 'package:floor/floor.dart';
 @entity
 class CanvasDevice {
   @primaryKey
-  final String id;
-  final String ip;
-  final int port;
-  final String name;
-  bool isConnecting;
-  String? playingSceneId;
+  final String deviceId; //hardware id
+  final locationId; // location id
+  final topicId; // topic id
+  final String name; // device name
 
   // constructor
   CanvasDevice({
-    required this.id,
-    required this.ip,
-    required this.port,
+    required this.deviceId,
+    required this.locationId,
+    required this.topicId,
     required this.name,
-    this.isConnecting = false,
-    this.playingSceneId,
   });
 
   //fromJson method
   factory CanvasDevice.fromJson(Map<String, dynamic> json) => CanvasDevice(
-        id: json["id"] as String,
-        ip: json["ip"] as String,
-        port: json["port"] as int,
+        deviceId: json["deviceId"] as String,
+        locationId: json["locationId"] as String,
+        topicId: json["topicId"] as String,
         name: json["name"] as String,
-        isConnecting: json["isConnecting"] as bool,
-        playingSceneId: json["playingSceneId"] as String?,
       );
 
   // toJson
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "ip": ip,
-        "port": port,
+        "deviceId": deviceId,
+        "locationId": locationId,
+        "topicId": topicId,
         "name": name,
-        "isConnecting": isConnecting,
-        "playingSceneId": playingSceneId,
       };
 
   // copyWith
   CanvasDevice copyWith({
-    String? id,
-    String? ip,
-    int? port,
+    String? deviceId,
+    String? locationId,
+    String? topicId,
     String? name,
-    bool? isConnecting,
-    String? playingSceneId,
   }) {
     return CanvasDevice(
-      id: id ?? this.id,
-      ip: ip ?? this.ip,
-      port: port ?? this.port,
+      deviceId: deviceId ?? this.deviceId,
+      locationId: locationId ?? this.locationId,
+      topicId: topicId ?? this.topicId,
       name: name ?? this.name,
-      isConnecting: isConnecting ?? this.isConnecting,
-      playingSceneId: playingSceneId ?? this.playingSceneId,
     );
   }
 
@@ -64,10 +52,7 @@ class CanvasDevice {
     if (identical(this, other)) {
       return true;
     }
-    return other is CanvasDevice &&
-        id == other.id &&
-        name == other.name &&
-        ip == other.ip;
+    return other is CanvasDevice && deviceId == other.deviceId;
   }
 }
 
