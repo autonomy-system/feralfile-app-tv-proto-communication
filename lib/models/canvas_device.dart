@@ -4,8 +4,8 @@ import 'package:floor/floor.dart';
 class CanvasDevice {
   @primaryKey
   final String deviceId; //hardware id
-  final locationId; // location id
-  final topicId; // topic id
+  final String locationId; // location id
+  final String topicId; // topic id
   final String name; // device name
 
   // constructor
