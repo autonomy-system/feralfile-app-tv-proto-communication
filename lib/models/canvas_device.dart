@@ -51,3 +51,29 @@ class CanvasDevice {
     return other is CanvasDevice && deviceId == other.deviceId;
   }
 }
+
+class DeviceInfo {
+  String deviceId;
+  String deviceName;
+
+  DeviceInfo({
+    required this.deviceId,
+    required this.deviceName,
+  });
+
+  // Factory constructor to create an instance from JSON
+  factory DeviceInfo.fromJson(Map<String, dynamic> json) {
+    return DeviceInfo(
+      deviceId: json['device_id'] as String,
+      deviceName: json['device_name'] as String,
+    );
+  }
+
+  // Method to convert an instance to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'device_id': deviceId,
+      'device_name': deviceName,
+    };
+  }
+}

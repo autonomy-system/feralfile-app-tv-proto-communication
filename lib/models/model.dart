@@ -152,7 +152,7 @@ class RequestBody {
 class Reply {
   final bool ok;
 
-  Reply(this.ok);
+  Reply({required this.ok});
 
   Map<String, dynamic> toJson() {
     return {
@@ -162,7 +162,7 @@ class Reply {
 
   factory Reply.fromJson(Map<String, dynamic> json) {
     return Reply(
-      json['ok'],
+      ok: json['ok'],
     );
   }
 }
@@ -272,10 +272,10 @@ class DisconnectRequestV2 implements Request {
 
 // Class representing DisconnectReplyV2 message
 class DisconnectReplyV2 extends Reply {
-  DisconnectReplyV2(bool ok) : super(ok);
+  DisconnectReplyV2({required bool ok}) : super(ok: ok);
 
   factory DisconnectReplyV2.fromJson(Map<String, dynamic> json) {
-    return DisconnectReplyV2(json['ok']);
+    return DisconnectReplyV2(ok: json['ok']);
   }
 
   Map<String, dynamic> toJson() {
@@ -443,10 +443,10 @@ class CheckDeviceStatusReply {
 
 // Class representing CastListArtworkReply message
 class CastListArtworkReply extends Reply {
-  CastListArtworkReply(bool ok) : super(ok);
+  CastListArtworkReply({required bool ok}) : super(ok: ok);
 
   factory CastListArtworkReply.fromJson(Map<String, dynamic> json) {
-    return CastListArtworkReply(json['ok']);
+    return CastListArtworkReply(ok: json['ok']);
   }
 
   @override
@@ -474,10 +474,10 @@ class CancelCastingRequest implements Request {
 
 // Class representing CancelCastingReply message
 class CancelCastingReply extends Reply {
-  CancelCastingReply(bool ok) : super(ok);
+  CancelCastingReply({required bool ok}) : super(ok: ok);
 
   factory CancelCastingReply.fromJson(Map<String, dynamic> json) {
-    return CancelCastingReply(json['ok']);
+    return CancelCastingReply(ok: json['ok']);
   }
 }
 
@@ -505,10 +505,10 @@ class AppendArtworkToCastingListRequest implements Request {
 
 // Class representing AppendArtworkToCastingListReply message
 class AppendArtworkToCastingListReply extends Reply {
-  AppendArtworkToCastingListReply(bool ok) : super(ok);
+  AppendArtworkToCastingListReply({required bool ok}) : super(ok: ok);
 
   factory AppendArtworkToCastingListReply.fromJson(Map<String, dynamic> json) {
-    return AppendArtworkToCastingListReply(json['ok']);
+    return AppendArtworkToCastingListReply(ok: json['ok']);
   }
 }
 
@@ -529,10 +529,10 @@ class PauseCastingRequest implements Request {
 
 // Class representing PauseCastingReply message
 class PauseCastingReply extends Reply {
-  PauseCastingReply(bool ok) : super(ok);
+  PauseCastingReply({required bool ok}) : super(ok: ok);
 
   factory PauseCastingReply.fromJson(Map<String, dynamic> json) {
-    return PauseCastingReply(json['ok']);
+    return PauseCastingReply(ok: json['ok']);
   }
 }
 
@@ -558,10 +558,10 @@ class ResumeCastingRequest implements Request {
 
 // Class representing ResumeCastingReply message
 class ResumeCastingReply extends Reply {
-  ResumeCastingReply(bool ok) : super(ok);
+  ResumeCastingReply({required bool ok}) : super(ok: ok);
 
   factory ResumeCastingReply.fromJson(Map<String, dynamic> json) {
-    return ResumeCastingReply(json['ok']);
+    return ResumeCastingReply(ok: json['ok']);
   }
 }
 
@@ -587,10 +587,10 @@ class NextArtworkRequest implements Request {
 
 // Class representing NextArtworkReply message
 class NextArtworkReply extends Reply {
-  NextArtworkReply(bool ok) : super(ok);
+  NextArtworkReply({required bool ok}) : super(ok: ok);
 
   factory NextArtworkReply.fromJson(Map<String, dynamic> json) {
-    return NextArtworkReply(json['ok']);
+    return NextArtworkReply(ok: json['ok']);
   }
 }
 
@@ -616,10 +616,10 @@ class PreviousArtworkRequest implements Request {
 
 // Class representing PreviousArtworkReply message
 class PreviousArtworkReply extends Reply {
-  PreviousArtworkReply(bool ok) : super(ok);
+  PreviousArtworkReply({required bool ok}) : super(ok: ok);
 
   factory PreviousArtworkReply.fromJson(Map<String, dynamic> json) {
-    return PreviousArtworkReply(json['ok']);
+    return PreviousArtworkReply(ok: json['ok']);
   }
 }
 
@@ -645,10 +645,10 @@ class MoveToArtworkRequest implements Request {
 
 // Class representing MoveToArtworkReply message
 class MoveToArtworkReply extends Reply {
-  MoveToArtworkReply(bool ok) : super(ok);
+  MoveToArtworkReply({required bool ok}) : super(ok: ok);
 
   factory MoveToArtworkReply.fromJson(Map<String, dynamic> json) {
-    return MoveToArtworkReply(json['ok']);
+    return MoveToArtworkReply(ok: json['ok']);
   }
 }
 
@@ -740,10 +740,10 @@ class CastExhibitionRequest implements Request {
 
 // Class representing CastExhibitionReply message
 class CastExhibitionReply extends Reply {
-  CastExhibitionReply(bool ok) : super(ok);
+  CastExhibitionReply({required bool ok}) : super(ok: ok);
 
   factory CastExhibitionReply.fromJson(Map<String, dynamic> json) {
-    return CastExhibitionReply(json['ok']);
+    return CastExhibitionReply(ok: json['ok']);
   }
 }
 
@@ -762,10 +762,10 @@ class KeyboardEventRequest implements Request {
 }
 
 class KeyboardEventReply extends Reply {
-  KeyboardEventReply(bool ok) : super(ok);
+  KeyboardEventReply({required bool ok}) : super(ok: ok);
 
   factory KeyboardEventReply.fromJson(Map<String, dynamic> json) {
-    return KeyboardEventReply(json['ok']);
+    return KeyboardEventReply(ok: json['ok']);
   }
 }
 
