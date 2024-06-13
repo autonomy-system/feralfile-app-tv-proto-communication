@@ -232,11 +232,11 @@ class ConnectRequestV2 implements Request {
 }
 
 // Class representing ConnectReplyV2 message
-class ConnectReplyV2 {
+class ConnectReplyV2 extends Reply {
   bool ok;
   DeviceInfoV2? canvasDevice;
 
-  ConnectReplyV2({required this.ok, this.canvasDevice});
+  ConnectReplyV2({required this.ok, this.canvasDevice}) : super(ok: ok);
 
   factory ConnectReplyV2.fromJson(Map<String, dynamic> json) {
     return ConnectReplyV2(
@@ -403,7 +403,7 @@ class CheckDeviceStatusRequest implements Request {
 }
 
 // Class representing CheckDeviceStatusReply message
-class CheckDeviceStatusReply {
+class CheckDeviceStatusReply extends Reply {
   List<PlayArtworkV2> artworks;
   int? startTime;
   DeviceInfoV2? connectedDevice;
@@ -414,7 +414,7 @@ class CheckDeviceStatusReply {
     this.startTime,
     this.connectedDevice,
     this.exhibitionId,
-  });
+  }) : super(ok: true);
 
   factory CheckDeviceStatusReply.fromJson(Map<String, dynamic> json) {
     return CheckDeviceStatusReply(
@@ -674,14 +674,14 @@ class UpdateDurationRequest implements Request {
 }
 
 // Class representing UpdateDurationReply message
-class UpdateDurationReply {
+class UpdateDurationReply extends Reply {
   int? startTime;
   List<PlayArtworkV2> artworks;
 
   UpdateDurationReply({
     this.startTime,
     required this.artworks,
-  });
+  }) : super(ok: true);
 
   factory UpdateDurationReply.fromJson(Map<String, dynamic> json) {
     return UpdateDurationReply(
@@ -782,10 +782,10 @@ class RotateRequest implements Request {
   }
 }
 
-class RotateReply {
+class RotateReply extends Reply {
   final int degree;
 
-  RotateReply({required this.degree});
+  RotateReply({required this.degree}) : super(ok: true);
 
   Map<String, dynamic> toJson() => {'degree': degree};
 
@@ -806,8 +806,8 @@ class TapGestureRequest implements Request {
   }
 }
 
-class TapGestureReply {
-  TapGestureReply();
+class TapGestureReply extends Reply {
+  TapGestureReply() : super(ok: true);
 
   Map<String, dynamic> toJson() => {};
 
