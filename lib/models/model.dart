@@ -1,4 +1,5 @@
 // Import statements for Flutter
+
 enum CastCommand {
   checkStatus,
   castListArtwork,
@@ -12,19 +13,42 @@ enum CastCommand {
   updateDuration,
   castExhibition,
   connect,
-  disconnect,
-  castAssetToken,
-  castArtwork,
-  playArtwork,
-}
+  disconnect;
 
-class RequestBody {
-  final CastCommand command;
-  final Request request;
+  static CastCommand fromString(String command) {
+    switch (command) {
+      case 'checkStatus':
+        return CastCommand.checkStatus;
+      case 'castListArtwork':
+        return CastCommand.castListArtwork;
+      case 'cancelCasting':
+        return CastCommand.cancelCasting;
+      case 'appendArtworkToCastingList':
+        return CastCommand.appendArtworkToCastingList;
+      case 'pauseCasting':
+        return CastCommand.pauseCasting;
+      case 'resumeCasting':
+        return CastCommand.resumeCasting;
+      case 'nextArtwork':
+        return CastCommand.nextArtwork;
+      case 'previousArtwork':
+        return CastCommand.previousArtwork;
+      case 'moveToArtwork':
+        return CastCommand.moveToArtwork;
+      case 'updateDuration':
+        return CastCommand.updateDuration;
+      case 'castExhibition':
+        return CastCommand.castExhibition;
+      case 'connect':
+        return CastCommand.connect;
+      case 'disconnect':
+        return CastCommand.disconnect;
+      default:
+        throw ArgumentError('Unknown command: $command');
+    }
+  }
 
-  RequestBody(this.request) : command = getCommand(request);
-
-  static CastCommand getCommand(Request request) {
+  static CastCommand fromRequest(Request request) {
     switch (request.runtimeType) {
       case CheckDeviceStatusRequest:
         return CastCommand.checkStatus;
@@ -52,22 +76,76 @@ class RequestBody {
         return CastCommand.connect;
       case DisconnectRequestV2:
         return CastCommand.disconnect;
-      case CastAssetToken:
-        return CastCommand.castAssetToken;
-      case CastArtwork:
-        return CastCommand.castArtwork;
-      case PlayArtworkV2:
-        return CastCommand.playArtwork;
       default:
         throw Exception('Unknown request type');
     }
   }
+}
+
+class RequestBody {
+  final CastCommand command;
+  final Request request;
+
+  RequestBody(this.request) : command = CastCommand.fromRequest(request);
 
   Map<String, dynamic> toJson() {
     return {
       'command': command.toString().split('.').last,
       'request': request.toJson(),
     };
+  }
+
+  // fromJson method
+  factory RequestBody.fromJson(Map<String, dynamic> json) {
+    final commandString = json['command'] as String;
+    final command = CastCommand.fromString(commandString);
+
+    Request request;
+    switch (command) {
+      case CastCommand.checkStatus:
+        request = CheckDeviceStatusRequest.fromJson(json['request']);
+        break;
+      case CastCommand.castListArtwork:
+        request = CastListArtworkRequest.fromJson(json['request']);
+        break;
+      case CastCommand.cancelCasting:
+        request = CancelCastingRequest.fromJson(json['request']);
+        break;
+      case CastCommand.appendArtworkToCastingList:
+        request = AppendArtworkToCastingListRequest.fromJson(json['request']);
+        break;
+      case CastCommand.pauseCasting:
+        request = PauseCastingRequest.fromJson(json['request']);
+        break;
+      case CastCommand.resumeCasting:
+        request = ResumeCastingRequest.fromJson(json['request']);
+        break;
+      case CastCommand.nextArtwork:
+        request = NextArtworkRequest.fromJson(json['request']);
+        break;
+      case CastCommand.previousArtwork:
+        request = PreviousArtworkRequest.fromJson(json['request']);
+        break;
+      case CastCommand.moveToArtwork:
+        request = MoveToArtworkRequest.fromJson(json['request']);
+        break;
+      case CastCommand.updateDuration:
+        request = UpdateDurationRequest.fromJson(json['request']);
+        break;
+      case CastCommand.castExhibition:
+        request = CastExhibitionRequest.fromJson(json['request']);
+        break;
+      case CastCommand.connect:
+        request = ConnectRequestV2.fromJson(json['request']);
+        break;
+      case CastCommand.disconnect:
+        request = DisconnectRequestV2.fromJson(json['request']);
+        break;
+      default:
+        throw ArgumentError('Unknown command: $commandString');
+    }
+
+    return RequestBody(request);
   }
 }
 
@@ -179,9 +257,16 @@ class ConnectReplyV2 {
 
 // Class representing DisconnectRequestV2 message
 class DisconnectRequestV2 implements Request {
+  DisconnectRequestV2();
+
   @override
   Map<String, dynamic> toJson() {
     return {};
+  }
+
+  factory DisconnectRequestV2.fromJson(Map<String, dynamic> json) {
+    // If there are fields to parse, you would parse them here
+    return DisconnectRequestV2();
   }
 }
 
@@ -191,6 +276,12 @@ class DisconnectReplyV2 extends Reply {
 
   factory DisconnectReplyV2.fromJson(Map<String, dynamic> json) {
     return DisconnectReplyV2(json['ok']);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'ok': ok,
+    };
   }
 }
 
@@ -238,7 +329,7 @@ class CastArtwork implements Request {
 }
 
 // Class representing PlayArtworkV2 message
-class PlayArtworkV2 implements Request {
+class PlayArtworkV2 {
   CastAssetToken? token;
   CastArtwork? artwork;
   int? duration;
@@ -260,7 +351,6 @@ class PlayArtworkV2 implements Request {
     );
   }
 
-  @override
   Map<String, dynamic> toJson() {
     return {
       'token': token != null ? token!.toJson() : null,
@@ -299,9 +389,16 @@ class CastListArtworkRequest implements Request {
 
 // Class representing CheckDeviceStatusRequest message
 class CheckDeviceStatusRequest implements Request {
+  CheckDeviceStatusRequest();
+
   @override
   Map<String, dynamic> toJson() {
     return {};
+  }
+
+  factory CheckDeviceStatusRequest.fromJson(Map<String, dynamic> json) {
+    // If there are fields to parse, you would parse them here
+    return CheckDeviceStatusRequest();
   }
 }
 
@@ -351,13 +448,27 @@ class CastListArtworkReply extends Reply {
   factory CastListArtworkReply.fromJson(Map<String, dynamic> json) {
     return CastListArtworkReply(json['ok']);
   }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'ok': ok,
+    };
+  }
 }
 
 // Class representing CancelCastingRequest message
 class CancelCastingRequest implements Request {
+  CancelCastingRequest();
+
   @override
   Map<String, dynamic> toJson() {
     return {};
+  }
+
+  factory CancelCastingRequest.fromJson(Map<String, dynamic> json) {
+    // Parse fields if any, currently assuming there are no specific fields
+    return CancelCastingRequest();
   }
 }
 
@@ -403,9 +514,16 @@ class AppendArtworkToCastingListReply extends Reply {
 
 // Class representing PauseCastingRequest message
 class PauseCastingRequest implements Request {
+  PauseCastingRequest();
+
   @override
   Map<String, dynamic> toJson() {
     return {};
+  }
+
+  factory PauseCastingRequest.fromJson(Map<String, dynamic> json) {
+    // Parse fields if any, currently assuming there are no specific fields
+    return PauseCastingRequest();
   }
 }
 
