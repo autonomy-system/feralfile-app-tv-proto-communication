@@ -806,13 +806,13 @@ class TapGestureRequest implements Request {
   }
 }
 
-class TapGestureReply extends Reply {
-  TapGestureReply() : super(ok: true);
+class GestureReply extends Reply {
+  GestureReply() : super(ok: true);
 
   Map<String, dynamic> toJson() => {};
 
-  factory TapGestureReply.fromJson(Map<String, dynamic> json) {
-    return TapGestureReply();
+  factory GestureReply.fromJson(Map<String, dynamic> json) {
+    return GestureReply();
   }
 }
 
@@ -848,7 +848,7 @@ class DragGestureRequest implements Request {
   }
 }
 
-class CursorOffset implements Request {
+class CursorOffset {
   final double dx;
   final double dy;
   final double coefficientX;
@@ -876,5 +876,28 @@ class CursorOffset implements Request {
       coefficientX: json['coefficientX'],
       coefficientY: json['coefficientY'],
     );
+  }
+}
+
+class CursorOffsetReply extends Reply {
+  CursorOffsetReply({required bool ok}) : super(ok: ok);
+
+  Map<String, dynamic> toJson() => {
+        'ok': ok,
+      };
+
+  factory CursorOffsetReply.fromJson(Map<String, dynamic> json) {
+    return CursorOffsetReply(ok: json['ok']);
+  }
+}
+
+class EmptyRequest implements Request {
+  EmptyRequest();
+
+  @override
+  Map<String, dynamic> toJson() => {};
+
+  factory EmptyRequest.fromJson(Map<String, dynamic> json) {
+    return EmptyRequest();
   }
 }
