@@ -180,18 +180,31 @@ class RequestBody {
 }
 
 class Reply {
+  Reply();
+
+  Map<String, dynamic> toJson() {
+    return {};
+  }
+
+  factory Reply.fromJson(Map<String, dynamic> json) {
+    return Reply();
+  }
+}
+
+class ReplyWithOK extends Reply {
   final bool ok;
 
-  Reply({required this.ok});
+  ReplyWithOK({required this.ok});
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'ok': ok,
     };
   }
 
-  factory Reply.fromJson(Map<String, dynamic> json) {
-    return Reply(
+  factory ReplyWithOK.fromJson(Map<String, dynamic> json) {
+    return ReplyWithOK(
       ok: json['ok'],
     );
   }
@@ -262,7 +275,7 @@ class ConnectRequestV2 implements Request {
 }
 
 // Class representing ConnectReplyV2 message
-class ConnectReplyV2 extends Reply {
+class ConnectReplyV2 extends ReplyWithOK {
   DeviceInfoV2? canvasDevice;
 
   ConnectReplyV2({required super.ok, this.canvasDevice});
@@ -271,7 +284,7 @@ class ConnectReplyV2 extends Reply {
   Map<String, dynamic> toJson() {
     return {
       'ok': ok,
-      'canvasDevice': canvasDevice != null ? canvasDevice!.toJson() : null,
+      'canvasDevice': canvasDevice?.toJson(),
     };
   }
 
@@ -301,7 +314,7 @@ class DisconnectRequestV2 implements Request {
 }
 
 // Class representing DisconnectReplyV2 message
-class DisconnectReplyV2 extends Reply {
+class DisconnectReplyV2 extends ReplyWithOK {
   DisconnectReplyV2({required bool ok}) : super(ok: ok);
 
   factory DisconnectReplyV2.fromJson(Map<String, dynamic> json) {
@@ -377,8 +390,8 @@ class PlayArtworkV2 {
 
   Map<String, dynamic> toJson() {
     return {
-      'token': token != null ? token!.toJson() : null,
-      'artwork': artwork != null ? artwork!.toJson() : null,
+      'token': token?.toJson(),
+      'artwork': artwork?.toJson(),
       'duration': duration,
     };
   }
@@ -427,7 +440,7 @@ class CheckDeviceStatusRequest implements Request {
 }
 
 // Class representing CheckDeviceStatusReply message
-class CheckDeviceStatusReply {
+class CheckDeviceStatusReply extends Reply {
   List<PlayArtworkV2> artworks;
   int? startTime;
   DeviceInfoV2? connectedDevice;
@@ -454,19 +467,19 @@ class CheckDeviceStatusReply {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'artworks': artworks.map((artwork) => artwork.toJson()).toList(),
       'startTime': startTime,
-      'connectedDevice':
-          connectedDevice != null ? connectedDevice!.toJson() : null,
+      'connectedDevice': connectedDevice?.toJson(),
       'exhibitionId': exhibitionId,
     };
   }
 }
 
 // Class representing CastListArtworkReply message
-class CastListArtworkReply extends Reply {
+class CastListArtworkReply extends ReplyWithOK {
   CastListArtworkReply({required bool ok}) : super(ok: ok);
 
   factory CastListArtworkReply.fromJson(Map<String, dynamic> json) {
@@ -497,7 +510,7 @@ class CancelCastingRequest implements Request {
 }
 
 // Class representing CancelCastingReply message
-class CancelCastingReply extends Reply {
+class CancelCastingReply extends ReplyWithOK {
   CancelCastingReply({required bool ok}) : super(ok: ok);
 
   factory CancelCastingReply.fromJson(Map<String, dynamic> json) {
@@ -528,7 +541,7 @@ class AppendArtworkToCastingListRequest implements Request {
 }
 
 // Class representing AppendArtworkToCastingListReply message
-class AppendArtworkToCastingListReply extends Reply {
+class AppendArtworkToCastingListReply extends ReplyWithOK {
   AppendArtworkToCastingListReply({required bool ok}) : super(ok: ok);
 
   factory AppendArtworkToCastingListReply.fromJson(Map<String, dynamic> json) {
@@ -552,7 +565,7 @@ class PauseCastingRequest implements Request {
 }
 
 // Class representing PauseCastingReply message
-class PauseCastingReply extends Reply {
+class PauseCastingReply extends ReplyWithOK {
   PauseCastingReply({required bool ok}) : super(ok: ok);
 
   factory PauseCastingReply.fromJson(Map<String, dynamic> json) {
@@ -581,7 +594,7 @@ class ResumeCastingRequest implements Request {
 }
 
 // Class representing ResumeCastingReply message
-class ResumeCastingReply extends Reply {
+class ResumeCastingReply extends ReplyWithOK {
   ResumeCastingReply({required bool ok}) : super(ok: ok);
 
   factory ResumeCastingReply.fromJson(Map<String, dynamic> json) {
@@ -610,7 +623,7 @@ class NextArtworkRequest implements Request {
 }
 
 // Class representing NextArtworkReply message
-class NextArtworkReply extends Reply {
+class NextArtworkReply extends ReplyWithOK {
   NextArtworkReply({required bool ok}) : super(ok: ok);
 
   factory NextArtworkReply.fromJson(Map<String, dynamic> json) {
@@ -639,7 +652,7 @@ class PreviousArtworkRequest implements Request {
 }
 
 // Class representing PreviousArtworkReply message
-class PreviousArtworkReply extends Reply {
+class PreviousArtworkReply extends ReplyWithOK {
   PreviousArtworkReply({required bool ok}) : super(ok: ok);
 
   factory PreviousArtworkReply.fromJson(Map<String, dynamic> json) {
@@ -668,7 +681,7 @@ class MoveToArtworkRequest implements Request {
 }
 
 // Class representing MoveToArtworkReply message
-class MoveToArtworkReply extends Reply {
+class MoveToArtworkReply extends ReplyWithOK {
   MoveToArtworkReply({required bool ok}) : super(ok: ok);
 
   factory MoveToArtworkReply.fromJson(Map<String, dynamic> json) {
@@ -698,7 +711,7 @@ class UpdateDurationRequest implements Request {
 }
 
 // Class representing UpdateDurationReply message
-class UpdateDurationReply {
+class UpdateDurationReply extends Reply {
   int? startTime;
   List<PlayArtworkV2> artworks;
 
@@ -715,6 +728,7 @@ class UpdateDurationReply {
     );
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {
       'startTime': startTime,
@@ -763,7 +777,7 @@ class CastExhibitionRequest implements Request {
 }
 
 // Class representing CastExhibitionReply message
-class CastExhibitionReply extends Reply {
+class CastExhibitionReply extends ReplyWithOK {
   CastExhibitionReply({required bool ok}) : super(ok: ok);
 
   factory CastExhibitionReply.fromJson(Map<String, dynamic> json) {
@@ -785,7 +799,7 @@ class KeyboardEventRequest implements Request {
   }
 }
 
-class KeyboardEventReply extends Reply {
+class KeyboardEventReply extends ReplyWithOK {
   KeyboardEventReply({required bool ok}) : super(ok: ok);
 
   factory KeyboardEventReply.fromJson(Map<String, dynamic> json) {
@@ -809,7 +823,7 @@ class RotateRequest implements Request {
 class RotateReply extends Reply {
   final int degree;
 
-  RotateReply({required this.degree}) : super(ok: true);
+  RotateReply({required this.degree});
 
   @override
   Map<String, dynamic> toJson() => {'degree': degree};
@@ -831,7 +845,7 @@ class TapGestureRequest implements Request {
   }
 }
 
-class GestureReply extends Reply {
+class GestureReply extends ReplyWithOK {
   GestureReply({required bool ok}) : super(ok: ok);
 
   factory GestureReply.fromJson(Map<String, dynamic> json) {
@@ -912,13 +926,14 @@ class GetCursorOffsetRequest implements Request {
   }
 }
 
-class GetCursorOffsetReply {
+class GetCursorOffsetReply extends Reply {
   final CursorOffset cursorOffset;
 
   GetCursorOffsetReply({
     required this.cursorOffset,
   });
 
+  @override
   Map<String, dynamic> toJson() => {
         'cursorOffset': cursorOffset.toJson(),
       };
@@ -966,13 +981,14 @@ class EmptyRequest implements Request {
   }
 }
 
-class EmptyReply {
+class EmptyReply extends Reply {
   EmptyReply();
 
   factory EmptyReply.fromJson(Map<String, dynamic> json) {
     return EmptyReply();
   }
 
+  @override
   Map<String, dynamic> toJson() {
     return {};
   }
