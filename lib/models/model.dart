@@ -912,18 +912,22 @@ class GetCursorOffsetRequest implements Request {
   }
 }
 
-class CursorOffsetReply extends CursorOffset {
-  CursorOffsetReply({
-    required double dx,
-    required double dy,
-    required double coefficientX,
-    required double coefficientY,
-  }) : super(
-          dx: dx,
-          dy: dy,
-          coefficientX: coefficientX,
-          coefficientY: coefficientY,
-        );
+class GetCursorOffsetReply {
+  final CursorOffset cursorOffset;
+
+  GetCursorOffsetReply({
+    required this.cursorOffset,
+  });
+
+  Map<String, dynamic> toJson() => {
+        'cursorOffset': cursorOffset.toJson(),
+      };
+
+  factory GetCursorOffsetReply.fromJson(Map<String, dynamic> json) {
+    return GetCursorOffsetReply(
+      cursorOffset: CursorOffset.fromJson(json['cursorOffset']),
+    );
+  }
 }
 
 class SetCursorOffsetRequest implements Request {
