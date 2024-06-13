@@ -13,7 +13,13 @@ enum CastCommand {
   updateDuration,
   castExhibition,
   connect,
-  disconnect;
+  disconnect,
+  setCursorOffset,
+  getCursorOffset,
+  sendKeyboardEvent,
+  rotate,
+  tapGesture,
+  dragGesture;
 
   static CastCommand fromString(String command) {
     switch (command) {
@@ -43,6 +49,18 @@ enum CastCommand {
         return CastCommand.connect;
       case 'disconnect':
         return CastCommand.disconnect;
+      case 'setCursorOffset':
+        return CastCommand.setCursorOffset;
+      case 'getCursorOffset':
+        return CastCommand.getCursorOffset;
+      case 'sendKeyboardEvent':
+        return CastCommand.sendKeyboardEvent;
+      case 'rotate':
+        return CastCommand.rotate;
+      case 'tapGesture':
+        return CastCommand.tapGesture;
+      case 'dragGesture':
+        return CastCommand.dragGesture;
       default:
         throw ArgumentError('Unknown command: $command');
     }
@@ -76,6 +94,18 @@ enum CastCommand {
         return CastCommand.connect;
       case DisconnectRequestV2:
         return CastCommand.disconnect;
+      case SetCursorOffsetRequest:
+        return CastCommand.setCursorOffset;
+      case GetCursorOffsetRequest:
+        return CastCommand.getCursorOffset;
+      case KeyboardEventRequest:
+        return CastCommand.sendKeyboardEvent;
+      case RotateRequest:
+        return CastCommand.rotate;
+      case TapGestureRequest:
+        return CastCommand.tapGesture;
+      case DragGestureRequest:
+        return CastCommand.dragGesture;
       default:
         throw Exception('Unknown request type');
     }
@@ -233,10 +263,17 @@ class ConnectRequestV2 implements Request {
 
 // Class representing ConnectReplyV2 message
 class ConnectReplyV2 extends Reply {
-  bool ok;
   DeviceInfoV2? canvasDevice;
 
-  ConnectReplyV2({required this.ok, this.canvasDevice}) : super(ok: ok);
+  ConnectReplyV2({required super.ok, this.canvasDevice});
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'ok': ok,
+      'canvasDevice': canvasDevice != null ? canvasDevice!.toJson() : null,
+    };
+  }
 
   factory ConnectReplyV2.fromJson(Map<String, dynamic> json) {
     return ConnectReplyV2(
@@ -245,13 +282,6 @@ class ConnectReplyV2 extends Reply {
           ? DeviceInfoV2.fromJson(json['canvasDevice'])
           : null,
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'ok': ok,
-      'canvasDevice': canvasDevice != null ? canvasDevice!.toJson() : null,
-    };
   }
 }
 
@@ -276,12 +306,6 @@ class DisconnectReplyV2 extends Reply {
 
   factory DisconnectReplyV2.fromJson(Map<String, dynamic> json) {
     return DisconnectReplyV2(ok: json['ok']);
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'ok': ok,
-    };
   }
 }
 
@@ -403,7 +427,7 @@ class CheckDeviceStatusRequest implements Request {
 }
 
 // Class representing CheckDeviceStatusReply message
-class CheckDeviceStatusReply extends Reply {
+class CheckDeviceStatusReply {
   List<PlayArtworkV2> artworks;
   int? startTime;
   DeviceInfoV2? connectedDevice;
@@ -414,7 +438,7 @@ class CheckDeviceStatusReply extends Reply {
     this.startTime,
     this.connectedDevice,
     this.exhibitionId,
-  }) : super(ok: true);
+  });
 
   factory CheckDeviceStatusReply.fromJson(Map<String, dynamic> json) {
     return CheckDeviceStatusReply(
@@ -674,14 +698,14 @@ class UpdateDurationRequest implements Request {
 }
 
 // Class representing UpdateDurationReply message
-class UpdateDurationReply extends Reply {
+class UpdateDurationReply {
   int? startTime;
   List<PlayArtworkV2> artworks;
 
   UpdateDurationReply({
     this.startTime,
     required this.artworks,
-  }) : super(ok: true);
+  });
 
   factory UpdateDurationReply.fromJson(Map<String, dynamic> json) {
     return UpdateDurationReply(
@@ -699,7 +723,7 @@ class UpdateDurationReply extends Reply {
   }
 }
 
-// Enum for ExhibitionKatalog
+// Enum for ExhibitionCatalog
 enum ExhibitionCatalog {
   home,
   curatorNote,
@@ -787,6 +811,7 @@ class RotateReply extends Reply {
 
   RotateReply({required this.degree}) : super(ok: true);
 
+  @override
   Map<String, dynamic> toJson() => {'degree': degree};
 
   factory RotateReply.fromJson(Map<String, dynamic> json) {
@@ -808,10 +833,6 @@ class TapGestureRequest implements Request {
 
 class GestureReply extends Reply {
   GestureReply({required bool ok}) : super(ok: ok);
-
-  Map<String, dynamic> toJson() => {
-        'ok': ok,
-      };
 
   factory GestureReply.fromJson(Map<String, dynamic> json) {
     return GestureReply(ok: json['ok']);
@@ -863,7 +884,6 @@ class CursorOffset {
     required this.coefficientY,
   });
 
-  @override
   Map<String, dynamic> toJson() => {
         'dx': dx,
         'dy': dy,
@@ -881,15 +901,53 @@ class CursorOffset {
   }
 }
 
-class CursorOffsetReply extends Reply {
-  CursorOffsetReply({required bool ok}) : super(ok: ok);
+class GetCursorOffsetRequest implements Request {
+  GetCursorOffsetRequest();
 
+  @override
+  Map<String, dynamic> toJson() => {};
+
+  factory GetCursorOffsetRequest.fromJson(Map<String, dynamic> json) {
+    return GetCursorOffsetRequest();
+  }
+}
+
+class CursorOffsetReply extends CursorOffset {
+  CursorOffsetReply({
+    required double dx,
+    required double dy,
+    required double coefficientX,
+    required double coefficientY,
+  }) : super(
+          dx: dx,
+          dy: dy,
+          coefficientX: coefficientX,
+          coefficientY: coefficientY,
+        );
+}
+
+class SetCursorOffsetRequest implements Request {
+  final CursorOffset cursorOffset;
+
+  SetCursorOffsetRequest({required this.cursorOffset});
+
+  @override
   Map<String, dynamic> toJson() => {
-        'ok': ok,
+        'cursorOffset': cursorOffset.toJson(),
       };
 
-  factory CursorOffsetReply.fromJson(Map<String, dynamic> json) {
-    return CursorOffsetReply(ok: json['ok']);
+  factory SetCursorOffsetRequest.fromJson(Map<String, dynamic> json) {
+    return SetCursorOffsetRequest(
+      cursorOffset: CursorOffset.fromJson(json['cursorOffset']),
+    );
+  }
+}
+
+class SetCursorOffsetReply extends EmptyReply {
+  SetCursorOffsetReply();
+
+  factory SetCursorOffsetReply.fromJson(Map<String, dynamic> json) {
+    return SetCursorOffsetReply();
   }
 }
 
@@ -901,5 +959,17 @@ class EmptyRequest implements Request {
 
   factory EmptyRequest.fromJson(Map<String, dynamic> json) {
     return EmptyRequest();
+  }
+}
+
+class EmptyReply {
+  EmptyReply();
+
+  factory EmptyReply.fromJson(Map<String, dynamic> json) {
+    return EmptyReply();
+  }
+
+  Map<String, dynamic> toJson() {
+    return {};
   }
 }
