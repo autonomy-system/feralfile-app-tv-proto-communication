@@ -332,12 +332,12 @@ class CastArtwork implements Request {
 class PlayArtworkV2 {
   CastAssetToken? token;
   CastArtwork? artwork;
-  int? duration;
+  int duration;
 
   PlayArtworkV2({
     this.token,
     this.artwork,
-    this.duration,
+    required this.duration,
   });
 
   factory PlayArtworkV2.fromJson(Map<String, dynamic> json) {
@@ -404,13 +404,13 @@ class CheckDeviceStatusRequest implements Request {
 
 // Class representing CheckDeviceStatusReply message
 class CheckDeviceStatusReply {
-  List<PlayArtworkV2>? artworks;
+  List<PlayArtworkV2> artworks;
   int? startTime;
   DeviceInfoV2? connectedDevice;
   String? exhibitionId;
 
   CheckDeviceStatusReply({
-    this.artworks,
+    required this.artworks,
     this.startTime,
     this.connectedDevice,
     this.exhibitionId,
@@ -419,7 +419,7 @@ class CheckDeviceStatusReply {
   factory CheckDeviceStatusReply.fromJson(Map<String, dynamic> json) {
     return CheckDeviceStatusReply(
       artworks: json['artworks'] == null
-          ? null
+          ? []
           : List<PlayArtworkV2>.from(
               json['artworks'].map((x) => PlayArtworkV2.fromJson(x))),
       startTime: json['startTime'],
@@ -432,7 +432,7 @@ class CheckDeviceStatusReply {
 
   Map<String, dynamic> toJson() {
     return {
-      'artworks': artworks?.map((artwork) => artwork.toJson()).toList(),
+      'artworks': artworks.map((artwork) => artwork.toJson()).toList(),
       'startTime': startTime,
       'connectedDevice':
           connectedDevice != null ? connectedDevice!.toJson() : null,
