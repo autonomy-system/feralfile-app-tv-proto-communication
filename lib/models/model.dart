@@ -807,12 +807,14 @@ class TapGestureRequest implements Request {
 }
 
 class GestureReply extends Reply {
-  GestureReply() : super(ok: true);
+  GestureReply({required bool ok}) : super(ok: ok);
 
-  Map<String, dynamic> toJson() => {};
+  Map<String, dynamic> toJson() => {
+        'ok': ok,
+      };
 
   factory GestureReply.fromJson(Map<String, dynamic> json) {
-    return GestureReply();
+    return GestureReply(ok: json['ok']);
   }
 }
 
