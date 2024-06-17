@@ -854,33 +854,21 @@ class GestureReply extends ReplyWithOK {
 }
 
 class DragGestureRequest implements Request {
-  final double dx;
-  final double dy;
-  final double coefficientX;
-  final double coefficientY;
+  List<CursorOffset> cursorOffsets;
 
-  DragGestureRequest({
-    required this.dx,
-    required this.dy,
-    required this.coefficientX,
-    required this.coefficientY,
-  });
+  DragGestureRequest({required this.cursorOffsets});
 
   @override
   Map<String, dynamic> toJson() => {
-        'dx': dx,
-        'dy': dy,
-        'coefficientX': coefficientX,
-        'coefficientY': coefficientY,
+        'cursorOffsets':
+            cursorOffsets.map((cursorOffset) => cursorOffset.toJson()).toList(),
       };
 
   @override
   factory DragGestureRequest.fromJson(Map<String, dynamic> json) {
     return DragGestureRequest(
-      dx: json['dx'],
-      dy: json['dy'],
-      coefficientX: json['coefficientX'],
-      coefficientY: json['coefficientY'],
+      cursorOffsets: List<CursorOffset>.from(
+          json['cursorOffsets'].map((x) => CursorOffset.fromJson(x))),
     );
   }
 }
