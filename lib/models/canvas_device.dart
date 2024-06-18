@@ -1,11 +1,8 @@
-import 'package:feralfile_app_tv_proto/models/model.dart';
-
 class CanvasDevice {
   final String deviceId; //hardware id
   final String locationId; // location id
   final String topicId; // topic id
   final String name; // device name
-  final DevicePlatform platform; // device platform
 
   // constructor
   CanvasDevice({
@@ -13,7 +10,6 @@ class CanvasDevice {
     required this.locationId,
     required this.topicId,
     required this.name,
-    required this.platform,
   });
 
   //fromJson method
@@ -22,7 +18,6 @@ class CanvasDevice {
         locationId: json["locationId"] as String,
         topicId: json["topicId"] as String,
         name: json["name"] as String,
-        platform: DevicePlatform.values[json["platform"] as int],
       );
 
   // toJson
@@ -31,7 +26,6 @@ class CanvasDevice {
         "locationId": locationId,
         "topicId": topicId,
         "name": name,
-        "platform": platform.index,
       };
 
   // copyWith
@@ -40,14 +34,12 @@ class CanvasDevice {
     String? locationId,
     String? topicId,
     String? name,
-    DevicePlatform? platform,
   }) {
     return CanvasDevice(
       deviceId: deviceId ?? this.deviceId,
       locationId: locationId ?? this.locationId,
       topicId: topicId ?? this.topicId,
       name: name ?? this.name,
-      platform: platform ?? this.platform,
     );
   }
 
