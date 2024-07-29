@@ -445,12 +445,14 @@ class CheckDeviceStatusReply extends Reply {
   int? startTime;
   DeviceInfoV2? connectedDevice;
   String? exhibitionId;
+  String? catalogId;
 
   CheckDeviceStatusReply({
     required this.artworks,
     this.startTime,
     this.connectedDevice,
     this.exhibitionId,
+    this.catalogId,
   });
 
   factory CheckDeviceStatusReply.fromJson(Map<String, dynamic> json) {
@@ -464,6 +466,7 @@ class CheckDeviceStatusReply extends Reply {
           ? DeviceInfoV2.fromJson(json['connectedDevice'])
           : null,
       exhibitionId: json['exhibitionId'],
+      catalogId: json['catalogId'],
     );
   }
 
@@ -474,6 +477,7 @@ class CheckDeviceStatusReply extends Reply {
       'startTime': startTime,
       'connectedDevice': connectedDevice?.toJson(),
       'exhibitionId': exhibitionId,
+      'catalogId': catalogId,
     };
   }
 }
