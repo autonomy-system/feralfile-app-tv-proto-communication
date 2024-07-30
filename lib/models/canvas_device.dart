@@ -1,61 +1,45 @@
-import 'package:floor/floor.dart';
-
-@entity
 class CanvasDevice {
-  @primaryKey
-  final String id;
-  final String ip;
-  final int port;
-  final String name;
-  bool isConnecting;
-  String? playingSceneId;
+  final String deviceId; //hardware id
+  final String locationId; // location id
+  final String topicId; // topic id
+  final String name; // device name
 
   // constructor
   CanvasDevice({
-    required this.id,
-    required this.ip,
-    required this.port,
+    required this.deviceId,
+    required this.locationId,
+    required this.topicId,
     required this.name,
-    this.isConnecting = false,
-    this.playingSceneId,
   });
 
   //fromJson method
   factory CanvasDevice.fromJson(Map<String, dynamic> json) => CanvasDevice(
-        id: json["id"] as String,
-        ip: json["ip"] as String,
-        port: json["port"] as int,
+        deviceId: json["deviceId"] as String,
+        locationId: json["locationId"] as String,
+        topicId: json["topicId"] as String,
         name: json["name"] as String,
-        isConnecting: json["isConnecting"] as bool,
-        playingSceneId: json["playingSceneId"] as String?,
       );
 
   // toJson
   Map<String, dynamic> toJson() => {
-        "id": id,
-        "ip": ip,
-        "port": port,
+        "deviceId": deviceId,
+        "locationId": locationId,
+        "topicId": topicId,
         "name": name,
-        "isConnecting": isConnecting,
-        "playingSceneId": playingSceneId,
       };
 
   // copyWith
   CanvasDevice copyWith({
-    String? id,
-    String? ip,
-    int? port,
+    String? deviceId,
+    String? locationId,
+    String? topicId,
     String? name,
-    bool? isConnecting,
-    String? playingSceneId,
   }) {
     return CanvasDevice(
-      id: id ?? this.id,
-      ip: ip ?? this.ip,
-      port: port ?? this.port,
+      deviceId: deviceId ?? this.deviceId,
+      locationId: locationId ?? this.locationId,
+      topicId: topicId ?? this.topicId,
       name: name ?? this.name,
-      isConnecting: isConnecting ?? this.isConnecting,
-      playingSceneId: playingSceneId ?? this.playingSceneId,
     );
   }
 
@@ -64,65 +48,32 @@ class CanvasDevice {
     if (identical(this, other)) {
       return true;
     }
-    return other is CanvasDevice &&
-        id == other.id &&
-        name == other.name &&
-        ip == other.ip;
+    return other is CanvasDevice && deviceId == other.deviceId;
   }
 }
 
-@entity
-class Scene {
-  @primaryKey
-  final String id;
-  final String deviceId;
-  final bool isPlaying;
-  final String metadata;
+class DeviceInfo {
+  String deviceId;
+  String deviceName;
 
-  // constructor
-  Scene({
-    required this.id,
+  DeviceInfo({
     required this.deviceId,
-    required this.metadata,
-    this.isPlaying = false,
+    required this.deviceName,
   });
 
-  // fromJson method
-  factory Scene.fromJson(Map<String, dynamic> json) => Scene(
-        id: json["id"] as String,
-        deviceId: json["deviceId"] as String,
-        isPlaying: json["isPlaying"] as bool,
-        metadata: json["metadata"] as String,
-      );
+  // Factory constructor to create an instance from JSON
+  factory DeviceInfo.fromJson(Map<String, dynamic> json) {
+    return DeviceInfo(
+      deviceId: json['device_id'] as String,
+      deviceName: json['device_name'] as String,
+    );
+  }
 
-  // toJson
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "deviceId": deviceId,
-        "isPlaying": isPlaying,
-        "metadata": metadata,
-      };
-}
-
-class SceneMetadata {
-  final String sceneName;
-  final List<String> tokenId;
-
-  // constructor
-  SceneMetadata({
-    required this.sceneName,
-    required this.tokenId,
-  });
-
-  // fromJson method
-  factory SceneMetadata.fromJson(Map<String, dynamic> json) => SceneMetadata(
-        sceneName: json["sceneName"] as String,
-        tokenId: json["tokenId"] as List<String>,
-      );
-
-  // toJson
-  Map<String, dynamic> toJson() => {
-        "sceneName": sceneName,
-        "tokenId": tokenId,
-      };
+  // Method to convert an instance to JSON
+  Map<String, dynamic> toJson() {
+    return {
+      'device_id': deviceId,
+      'device_name': deviceName,
+    };
+  }
 }
