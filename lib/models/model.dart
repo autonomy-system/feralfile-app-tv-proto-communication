@@ -19,7 +19,8 @@ enum CastCommand {
   sendKeyboardEvent,
   rotate,
   tapGesture,
-  dragGesture;
+  dragGesture,
+  castDaily;
 
   static CastCommand fromString(String command) {
     switch (command) {
@@ -27,6 +28,8 @@ enum CastCommand {
         return CastCommand.checkStatus;
       case 'castListArtwork':
         return CastCommand.castListArtwork;
+      case 'castDaily':
+        return CastCommand.castDaily;
       case 'cancelCasting':
         return CastCommand.cancelCasting;
       case 'appendArtworkToCastingList':
@@ -72,6 +75,8 @@ enum CastCommand {
         return CastCommand.checkStatus;
       case CastListArtworkRequest:
         return CastCommand.castListArtwork;
+      case CastDailyWorkRequest:
+        return CastCommand.castDaily;
       case CancelCastingRequest:
         return CastCommand.cancelCasting;
       case AppendArtworkToCastingListRequest:
@@ -137,6 +142,9 @@ class RequestBody {
         break;
       case CastCommand.castListArtwork:
         request = CastListArtworkRequest.fromJson(json['request']);
+        break;
+      case CastCommand.castDaily:
+        request = CastDailyWorkRequest.fromJson(json['request']);
         break;
       case CastCommand.cancelCasting:
         request = CancelCastingRequest.fromJson(json['request']);
@@ -258,11 +266,15 @@ class DeviceInfoV2 {
 class ConnectRequestV2 implements Request {
   DeviceInfoV2 clientDevice;
 
-  ConnectRequestV2({required this.clientDevice});
+  // primaryAddress is used for mixpanel identity
+  String primaryAddress;
+
+  ConnectRequestV2({required this.clientDevice, required this.primaryAddress});
 
   factory ConnectRequestV2.fromJson(Map<String, dynamic> json) {
     return ConnectRequestV2(
       clientDevice: DeviceInfoV2.fromJson(json['clientDevice']),
+      primaryAddress: json['primaryAddress'],
     );
   }
 
@@ -270,6 +282,7 @@ class ConnectRequestV2 implements Request {
   Map<String, dynamic> toJson() {
     return {
       'clientDevice': clientDevice.toJson(),
+      'primaryAddress': primaryAddress,
     };
   }
 }
@@ -446,6 +459,7 @@ class CheckDeviceStatusReply extends Reply {
   DeviceInfoV2? connectedDevice;
   String? exhibitionId;
   String? catalogId;
+  String? displayKey;
 
   CheckDeviceStatusReply({
     required this.artworks,
@@ -453,6 +467,7 @@ class CheckDeviceStatusReply extends Reply {
     this.connectedDevice,
     this.exhibitionId,
     this.catalogId,
+    this.displayKey,
   });
 
   factory CheckDeviceStatusReply.fromJson(Map<String, dynamic> json) {
@@ -467,6 +482,7 @@ class CheckDeviceStatusReply extends Reply {
           : null,
       exhibitionId: json['exhibitionId'],
       catalogId: json['catalogId'],
+      displayKey: json['displayKey'],
     );
   }
 
@@ -478,6 +494,7 @@ class CheckDeviceStatusReply extends Reply {
       'connectedDevice': connectedDevice?.toJson(),
       'exhibitionId': exhibitionId,
       'catalogId': catalogId,
+      'displayKey': displayKey,
     };
   }
 }
@@ -983,5 +1000,31 @@ class EmptyReply extends Reply {
   @override
   Map<String, dynamic> toJson() {
     return {};
+  }
+}
+
+class CastDailyWorkRequest extends EmptyRequest {
+  static String get displayKey => 'daily_work';
+
+  CastDailyWorkRequest();
+
+  // fromJson method
+  factory CastDailyWorkRequest.fromJson(Map<String, dynamic> json) {
+    return CastDailyWorkRequest();
+  }
+}
+
+class CastDailyWorkReply extends ReplyWithOK {
+  CastDailyWorkReply({required bool ok}) : super(ok: ok);
+
+  factory CastDailyWorkReply.fromJson(Map<String, dynamic> json) {
+    return CastDailyWorkReply(ok: json['ok']);
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return {
+      'ok': ok,
+    };
   }
 }
