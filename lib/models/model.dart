@@ -267,7 +267,7 @@ class ConnectRequestV2 implements Request {
   DeviceInfoV2 clientDevice;
 
   // primaryAddress is used for mixpanel identity
-  String primaryAddress;
+  String? primaryAddress;
 
   ConnectRequestV2({required this.clientDevice, required this.primaryAddress});
 
